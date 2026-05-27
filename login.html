@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de login</title>
+    <link rel="stylesheet" href="style/login.css">
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <img src="assets/Logo_EngenhariaSoftware.png" alt="Logo Engenharia de Software" class="logo-img">
+        </div>
+
+        <div id="login-screen" class="form-section">
+            <h2>Entrar</h2>
+            <form id="login-form" onsubmit="event.preventDefault();">
+                <div class="input-group">
+                    <label for="login-email">E-mail</label>
+                    <input type="email" id="login-email" required placeholder="Digite seu e-mail">
+                    <span class="error-text">E-mail não encontrado ou inválido.</span>
+                </div>
+                
+                <div class="input-group">
+                    <label for="login-senha">Senha</label>
+                    <input type="password" id="login-senha" required placeholder="Digite sua senha">
+                    <span class="error-text">Senha incorreta. Tente novamente.</span>
+                </div>
+
+                <button type="submit" class="btn">Fazer Login</button>
+                <a href="#" class="toggle-link" onclick="toggleScreens(event)">Esqueci senha</a>
+            </form>
+        </div>
+
+        <div id="recovery-screen" class="form-section hidden">
+            <h2>Recuperar Senha</h2>
+            <p class="instructions">Introduza o seu e-mail cadastrado. Enviaremos um link com as instruções para redefinir a sua senha.</p>
+            
+            <form id="recovery-form" onsubmit="event.preventDefault();">
+                <div class="input-group">
+                    <label for="recovery-email">E-mail</label>
+                    <input type="email" id="recovery-email" required placeholder="Digite seu e-mail">
+                    <span class="error-text">E-mail não encontrado no sistema.</span>
+                </div>
+
+                <button type="submit" class="btn">Enviar Link de Recuperação</button>
+                <a href="#" class="toggle-link" onclick="toggleScreens(event)">Voltar para o Login</a>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function toggleScreens(event) {
+            event.preventDefault(); // Evita o comportamento padrão do link de recarregar/subir a página
+            document.getElementById('login-screen').classList.toggle('hidden');
+            document.getElementById('recovery-screen').classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
