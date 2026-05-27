@@ -1,0 +1,104 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Barra superior */
+.top-bar {
+    background-color: #11153d;
+    padding: 6px 12px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.top-bar a {
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.top-bar span {
+    background: #777;
+    color: white;
+    padding: 1px 5px;
+    border-radius: 2px;
+    font-size: 10px;
+}
+
+/* Cabeçalho principal */
+.header {
+    background-color: #252b73;
+    height: 90px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 70px;
+}
+
+/* Área da logo */
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    width: 55px;
+    height: auto;
+}
+
+/* Texto do logo */
+.text-logo h1 {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.text-logo p {
+    color: white;
+    font-size: 14px;
+    font-style: italic;
+}
+
+/* Menu */
+.menu {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+}
+
+/* Link Entrar */
+.login {
+    display: flex;
+    align-items: center;
+}
+
+.login a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.login a:hover {
+    text-decoration: underline;
+}
