@@ -10,4 +10,3 @@ export const supabase = createClient(supabaseUrl, supabaseKey)
 
 //Validador de conexão
 console.log("Supabase inciaido com sucesso!")
-
