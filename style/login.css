@@ -1,0 +1,177 @@
+/* Reset básico e tipografia */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Fundo azul #242B63 */
+body {
+    background-color: #242B63; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+    padding: 1rem;
+}
+
+/* Cartão centralizador branco */
+.container {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 420px;
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Espaço da logo */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+/* Imagem da logo */
+.logo-img {
+    max-width: 140px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Estrutura das seções e transição */
+.form-section {
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 0.4s ease;
+}
+
+.form-section.hidden {
+    display: none;
+}
+
+.form-section h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #1e293b;
+    font-size: 1.6rem;
+}
+
+.instructions {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+}
+
+/* Grupos de Inputs */
+.input-group {
+    margin-bottom: 1.2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #475569;
+}
+
+.input-group input {
+    padding: 0.8rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.2s;
+    background-color: #f8fafc;
+}
+
+.input-group input:focus {
+    border-color: #3b82f6;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+/* ======== COMPLETO PARA FALHAS (ESTADOS DE ERRO) ======== */
+.input-group input.error {
+    border-color: #ef4444;
+    background-color: #fef2f2;
+}
+
+.input-group input.error:focus {
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+}
+
+.error-text {
+    color: #ef4444;
+    font-size: 0.8rem;
+    margin-top: 0.4rem;
+    font-weight: 500;
+    display: none;
+}
+
+.input-group input.error ~ .error-text {
+    display: block;
+}
+/* ======================================================== */
+
+/* Estilo padrão para os botões principais */
+.btn {
+    display: block;
+    width: 100%;
+    padding: 0.85rem;
+    background-color: #2563eb; 
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    margin-top: 1rem;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #1d4ed8;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+/* Novo estilo para os links de alternância */
+.toggle-link {
+    display: block;
+    text-align: center;
+    color: #2563eb;          /* Mesma cor azul do botão anterior */
+    text-decoration: none;   /* Remove o sublinhado padrão */
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-top: 1.2rem;       /* Margem para distanciar do botão superior */
+    transition: color 0.2s;
+    cursor: pointer;
+}
+
+.toggle-link:hover {
+    text-decoration: underline; /* Adiciona o sublinhado apenas no hover */
+    color: #1d4ed8;             /* Escurece levemente o azul ao passar o mouse */
+}
+
+/* Animação suave para troca de telas */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
