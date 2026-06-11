@@ -1,4 +1,4 @@
-import { supabase } from './supabase.js';
+import { supabase } from '../admin/js/supabase.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
     const entrarLink = document.getElementById('entrarLink');

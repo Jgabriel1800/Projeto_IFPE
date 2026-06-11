@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Horários - Admin</title>
+    <link rel="stylesheet" href="../style/acessibilidade.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-body">
+
+    <!-- Barra de acessibilidade -->
+    <div class="top-bar">
+        <a href="#conteudo" accesskey="1">Ir para o conteúdo <span class="shortcut" data-key="1"></span></a>
+        <a href="#menu" accesskey="2">Ir para o menu <span class="shortcut" data-key="2"></span></a>
+    </div>
+
+    <!-- Cabeçalho -->
+    <header class="header admin-header">
+        <div class="logo-area">
+            <img src="../assets/Logo_EngenhariaSoftware.png" alt="Escudo Engenharia de Software" class="logo">
+            <div class="text-logo">
+                <h1>Painel Administrativo</h1>
+                <p>IFPE - Campus Belo Jardim</p>
+            </div>
+        </div>
+        <nav id="menu">
+            <ul class="menu admin-menu">
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="eventos.html">Eventos</a></li>
+                <li><a href="horarios.html" class="ativo">Horários</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="monitorias.html">Monitorias</a></li>
+                <li><a href="docentes.html">Docentes</a></li>
+            </ul>
+        </nav>
+        <div class="admin-user-info">
+            <span id="nomeUsuario" class="user-name">Carregando...</span>
+            <button id="btnSair" class="btn-sair">Sair</button>
+        </div>
+    </header>
+
+    <!-- Conteúdo -->
+    <main id="conteudo" class="admin-main">
+        <div class="admin-container">
+
+            <div class="section-header">
+                <h2>🕐 Gerenciar Horários</h2>
+            </div>
+
+            <!-- Abas: Turmas | Laboratórios -->
+            <nav class="tabs-nav" role="tablist" aria-label="Tipos de horário">
+                <button class="tab-btn ativo" role="tab" aria-selected="true"
+                        data-tab="turmas">Horários de Turmas</button>
+                <button class="tab-btn" role="tab" aria-selected="false"
+                        data-tab="labs">Laboratórios</button>
+            </nav>
+
+            <!-- Aba: Turmas -->
+            <section id="tab-turmas" class="tab-conteudo ativo">
+                <div class="section-header" style="margin-bottom:16px">
+                    <h3 style="color:#252b73;">Horários das Turmas</h3>
+                    <button id="btnNovaTurma" class="btn-primary">+ Nova Turma</button>
+                </div>
+
+                <div class="filtros-barra">
+                    <input type="text" id="filtroPeriodo" placeholder="Filtrar por período...">
+                </div>
+
+                <div class="table-container">
+                    <table class="admin-table" id="tabelaTurmas">
+                        <thead>
+                            <tr>
+                                <th>Período</th>
+                                <th>Qtd. Alunos</th>
+                                <th>PDF do Horário</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="corpoTabelaTurmas">
+                            <tr><td colspan="4" class="tabela-loading">Carregando...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Aba: Laboratórios -->
+            <section id="tab-labs" class="tab-conteudo">
+                <div class="section-header" style="margin-bottom:16px">
+                    <h3 style="color:#252b73;">Laboratórios</h3>
+                    <button id="btnNovoLab" class="btn-primary">+ Novo Laboratório</button>
+                </div>
+
+                <div class="filtros-barra">
+                    <input type="text" id="filtroLab" placeholder="Filtrar por nome...">
+                </div>
+
+                <div class="table-container">
+                    <table class="admin-table" id="tabelaLabs">
+                        <thead>
+                            <tr>
+                                <th>Nome do Laboratório</th>
+                                <th>PDF do Horário</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="corpoTabelaLabs">
+                            <tr><td colspan="3" class="tabela-loading">Carregando...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="footer admin-footer">
+        <div class="footer-container">
+            <p>&copy; 2025 IFPE - Campus Belo Jardim | Painel Administrativo</p>
+        </div>
+    </footer>
+
+    <script type="module" src="js/admin-auth.js"></script>
+    <script type="module" src="js/horarios.js"></script>
+</body>
+</html>

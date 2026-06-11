@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Eventos - Admin</title>
+    <link rel="stylesheet" href="../style/acessibilidade.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-body">
+
+    <!-- Barra de acessibilidade -->
+    <div class="top-bar">
+        <a href="#conteudo" accesskey="1">Ir para o conteúdo <span class="shortcut" data-key="1"></span></a>
+        <a href="#menu" accesskey="2">Ir para o menu <span class="shortcut" data-key="2"></span></a>
+    </div>
+
+    <!-- Cabeçalho -->
+    <header class="header admin-header">
+        <div class="logo-area">
+            <img src="../assets/Logo_EngenhariaSoftware.png" alt="Escudo Engenharia de Software" class="logo">
+            <div class="text-logo">
+                <h1>Painel Administrativo</h1>
+                <p>IFPE - Campus Belo Jardim</p>
+            </div>
+        </div>
+        <nav id="menu">
+            <ul class="menu admin-menu">
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="eventos.html" class="ativo">Eventos</a></li>
+                <li><a href="horarios.html">Horários</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="monitorias.html">Monitorias</a></li>
+                <li><a href="docentes.html">Docentes</a></li>
+            </ul>
+        </nav>
+        <div class="admin-user-info">
+            <span id="nomeUsuario" class="user-name">Carregando...</span>
+            <button id="btnSair" class="btn-sair">Sair</button>
+        </div>
+    </header>
+
+    <!-- Conteúdo -->
+    <main id="conteudo" class="admin-main">
+        <div class="admin-container">
+
+            <div class="section-header">
+                <h2>📅 Gerenciar Eventos</h2>
+                <button id="btnNovoEvento" class="btn-primary">+ Novo Evento</button>
+            </div>
+
+            <!-- Filtros -->
+            <div class="filtros-barra">
+                <input type="text" id="filtroBusca" placeholder="Buscar por título...">
+                <select id="filtroModalidade">
+                    <option value="">Todas as modalidades</option>
+                    <option value="Presencial">Presencial</option>
+                    <option value="Online">Online</option>
+                    <option value="Híbrido">Híbrido</option>
+                </select>
+            </div>
+
+            <!-- Tabela de eventos -->
+            <div class="table-container">
+                <table class="admin-table" id="tabelaEventos">
+                    <thead>
+                        <tr>
+                            <th>Título</th>
+                            <th>Data</th>
+                            <th>Horário</th>
+                            <th>Público-alvo</th>
+                            <th>Modalidade</th>
+                            <th>Local</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="corpoTabelaEventos">
+                        <tr>
+                            <td colspan="7" class="tabela-loading">Carregando eventos...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="footer admin-footer">
+        <div class="footer-container">
+            <p>&copy; 2025 IFPE - Campus Belo Jardim | Painel Administrativo</p>
+        </div>
+    </footer>
+
+    <script type="module" src="js/admin-auth.js"></script>
+    <script type="module" src="js/eventos.js"></script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Docentes - Admin</title>
+    <link rel="stylesheet" href="../style/acessibilidade.css">
+    <link rel="stylesheet" href="admin.css">
+    <!-- Estilos específicos do módulo de docentes -->
+    <link rel="stylesheet" href="docentes.css">
+</head>
+<body class="admin-body">
+
+    <!-- Barra de acessibilidade -->
+    <div class="top-bar">
+        <a href="#conteudo" accesskey="1">Ir para o conteúdo <span class="shortcut" data-key="1"></span></a>
+        <a href="#menu" accesskey="2">Ir para o menu <span class="shortcut" data-key="2"></span></a>
+    </div>
+
+    <!-- Cabeçalho -->
+    <header class="header admin-header">
+        <div class="logo-area">
+            <img src="../assets/Logo_EngenhariaSoftware.png"
+                 alt="Escudo Engenharia de Software"
+                 class="logo">
+            <div class="text-logo">
+                <h1>Painel Administrativo</h1>
+                <p>IFPE - Campus Belo Jardim</p>
+            </div>
+        </div>
+
+        <nav id="menu">
+            <ul class="menu admin-menu">
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="eventos.html">Eventos</a></li>
+                <li><a href="horarios.html">Horários</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="monitorias.html">Monitorias</a></li>
+                <li><a href="docentes.html" class="ativo">Docentes</a></li>
+            </ul>
+        </nav>
+
+        <div class="admin-user-info">
+            <span id="nomeUsuario" class="user-name">Carregando...</span>
+            <button id="btnSair" class="btn-sair">Sair</button>
+        </div>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main id="conteudo" class="admin-main">
+        <div class="admin-container">
+
+            <!-- Cabeçalho da seção -->
+            <div class="section-header">
+                <h2>👨‍🏫 Gerenciar Docentes</h2>
+                <button id="btnNovoDocente" class="btn-primary">+ Novo Docente</button>
+            </div>
+
+            <!-- Barra de filtros -->
+            <div class="filtros-barra">
+                <input type="text"
+                       id="filtroBusca"
+                       placeholder="Buscar por nome, disciplina ou área...">
+                <select id="filtroTitulacao">
+                    <option value="">Todas as titulações</option>
+                    <option value="Especialista">Especialista</option>
+                    <option value="Mestre">Mestre</option>
+                    <option value="Doutor">Doutor</option>
+                    <option value="Pós-Doutor">Pós-Doutor</option>
+                </select>
+            </div>
+
+            <!-- Tabela de listagem de docentes -->
+            <div class="table-container">
+                <table class="admin-table" id="tabelaDocentes">
+                    <thead>
+                        <tr>
+                            <th>Foto</th>
+                            <th>Nome</th>
+                            <th>Titulação</th>
+                            <th>Área de Atuação</th>
+                            <th>Disciplinas</th>
+                            <th>E-mail Institucional</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="corpoTabelaDocentes">
+                        <tr>
+                            <td colspan="7" class="tabela-loading">Carregando docentes...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer admin-footer">
+        <div class="footer-container">
+            <p>&copy; 2025 IFPE - Campus Belo Jardim | Painel Administrativo</p>
+        </div>
+    </footer>
+
+    <!-- Scripts: autenticação primeiro, depois o módulo de docentes -->
+    <script type="module" src="js/admin-auth.js"></script>
+    <script type="module" src="js/docentes.js"></script>
+
+</body>
+</html>

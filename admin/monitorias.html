@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Monitorias - Admin</title>
+    <link rel="stylesheet" href="../style/acessibilidade.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-body">
+
+    <!-- Barra de acessibilidade -->
+    <div class="top-bar">
+        <a href="#conteudo" accesskey="1">Ir para o conteúdo <span class="shortcut" data-key="1"></span></a>
+        <a href="#menu" accesskey="2">Ir para o menu <span class="shortcut" data-key="2"></span></a>
+    </div>
+
+    <!-- Cabeçalho -->
+    <header class="header admin-header">
+        <div class="logo-area">
+            <img src="../assets/Logo_EngenhariaSoftware.png" alt="Escudo Engenharia de Software" class="logo">
+            <div class="text-logo">
+                <h1>Painel Administrativo</h1>
+                <p>IFPE - Campus Belo Jardim</p>
+            </div>
+        </div>
+        <nav id="menu">
+            <ul class="menu admin-menu">
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="eventos.html">Eventos</a></li>
+                <li><a href="horarios.html">Horários</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="monitorias.html" class="ativo">Monitorias</a></li>
+            </ul>
+        </nav>
+        <div class="admin-user-info">
+            <span id="nomeUsuario" class="user-name">Carregando...</span>
+            <button id="btnSair" class="btn-sair">Sair</button>
+        </div>
+    </header>
+
+    <!-- Conteúdo -->
+    <main id="conteudo" class="admin-main">
+        <div class="admin-container">
+
+            <div class="section-header">
+                <h2>📚 Gerenciar Monitorias</h2>
+                <button id="btnNovaMonitoria" class="btn-primary">+ Nova Monitoria</button>
+            </div>
+
+            <!-- Filtros -->
+            <div class="filtros-barra">
+                <input type="text" id="filtroBusca" placeholder="Buscar por disciplina ou professor...">
+                <select id="filtroStatus">
+                    <option value="">Todos os status</option>
+                    <option value="ativa">Ativa</option>
+                    <option value="inativa">Inativa</option>
+                    <option value="encerrada">Encerrada</option>
+                </select>
+                <select id="filtroTipo">
+                    <option value="">Todos os tipos</option>
+                    <option value="voluntaria">Voluntária</option>
+                    <option value="bolsista">Bolsista</option>
+                </select>
+            </div>
+
+            <!-- Tabela de monitorias -->
+            <div class="table-container">
+                <table class="admin-table" id="tabelaMonitorias">
+                    <thead>
+                        <tr>
+                            <th>Disciplina</th>
+                            <th>Período</th>
+                            <th>Professor</th>
+                            <th>Monitor</th>
+                            <th>Tipo</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="corpoTabelaMonitorias">
+                        <tr><td colspan="7" class="tabela-loading">Carregando monitorias...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="footer admin-footer">
+        <div class="footer-container">
+            <p>&copy; 2025 IFPE - Campus Belo Jardim | Painel Administrativo</p>
+        </div>
+    </footer>
+
+    <script type="module" src="js/admin-auth.js"></script>
+    <script type="module" src="js/monitorias.js"></script>
+</body>
+</html>

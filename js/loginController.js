@@ -1,5 +1,5 @@
 // Impotar o cliente Supabase
-import { supabase } from './supabase.js';
+import { supabase } from '../admin/js/supabase.js';
 
 // Função login
 // identificador é o e-mail ou o SIAPE do servidor

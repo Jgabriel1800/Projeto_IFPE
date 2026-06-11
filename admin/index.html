@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo - Engenharia de Software</title>
+    <link rel="stylesheet" href="../style/acessibilidade.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-body">
+
+    <!-- Barra de acessibilidade -->
+    <div class="top-bar">
+        <a href="#conteudo" accesskey="1">
+            Ir para o conteúdo <span class="shortcut" data-key="1"></span>
+        </a>
+        <a href="#menu" accesskey="2">
+            Ir para o menu <span class="shortcut" data-key="2"></span>
+        </a>
+    </div>
+
+    <!-- Cabeçalho Admin -->
+    <header class="header admin-header">
+        <div class="logo-area">
+            <img src="../assets/Logo_EngenhariaSoftware.png"
+                 alt="Escudo Engenharia de Software"
+                 class="logo">
+            <div class="text-logo">
+                <h1>Painel Administrativo</h1>
+                <p>IFPE - Campus Belo Jardim</p>
+            </div>
+        </div>
+
+        <nav id="menu">
+            <ul class="menu admin-menu">
+                <li><a href="index.html" class="ativo">Dashboard</a></li>
+                <li><a href="eventos.html">Eventos</a></li>
+                <li><a href="horarios.html">Horários</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="monitorias.html">Monitorias</a></li>
+                <li><a href="docentes.html">Docentes</a></li>
+            </ul>
+        </nav>
+
+        <div class="admin-user-info">
+            <span id="nomeUsuario" class="user-name">Carregando...</span>
+            <button id="btnSair" class="btn-sair">Sair</button>
+        </div>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main id="conteudo" class="admin-main">
+        <div class="admin-container">
+
+            <section class="admin-hero">
+                <h2>Bem-vindo ao Painel Administrativo</h2>
+                <p>Gerencie os conteúdos do Portal de Engenharia de Software do IFPE Campus Belo Jardim.</p>
+            </section>
+
+            <!-- Cards de acesso rápido -->
+            <section class="admin-cards-section">
+                <h3>Acesso Rápido</h3>
+                <div class="admin-cards-grid">
+
+                    <a href="eventos.html" class="admin-card">
+                        <div class="admin-card-icon">📅</div>
+                        <div class="admin-card-info">
+                            <h4>Eventos</h4>
+                            <p>Gerencie os eventos do campus</p>
+                        </div>
+                    </a>
+
+                    <a href="horarios.html" class="admin-card">
+                        <div class="admin-card-icon">🕐</div>
+                        <div class="admin-card-info">
+                            <h4>Horários</h4>
+                            <p>Turmas e laboratórios</p>
+                        </div>
+                    </a>
+
+                    <a href="projetos.html" class="admin-card">
+                        <div class="admin-card-icon">🔬</div>
+                        <div class="admin-card-info">
+                            <h4>Projetos</h4>
+                            <p>Pesquisa, extensão e inovação</p>
+                        </div>
+                    </a>
+
+                    <a href="monitorias.html" class="admin-card">
+                        <div class="admin-card-icon">📚</div>
+                        <div class="admin-card-info">
+                            <h4>Monitorias</h4>
+                            <p>Gerencie as monitorias</p>
+                        </div>
+                    </a>
+
+                    <a href="docentes.html" class="admin-card">
+                        <div class="admin-card-icon">👨‍🏫</div>
+                        <div class="admin-card-info">
+                            <h4>Docentes</h4>
+                            <p>Equipe docente do curso</p>
+                        </div>
+                    </a>
+
+                </div>
+            </section>
+
+            <!-- Estatísticas rápidas -->
+            <section class="admin-stats-section">
+                <h3>Resumo</h3>
+                <div class="admin-stats-grid">
+                    <div class="stat-card">
+                        <span id="totalEventos" class="stat-number">--</span>
+                        <span class="stat-label">Eventos</span>
+                    </div>
+                    <div class="stat-card">
+                        <span id="totalHorariosTurmas" class="stat-number">--</span>
+                        <span class="stat-label">Horários de Turmas</span>
+                    </div>
+                    <div class="stat-card">
+                        <span id="totalLabs" class="stat-number">--</span>
+                        <span class="stat-label">Laboratórios</span>
+                    </div>
+                    <div class="stat-card">
+                        <span id="totalProjetos" class="stat-number">--</span>
+                        <span class="stat-label">Projetos</span>
+                    </div>
+                    <div class="stat-card">
+                        <span id="totalMonitorias" class="stat-number">--</span>
+                        <span class="stat-label">Monitorias</span>
+                    </div>
+                    <div class="stat-card">
+                        <span id="totalDocentes" class="stat-number">--</span>
+                        <span class="stat-label">Docentes</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Link para o portal público -->
+            <div class="portal-link-section">
+                <a href="../index.html" class="btn-portal-link" target="_blank">
+                    🌐 Ver Portal Público
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer admin-footer">
+        <div class="footer-container">
+            <p>&copy; 2025 IFPE - Campus Belo Jardim | Painel Administrativo</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="js/admin-auth.js"></script>
+    <script type="module" src="js/admin-dashboard.js"></script>
+    <script src="../js/acessibilidade.js" defer></script>
+</body>
+</html>
