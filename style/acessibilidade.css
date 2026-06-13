@@ -421,3 +421,85 @@ main {
 .docente-card.ativo .docente-detalhes {
     display: block;
 }
+
+/* ========================= */
+/* HORÁRIOS */
+/* ========================= */
+
+.horarios-section {
+    padding: 60px;
+}
+
+.horarios-section h2 {
+    text-align: center;
+    color: #252b73;
+    margin-bottom: 50px;
+    font-size: 2rem;
+}
+
+.horarios-container {
+    display: flex;
+    justify-content: center;
+    gap: 120px;
+    flex-wrap: wrap;
+}
+
+.horarios-coluna {
+    width: 450px;
+}
+
+.horarios-coluna h3 {
+    text-align: center;
+    color: #252b73;
+    margin-bottom: 20px;
+}
+
+.horario-item {
+    background-color: #eef1f6;
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 10px 15px;
+    margin-bottom: 12px;
+}
+
+.badge {
+    width: 34px;
+    height: 34px;
+
+    background-color: #252b73;
+    color: white;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: bold;
+}
+
+.nome {
+    flex: 1;
+    margin-left: 20px;
+    font-size: 1.1rem;
+}
+
+.qtd {
+    margin-right: 20px;
+    font-weight: bold;
+    color: #252b73;
+}
+
+.horario-item img {
+    width: 28px;
+    height: 28px;
+    transition: 0.2s;
+}
+
+.horario-item img:hover {
+    transform: scale(1.1);
+}
