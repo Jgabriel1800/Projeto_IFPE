@@ -312,3 +312,112 @@ body {
 .footer-social img:hover {
     transform: scale(1.1);
 }
+
+html,
+body {
+    min-height: 100vh;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+/* ========================= */
+/* DOCENTES */
+/* ========================= */
+
+.docentes-section {
+    padding: 60px 50px;
+}
+
+.docentes-section h2 {
+    text-align: center;
+    color: #252b73;
+    margin-bottom: 40px;
+    font-size: 2rem;
+}
+
+.docentes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .docentes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Celular */
+@media (max-width: 768px) {
+    .docentes-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.docente-card {
+    border: 1px solid #bdbdbd;
+    border-radius: 8px;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+
+.docente-resumo {
+    text-align: center;
+}
+
+.docente-resumo img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.docente-resumo h3 {
+    color: #252b73;
+    font-size: 1.2rem;
+    margin: 15px 0;
+}
+
+.docente-resumo p {
+    text-align: left;
+}
+
+.docente-detalhes {
+    display: none;
+    margin-top: 20px;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+.docente-detalhes p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.btn-docente {
+    background: none;
+    border: none;
+    color: #252b73;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+.btn-docente:hover {
+    text-decoration: underline;
+}
+
+.docente-card.ativo .docente-detalhes {
+    display: block;
+}
