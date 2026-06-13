@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre - Engenharia de Software</title>
+    <!-- Substitua pelos seus arquivos CSS -->
+    <link rel="stylesheet" href="style/acessibilidade.css">
+    <link rel="stylesheet" href="style/sobre.css">
+</head>
+
+<body>
+
+    <!-- Barra de acessibilidade -->
+    <div class="top-bar">
+        <a href="#conteudo" accesskey="1">Ir para o conteúdo [1]</a>
+        <a href="#menu" accesskey="2">Ir para o menu [2]</a>
+        <a href="#rodape" accesskey="3">Ir para o rodapé [3]</a>
+    </div>
+
+    <!-- Cabeçalho Principal -->
+    <header class="header">
+        <div class="logo-area">
+            <img src="assets/logo_EngenhariaSoftware.png" alt="Logo Engenharia de Software" class="logo">
+            <div class="text-logo">
+                <h1>Engenharia de Software</h1>
+                <p>IFPE - Campus Belo Jardim</p>
+            </div>
+        </div>
+
+        <nav id="menu">
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="sobre.html" class="ativo">Sobre</a></li>
+                <li><a href="docentes.html">Docentes</a></li>
+                <li><a href="horarios.html">Horários</a></li>
+                <li><a href="eventos.html">Eventos</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+            </ul>
+        </nav>
+
+        <div class="login">
+            <a href="login.html">Entrar</a>
+        </div>
+    </header>
+
+    <main id="conteudo">
+        
+        <!-- Título da Página e Botão Editar (Apenas ADM) -->
+        <div class="titulo-pagina-container container">
+            <!-- Este botão deve ser controlado pelo JS (ex: authController.js) para aparecer apenas para o ADM -->
+            <button id="btn-editar-sobre" class="btn-editar" style="display: none;">
+                ✏️ Editar
+            </button>
+            <h2 class="titulo-centralizado">SOBRE</h2>
+        </div>
+
+        <!-- Seção 1: O que é Engenharia de Software? -->
+        <section class="sobre-descricao container">
+            <h3>O que é Engenharia de Software?</h3>
+            <p>
+                Engenharia de Software é a disciplina que combina habilidades técnicas, criatividade e gerenciamento de projetos para projetar, desenvolver e manter sistemas de software complexos e confiáveis. É a força motriz por trás de aplicativos e sistemas que usamos todos os dias, desde aplicativos de smartphone até sistemas de controle de tráfego aéreo.
+            </p>
+        </section>
+
+        <!-- Seção 2: Estrutura (Galeria de Fotos) -->
+        <section class="sobre-estrutura container">
+            <h3>Estrutura</h3>
+            <p>
+                Nossa infraestrutura inclui um moderno bloco de engenharia, equipado com laboratórios de última geração, criados para proporcionar um ambiente de aprendizado prático e estimulante. Temos o compromisso de oferecer aos nossos estudantes as melhores condições para o desenvolvimento de suas habilidades em Engenharia de Software.
+            </p>
+
+           <div class="galeria-infra">
+                <div class="item-foto">
+                    <img src="assets/infraestrutura/bloco_eng.png" alt="Bloco de Engenharia de Software">
+                    <p>Bloco de Engenharia de Software</p>
+                </div>
+                <div class="item-foto">
+                    <img src="assets/infraestrutura/lab01.png" alt="Laboratório 01">
+                    <p>Laboratório 01</p>
+                </div>
+                <div class="item-foto">
+                    <img src="assets/infraestrutura/lab02.png" alt="Laboratório 02">
+                    <p>Laboratório 02</p>
+                </div>
+                <div class="item-foto">
+                    <img src="assets/infraestrutura/lab_inclusao.png" alt="Lab. Inclusão Digital">
+                    <p>Lab. Inclusão Digital</p>
+                </div>
+                <div class="item-foto">
+                    <img src="assets/infraestrutura/lab04.png" alt="Laboratório 04">
+                    <p>Laboratório 04</p>
+                </div>
+                <div class="item-foto">
+                    <img src="assets/infraestrutura/lab_mouratech01.png" alt="Lab. Moura Tech 01">
+                    <p>Lab. Moura Tech 01</p>
+                </div>
+                <div class="item-foto">
+                    <img src="assets/infraestrutura/lab_mouratech02.png" alt="Lab. Moura Tech 02">
+                    <p>Lab. Moura Tech 02</p>
+                </div>
+            </div>
+
+        <!-- Seção 3: Perfil Profissional (Editável pelo ADM) -->
+        <section class="sobre-perfil container" id="secao-perfil">
+            <h3>Perfil Profissional</h3>
+            <p id="texto-perfil">
+                No IFPE - Belo Jardim, buscamos formar profissionais de Engenharia de Software altamente qualificados. Nossos alunos adquirem competências técnicas sólidas, capacidade de trabalho em equipe, habilidades de comunicação e a mentalidade necessária para enfrentar os desafios do setor de tecnologia da informação. Nossa abordagem prática e orientada para o mercado de trabalho prepara nossos graduados para atuarem em diversas áreas, desde desenvolvimento de software até gerenciamento de projetos. Abaixo você pode acessar alguns documentos importantes.
+            </p>
+            <ul class="lista-documentos">
+                <li>
+                    <a href="Documentacao/Perfil_Profissional.pdf" target="_blank">
+                        <img src="assets/icones/pdf-icon.png" alt="PDF"> Perfil Profissional
+                    </a>
+                </li>
+                <li>
+                    <a href="Documentacao/Competencias_Profissionais.pdf" target="_blank">
+                        <img src="assets/icones/pdf-icon.png" alt="PDF"> Competências Profissionais
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Seção 4: Documentos Básicos (Editável pelo ADM) -->
+        <section class="sobre-documentos container" id="secao-documentos">
+            <h3>Documentos Básicos</h3>
+            <p id="texto-documentos">
+                Aqui, você encontrará links para documentos fundamentais do curso, como o Projeto Pedagógico de Curso (PPC), a Matriz Curricular e outros documentos relevantes. Esses recursos são essenciais para compreender a estrutura do curso, os requisitos de graduação e as políticas acadêmicas que guiam nossa oferta educacional. Acesse os documentos para obter informações detalhadas sobre nosso programa de Engenharia de Software.
+            </p>
+            <ul class="lista-documentos">
+                <li>
+                    <a href="Documentacao/PPC-Engenharia_de_software-Campus-Belo_Jardim.pdf" target="_blank">
+                        <img src="assets/icones/pdf-icon.png" alt="PDF"> Projeto Pedagógico do Curso (PPC)
+                    </a>
+                </li>
+                <li>
+                    <a href="Documentacao/Matriz_curricular_Engenharia_de_software.pdf" target="_blank">
+                        <img src="assets/icones/pdf-icon.png" alt="PDF"> Matriz Curricular
+                    </a>
+                </li>
+                <li>
+                    <a href="Documentacao/Informacoes_do_Curso.pdf" target="_blank">
+                        <img src="assets/icones/pdf-icon.png" alt="PDF"> Informações do Curso
+                    </a>
+                </li>
+                <li>
+                    <a href="Documentacao/Homologacao_do_PPC.pdf" target="_blank">
+                        <img src="assets/icones/pdf-icon.png" alt="PDF"> Homologação do PPC
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <!-- Rodapé (Conforme o Manual) -->
+    <footer id="rodape" class="footer">
+        <div class="footer-links-duvidas">
+            <h4>Dúvidas Frequentes</h4>
+            <ul>
+                <li><a href="#">Como renovar a matrícula?</a></li>
+                <li><a href="#">Aproveitamento de disciplinas</a></li>
+                <li><a href="#">Transferência interna</a></li>
+            </ul>
+        </div>
+        <div class="footer-contato">
+            <p>📞 (81) 3411-3200</p>
+            <p>📍 Av. Sebastião Rodrigues da Costa, s/n - São Pedro, Belo Jardim - PE, 55145-065</p>
+            <div class="redes-sociais">
+                <!-- Ícones de redes sociais -->
+                <a href="#"><img src="assets/icones/instagram.png" alt="Instagram"></a>
+                <a href="#"><img src="assets/icones/link.png" alt="Link"></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/acessibilidade.js"></script>
+    <script src="js/authController.js"></script> <!-- Script para controle de exibição do botão Editar -->
+</body>
+</html>
