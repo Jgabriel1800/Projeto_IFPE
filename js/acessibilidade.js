@@ -110,3 +110,24 @@ document.querySelectorAll(".shortcut").forEach(span => {
     const key = span.getAttribute("data-key");
     span.textContent = `${shortcutText}${key}`;
 });
+/* Lógica para abrir/fechar o Dropdown de Projetos no clique */
+document.addEventListener('DOMContentLoaded', () => {
+    const btnProjetos = document.querySelector('.dropdown > a');
+    const menuDropdown = document.querySelector('.dropdown-content');
+
+    if (btnProjetos && menuDropdown) {
+        btnProjetos.addEventListener('click', function(event) {
+            event.preventDefault(); // Impede o link de recarregar a página
+            menuDropdown.classList.toggle('mostrar');
+        });
+
+        // Fecha o menu se o usuário clicar em qualquer outro lugar da página
+        window.addEventListener('click', function(event) {
+            if (!event.target.matches('.dropdown > a')) {
+                if (menuDropdown.classList.contains('mostrar')) {
+                    menuDropdown.classList.remove('mostrar');
+                }
+            }
+        });
+    }
+});

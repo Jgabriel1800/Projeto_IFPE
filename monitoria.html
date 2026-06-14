@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoria - Engenharia de Software</title>
+    <link rel="stylesheet" href="style/acessibilidade.css">
+    <link rel="stylesheet" href="style/projetos.css"> <!-- O CSS mágico faz o trabalho aqui também! -->
+</head>
+<body>
+
+    <!-- Barra de acessibilidade -->
+    <div class="top-bar">
+        <a href="#conteudo" aria-label="Ir para o conteúdo"></a>
+        <a href="#conteudo" accesskey="1">Ir para o conteúdo <span class="shortcut" data-key="1"></span></a>
+        <a href="#menu" aria-label="Ir para o menu"></a>
+        <a href="#menu" accesskey="2">Ir para o menu <span class="shortcut" data-key="2"></span></a>
+        <a href="#rodape" aria-label="Ir para o rodapé"></a>
+        <a href="#rodape" accesskey="3">Ir para o rodapé <span class="shortcut" data-key="3"></span></a>
+    </div>
+
+    <!-- Cabeçalho Principal -->
+    <header class="header">
+        <div class="logo-area">
+            <img src="assets/logo_EngenhariaSoftware.png" alt="Escudo Engenharia de Software" class="logo">
+            <div class="text-logo">
+                <h1>Engenharia de Software</h1>
+                <p>IFPE - Campus Belo Jardim</p>
+            </div>
+        </div>
+
+        <nav id="menu">
+            <ul class="menu">
+                <li><a id="homeLink" href="index.html">Home</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="docentes.html">Docentes</a></li>
+                <li><a href="horarios.html">Horários</a></li>
+                <li><a href="eventos.html">Eventos</a></li>
+                
+                <!-- Menu Dropdown -->
+                <li class="dropdown">
+                    <a href="#" class="ativo">Projetos ▼</a>
+                    <ul class="dropdown-content">
+                        <li><a href="projetos.html">Pesquisa</a></li>
+                        <li><a href="extensao.html">Extensão</a></li>
+                        <li><a href="inovacao.html">Inovação</a></li>
+                        <li><a href="monitoria.html">Monitoria</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="login">
+            <a id="entrarLink" href="login.html">Entrar</a>
+        </div>
+    </header>
+
+    <main id="conteudo">
+        <div class="container">
+            <h2 class="titulo-centralizado">MONITORIA</h2>
+
+            <p style="text-align: center; color: #555; margin-bottom: 30px;">
+                Nesta seção, você encontrará uma tabela contendo informações essenciais sobre as monitorias. Se o status de uma monitoria estiver listado como 'Aberto à inscrição', ao clicar no nome, você será direcionado a uma página separada para concluir sua inscrição.
+            </p>
+
+            <!-- Tabela de Monitoria -->
+            <div class="tabela-responsiva">
+                <table class="tabela-padrao">
+                    <thead>
+                        <tr>
+                            <th>Disciplina</th>
+                            <th>Período</th>
+                            <th>Professor</th>
+                            <th>Tipo de monitoria</th>
+                            <th>Duração</th>
+                            <th>Status</th>
+                            <th>Aluno ministrador</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Projeto de Software</td>
+                            <td>4º Período</td>
+                            <td>Guilherme</td>
+                            <td>Bolsista</td>
+                            <td>6 meses</td>
+                            <td>Ativa</td>
+                            <td>David Almeida</td>
+                        </tr>
+                        <tr>
+                            <td>SO - Sistemas Operacionais</td>
+                            <td>3º Período</td>
+                            <td>João Almeida</td>
+                            <td>Bolsista</td>
+                            <td>24 meses</td>
+                            <td>Ativa</td>
+                            <td>Luiz Carlos</td>
+                        </tr>
+                        <tr>
+                            <td>Estatística e Probabilidade</td>
+                            <td>3º Período</td>
+                            <td>Priscila</td>
+                            <td>Voluntária</td>
+                            <td>6 meses</td>
+                            <td>Ativa</td>
+                            <td>João Bosco</td>
+                        </tr>
+                        <tr>
+                            <td>Matemática Discreta</td>
+                            <td>1º período</td>
+                            <td>Sidmar</td>
+                            <td>Bolsista</td>
+                            <td>6 meses</td>
+                            <td>Ativa</td>
+                            <td>Netinho</td>
+                        </tr>
+                        <tr>
+                            <td>IHC</td>
+                            <td>4º Período</td>
+                            <td>Sionise</td>
+                            <td>Bolsista</td>
+                            <td>6 meses</td>
+                            <td>Ativa</td>
+                            <td>Mariana</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="mostrar-mais">
+                <a href="#">Mostrar mais</a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer id="rodape" class="footer">
+        <div class="footer-container">
+            <h3>Dúvidas Frequentes</h3>
+            <div class="footer-links">
+                <a href="#">Como renovar a matrícula?</a>
+                <a href="#">Aproveitamento de disciplinas</a>
+                <a href="#">Transferência interna</a>
+            </div>
+            <hr>
+            <div class="footer-bottom">
+                <div class="footer-info">
+                    <div class="footer-item">
+                        <img src="assets/icones/icone_telefone.png" alt="Telefone">
+                        <span>(81) 3411-3200</span>
+                    </div>
+                    <div class="footer-item">
+                        <img src="assets/icones/icone_localizacao.png" alt="Endereço">
+                        <span>Av. Sebastião Rodrigues da Costa, s/n - São Pedro<br>Belo Jardim - PE, 55145-065</span>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><img src="assets/icones/icone_instagram.png" alt="Instagram"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/acessibilidade.js"></script>
+</body>
+</html>

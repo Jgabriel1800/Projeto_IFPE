@@ -1,0 +1,177 @@
+html, body { margin: 0; padding: 0; font-family: Arial, sans-serif; }
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+/* =========================================
+   MINI BARRA DE NAVEGAÇÃO (Sub-menu)
+========================================= */
+.sub-menu {
+    background-color: #252b73;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.sub-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.sub-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+.sub-menu a:hover {
+    text-decoration: underline;
+}
+
+/* =========================================
+   TÍTULOS E ESTRUTURA
+========================================= */
+.titulo-centralizado {
+    text-align: center;
+    color: #11153d;
+    font-size: 1.5em;
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+
+.secao-projeto {
+    margin-bottom: 40px;
+}
+
+.secao-projeto h4 {
+    color: #333;
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+.subtitulo {
+    color: #444;
+    font-size: 1em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.secao-projeto p {
+    color: #555;
+    line-height: 1.5;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+/* Duas Colunas (Contatos) */
+.grid-duas-colunas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.coluna p {
+    margin-bottom: 5px;
+}
+
+/* =========================================
+   LISTAS E LINKS
+========================================= */
+.lista-programas {
+    padding-left: 20px;
+    color: #555;
+    font-size: 0.9em;
+    line-height: 1.5;
+}
+
+.lista-programas li {
+    margin-bottom: 10px;
+}
+
+.lista-links {
+    list-style: none;
+    padding: 0;
+}
+
+.lista-links li {
+    margin-bottom: 8px;
+}
+
+.lista-links a, .link-destaque {
+    color: #1a0dab;
+    text-decoration: underline;
+    font-size: 0.9em;
+}
+
+/* IFPESQUISANDO (Grade de Anos) */
+.grade-anos {
+    display: flex;
+    gap: 50px;
+    margin-top: 20px;
+}
+
+.ano-col {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ano-col strong {
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.ano-col a {
+    color: #1a0dab;
+    text-decoration: underline;
+    font-size: 0.9em;
+}
+
+/* =========================================
+   TABELAS
+========================================= */
+.tabela-responsiva {
+    overflow-x: auto;
+}
+
+.tabela-padrao {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 0.85em;
+}
+
+.tabela-padrao th, .tabela-padrao td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+.tabela-padrao th {
+    background-color: #11153d;
+    color: white;
+    font-weight: bold;
+}
+
+.mostrar-mais {
+    text-align: right;
+    margin-top: 10px;
+}
+
+.mostrar-mais a {
+    color: #555;
+    font-size: 0.85em;
+    text-decoration: none;
+}
+
+.mostrar-mais a:hover {
+    text-decoration: underline;
+}

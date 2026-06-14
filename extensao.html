@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extensão - Engenharia de Software</title>
+    <link rel="stylesheet" href="style/acessibilidade.css">
+    <link rel="stylesheet" href="style/projetos.css"> </head>
+<body>
+
+    <div class="top-bar">
+        <a href="#conteudo" aria-label="Ir para o conteúdo"></a>
+        <a href="#conteudo" accesskey="1">Ir para o conteúdo <span class="shortcut" data-key="1"></span></a>
+        <a href="#menu" aria-label="Ir para o menu"></a>
+        <a href="#menu" accesskey="2">Ir para o menu <span class="shortcut" data-key="2"></span></a>
+        <a href="#rodape" aria-label="Ir para o rodapé"></a>
+        <a href="#rodape" accesskey="3">Ir para o rodapé <span class="shortcut" data-key="3"></span></a>
+    </div>
+
+    <header class="header">
+        <div class="logo-area">
+            <img src="assets/logo_EngenhariaSoftware.png" alt="Escudo Engenharia de Software" class="logo">
+            <div class="text-logo">
+                <h1>Engenharia de Software</h1>
+                <p>IFPE - Campus Belo Jardim</p>
+            </div>
+        </div>
+
+        <nav id="menu">
+            <ul class="menu">
+                <li><a id="homeLink" href="index.html">Home</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="docentes.html">Docentes</a></li>
+                <li><a href="horarios.html">Horários</a></li>
+                <li><a href="eventos.html">Eventos</a></li>
+                <li class="dropdown">
+                    <a href="projetos.html" class="ativo">Projetos ▼</a>
+                    <ul class="dropdown-content">
+                        <li><a href="projetos.html">Pesquisa</a></li>
+                        <li><a href="extensao.html">Extensão</a></li>
+                        <li><a href="inovacao.html">Inovação</a></li>
+                        <li><a href="monitoria.html">Monitoria</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="login">
+            <a id="entrarLink" href="login.html">Entrar</a>
+        </div>
+    </header>
+
+    <main id="conteudo">
+        
+        <nav class="sub-menu">
+            <ul>
+                <li><a href="#pronatec">Pronatec</a></li>
+                <li><a href="#estagio">Estágio</a></li>
+                <li><a href="#bolsas">Bolsas</a></li>
+            </ul>
+        </nav>
+
+        <div class="container">
+            <h2 class="titulo-centralizado">EXTENSÃO</h2>
+
+            <section class="secao-projeto grid-duas-colunas">
+                <div class="coluna">
+                    <h4>Coordenação de Extensão</h4>
+                    <p><strong>Coordenador(a):</strong> Pedro José da Silva Júnior</p>
+                    <p><strong>E-mail:</strong> extensao@belojardim.ifpe.edu.br</p>
+                    <p><strong>Contato Telefônico:</strong> (81) 3411 3204</p>
+                </div>
+                <div class="coluna">
+                    <h4>Setor de Integração Escola Comunidade (SIEC)</h4>
+                    <p><strong>Responsável:</strong> Flávia Moreira Correia</p>
+                    <p><strong>E-mail:</strong> siec@belojardim.ifpe.edu.br</p>
+                    <p><strong>Contato Telefônico:</strong> (81) 3411 3222</p>
+                </div>
+            </section>
+
+            <section class="secao-projeto">
+                <h4>Programas</h4>
+                
+                <h5 class="subtitulo">Programa Mulheres Mil</h5>
+                <p>O Programa possibilita, através da formação profissional e tecnológica, a inclusão social de mulheres que se encontram em situação de vulnerabilidade social...</p>
+
+                <h5 class="subtitulo" id="pronatec">Programa Nacional de Acesso ao Ensino Técnico e Emprego - PRONATEC</h5>
+                <p>O Programa Nacional de Acesso ao Ensino Técnico e Emprego – Pronatec – foi criado pelo Governo Federal em 2011, com o objetivo de ampliar a oferta de cursos de educação profissional...</p>
+                
+                <h5 class="subtitulo">Contato</h5>
+                <p>Interessados podem contatar a Coordenação do Pronatec no IFPE-Campus Belo Jardim pelo e-mail: <a href="mailto:pronatec@belojardim.ifpe.edu.br" class="link-destaque">pronatec@belojardim.ifpe.edu.br</a></p>
+            </section>
+
+            <section id="estagio" class="secao-projeto">
+                <h4>Estágio</h4>
+                <p>O SIEC - Setor de Integração Escola Comunidade - tem a função de viabilizar o intercâmbio entre a escola, comunidade e as instituições públicas e privadas...</p>
+                
+                <h5 class="subtitulo">Atribuições do aluno Estagiário</h5>
+                <ul class="lista-programas">
+                    <li>Contatar com o Setor de Integração Escola Comunidade (SIEC) para receber as informações do Estágio;</li>
+                    <li>Requerer documentação necessária para iniciar o estágio;</li>
+                    <li>Firmar Termo de Compromisso de Estágio com a empresa e respeitar o cumprimento de suas cláusulas;</li>
+                    <li>Acatar as normas do IFPE e da Empresa na realização do estágio;</li>
+                    <li>Elaborar Relatório sobre o estágio obedecendo as normas da ABNT.</li>
+                </ul>
+            </section>
+
+            <section id="bolsas" class="secao-projeto">
+                <h4>Bolsas</h4>
+                <p>O Programa Institucional para Concessão de Bolsas de Extensão (Pibex) tem como objetivo implementar, fortalecer e apoiar programas e projetos de extensão...</p>
+                
+                <h5 class="subtitulo">Últimos Editais</h5>
+                <ul class="lista-links">
+                    <li><a href="#">PIBEX 2018</a></li>
+                </ul>
+            </section>
+
+        </div>
+    </main>
+
+    <footer id="rodape" class="footer">
+        <div class="footer-container">
+            <h3>Dúvidas Frequentes</h3>
+            <div class="footer-links">
+                <a href="#">Como renovar a matrícula?</a>
+                <a href="#">Aproveitamento de disciplinas</a>
+                <a href="#">Transferência interna</a>
+            </div>
+            <hr>
+            <div class="footer-bottom">
+                <div class="footer-info">
+                    <div class="footer-item">
+                        <img src="assets/icones/icone_telefone.png" alt="Telefone">
+                        <span>(81) 3411-3200</span>
+                    </div>
+                    <div class="footer-item">
+                        <img src="assets/icones/icone_localizacao.png" alt="Endereço">
+                        <span>Av. Sebastião Rodrigues da Costa, s/n - São Pedro<br>Belo Jardim - PE, 55145-065</span>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><img src="assets/icones/icone_instagram.png" alt="Instagram"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/acessibilidade.js"></script>
+</body>
+</html>
