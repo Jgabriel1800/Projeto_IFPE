@@ -65,6 +65,11 @@
 
     </header>
 
+    <!-- Barra do Admin -->
+    <div class="admin-banner" id="adminBanner" style="display: none;">
+        <button id="btnEditarPagina" class="btn-admin-edit">Gerenciar Horários</button>
+    </div>
+
     <!-- Conteúdo -->
     <main id="conteudo">
 
@@ -79,156 +84,8 @@
 
                     <h3>Aulas</h3>
 
-                    <div class="horario-item">
-                        <span class="badge">1º</span>
-                        <span class="nome">Período</span>
-                        <span class="qtd">30</span>
-
-                        <a href="pdfs/horario-1periodo.pdf"
-                            target="_blank"
-                            class="pdf-card">
-
-                                <img src="assets/icones/icone_pdf.png" alt="PDF">
-
-                                <div>
-                                    <strong>Horário</strong>
-                                    <small>Visualizar PDF</small>
-                                </div>
-
-                        </a>
-                    </div>
-
-                    <div class="horario-item">
-                        <span class="badge">2º</span>
-                        <span class="nome">Período</span>
-                        <span class="qtd">30</span>
-
-                        <a href="pdfs/horario-1periodo.pdf"
-                            target="_blank"
-                            class="pdf-card">
-
-                                <img src="assets/icones/icone_pdf.png" alt="PDF">
-
-                                <div>
-                                    <strong>Horário</strong>
-                                    <small>Visualizar PDF</small>
-                                </div>
-
-                        </a>
-                    </div>
-
-                    <div class="horario-item">
-                        <span class="badge">3º</span>
-                        <span class="nome">Período</span>
-                        <span class="qtd">30</span>
-
-                        <a href="pdfs/horario-1periodo.pdf"
-                            target="_blank"
-                            class="pdf-card">
-
-                                <img src="assets/icones/icone_pdf.png" alt="PDF">
-
-                                <div>
-                                    <strong>Horário</strong>
-                                    <small>Visualizar PDF</small>
-                                </div>
-
-                        </a>
-                    </div>
-
-                    <div class="horario-item">
-                        <span class="badge">4º</span>
-                        <span class="nome">Período</span>
-                        <span class="qtd">30</span>
-
-                        <a href="pdfs/horario-1periodo.pdf"
-                            target="_blank"
-                            class="pdf-card">
-
-                                <img src="assets/icones/icone_pdf.png" alt="PDF">
-
-                                <div>
-                                    <strong>Horário</strong>
-                                    <small>Visualizar PDF</small>
-                                </div>
-
-                        </a>
-                    </div>
-
-                    <div class="horario-item">
-                        <span class="badge">5º</span>
-                        <span class="nome">Período</span>
-                        <span class="qtd">30</span>
-
-                        <a href="pdfs/horario-1periodo.pdf"
-                            target="_blank"
-                            class="pdf-card">
-
-                                <img src="assets/icones/icone_pdf.png" alt="PDF">
-
-                                <div>
-                                    <strong>Horário</strong>
-                                    <small>Visualizar PDF</small>
-                                </div>
-
-                        </a>
-                    </div>
-
-                    <div class="horario-item">
-                        <span class="badge">6º</span>
-                        <span class="nome">Período</span>
-                        <span class="qtd">30</span>
-
-                        <a href="pdfs/horario-1periodo.pdf"
-                            target="_blank"
-                            class="pdf-card">
-
-                                <img src="assets/icones/icone_pdf.png" alt="PDF">
-
-                                <div>
-                                    <strong>Horário</strong>
-                                    <small>Visualizar PDF</small>
-                                </div>
-
-                        </a>
-                    </div>
-
-                    <div class="horario-item">
-                        <span class="badge">7º</span>
-                        <span class="nome">Período</span>
-                        <span class="qtd">30</span>
-
-                        <a href="pdfs/horario-1periodo.pdf"
-                            target="_blank"
-                            class="pdf-card">
-
-                                <img src="assets/icones/icone_pdf.png" alt="PDF">
-
-                                <div>
-                                    <strong>Horário</strong>
-                                    <small>Visualizar PDF</small>
-                                </div>
-
-                        </a>
-                    </div>
-
-                    <div class="horario-item">
-                        <span class="badge">8º</span>
-                        <span class="nome">Período</span>
-                        <span class="qtd">30</span>
-
-                        <a href="pdfs/horario-1periodo.pdf"
-                            target="_blank"
-                            class="pdf-card">
-
-                                <img src="assets/icones/icone_pdf.png" alt="PDF">
-
-                                <div>
-                                    <strong>Horário</strong>
-                                    <small>Visualizar PDF</small>
-                                </div>
-
-                        </a>
+                    <div id="gridAulas">
+                        <p style="text-align: center;">Carregando aulas...</p>
                     </div>
 
                 </div>
@@ -238,40 +95,8 @@
 
                     <h3>Laboratórios</h3>
 
-                    <div class="horario-item">
-                        <span class="badge">3</span>
-                        <span class="nome">Laboratório 3</span>
-
-                        <a href="pdfs/horario-3periodo.pdf"
-                            target="_blank"
-                            class="pdf-card">
-
-                                <img src="assets/icones/icone_pdf.png" alt="PDF">
-
-                                <div>
-                                    <strong>Horário</strong>
-                                    <small>Visualizar PDF</small>
-                                </div>
-
-                        </a>
-                    </div>
-
-                    <div class="horario-item">
-                        <span class="badge">4</span>
-                        <span class="nome">Laboratório 4</span>
-
-                        <a href="pdfs/horario-4periodo.pdf"
-                            target="_blank"
-                            class="pdf-card">
-
-                                <img src="assets/icones/icone_pdf.png" alt="PDF">
-
-                                <div>
-                                    <strong>Horário</strong>
-                                    <small>Visualizar PDF</small>
-                                </div>
-
-                        </a>
+                    <div id="gridLaboratorios">
+                        <p style="text-align: center;">Carregando laboratórios...</p>
                     </div>
 
                 </div>
@@ -330,7 +155,54 @@
 
     </footer>
 
-    <script src="js/acessibilidade.js"></script>
+    <!-- Seção de Gerenciamento de Horários -->
+    <section id="adminFormSection" class="admin-form-section" style="display: none;">
+        <div class="container">
+            <h2>Gerenciar Horários</h2>
+            <form id="formAdminEdit">
+                
+                <fieldset>
+                    <legend>Selecionar Horário</legend>
+                    <label>Selecione um horário para editar ou adicione um novo:</label>
+                    <select id="selectHorario" style="width: 100%; padding: 10px; margin-bottom: 20px;">
+                        <option value="novo">-- Adicionar Novo Horário --</option>
+                    </select>
+                </fieldset>
 
+                <fieldset>
+                    <legend>Dados do Horário</legend>
+                    
+                    <label>Tipo:</label>
+                    <select id="input-tipo" style="width: 100%; padding: 10px; margin-bottom: 20px;" required>
+                        <option value="Turma">Aula (Turma)</option>
+                        <option value="Laboratório">Laboratório</option>
+                    </select>
+
+                    <label id="label-identificacao">Período (ex: 1º Período):</label>
+                    <input type="text" id="input-identificacao" required>
+
+                    <div id="container-qtd">
+                        <label>Quantidade de Alunos:</label>
+                        <input type="number" id="input-qtd" placeholder="Ex: 30" style="width: 100%; padding: 12px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 6px; font-size: 15px;">
+                    </div>
+                    
+                    <label>Arquivo PDF do Horário:</label>
+                    <input type="file" id="input-pdf" accept="application/pdf" style="margin-bottom: 5px;">
+                    <small id="pdf-atual-texto" style="display: block; margin-bottom: 20px; color: #666; font-style: italic;">Nenhum arquivo atual.</small>
+
+                </fieldset>
+
+                <div class="modal-admin-actions">
+                    <button type="button" id="btnRemoverHorario" class="btn-admin-cancelar" style="background-color: #c0392b; display: none;">Remover Horário</button>
+                    <button type="button" id="btnCancelarEdicao" class="btn-admin-cancelar">Cancelar</button>
+                    <button type="submit" class="btn-admin-salvar">Salvar Horário</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <script src="js/acessibilidade.js"></script>
+    <script type="module" src="js/authController.js"></script>
+    <script type="module" src="js/adminHorarios.js"></script>
 </body>
 </html>

@@ -66,40 +66,21 @@
 
     </header>
 
+    <!-- Barra do Admin -->
+    <div class="admin-banner" id="adminBanner" style="display: none;">
+        <button id="btnEditarPagina" class="btn-admin-edit">Gerenciar Eventos</button>
+    </div>
+
     <main id="conteudo" class="container">
         
   
         <div class="titulo-pagina-container">
-            <button id="btn-editar-eventos" class="btn-editar" style="display: none;">
-                ✏️ Editar
-            </button>
             <h2 class="titulo-centralizado">EVENTOS</h2>
         </div>
 
        
-        <section class="galeria-eventos">
-            
-           
-            
-            <div class="card-evento">
-                
-                <img src="assets/eventos/banner_popup_ingresso_26-2_Prancheta_1.png" alt="Processo de Ingresso IFPE 2026.2" class="img-evento">
-                <div class="info-evento">
-                    <h3 class="titulo-evento">Processo de Ingresso 2026.2</h3>
-                    <p><strong>Data:</strong> Inscrições Abertas</p>
-                    <p><strong>Hora:</strong> 24h</p>
-                    <p><strong>Público:</strong> Candidatos e novos estudantes</p>
-                    <p><strong>Modalidade:</strong> Online</p>
-                    <p><strong>Local:</strong> Site do IFPE (CVEST)</p>
-                    <div class="descricao-evento">
-                        <p><strong>Descrição:</strong> Estude no IFPE! O Processo de Ingresso 2026.2 é totalmente gratuito e sem provas. A seleção é realizada através do seu desempenho escolar (histórico) ou pela nota do Enem. Não perca essa chance de transformar o seu futuro na área de tecnologia.</p>
-                    </div>
-                    <button class="btn-ver-mais">Veja Mais</button>
-                </div>
-            </div>
-
-          
-
+        <section class="galeria-eventos" id="gridEventos">
+            <p style="text-align: center; width: 100%;">Carregando eventos...</p>
         </section>
 
     </main>
@@ -150,8 +131,63 @@
 
     </footer>
 
+    <!-- Seção de Gerenciamento de Eventos -->
+    <section id="adminFormSection" class="admin-form-section" style="display: none;">
+        <div class="container">
+            <h2>Gerenciar Eventos</h2>
+            <form id="formAdminEdit">
+                
+                <fieldset>
+                    <legend>Selecionar Evento</legend>
+                    <label>Selecione um evento para editar ou adicione um novo:</label>
+                    <select id="selectEvento" style="width: 100%; padding: 10px; margin-bottom: 20px;">
+                        <option value="novo">-- Adicionar Novo Evento --</option>
+                        <!-- Options carregadas dinamicamente -->
+                    </select>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Dados do Evento</legend>
+                    <label>Título do Evento:</label>
+                    <input type="text" id="input-titulo" required>
+                    
+                    <label>Banner/Imagem do Evento (Arquivo):</label>
+                    <input type="file" id="input-foto" accept="image/*" style="margin-bottom: 5px;">
+                    <small id="foto-atual-texto" style="display: block; margin-bottom: 20px; color: #666; font-style: italic;">Nenhuma imagem atual.</small>
+
+                    <label>Data:</label>
+                    <input type="text" id="input-data" placeholder="Ex: Inscrições Abertas" required>
+
+                    <label>Hora:</label>
+                    <input type="text" id="input-hora" placeholder="Ex: 24h" required>
+
+                    <label>Público-Alvo:</label>
+                    <input type="text" id="input-publico" required>
+
+                    <label>Modalidade:</label>
+                    <input type="text" id="input-modalidade" placeholder="Ex: Presencial, Online" required>
+
+                    <label>Local/Plataforma:</label>
+                    <input type="text" id="input-local" required>
+
+                    <label>Descrição:</label>
+                    <textarea id="input-descricao" rows="5" required></textarea>
+
+                    <label>Link (Opcional):</label>
+                    <input type="url" id="input-link" placeholder="Ex: https://meuevento.com">
+                </fieldset>
+
+                <div class="modal-admin-actions">
+                    <button type="button" id="btnRemoverEvento" class="btn-admin-cancelar" style="background-color: #c0392b; display: none;">Remover Evento</button>
+                    <button type="button" id="btnCancelarEdicao" class="btn-admin-cancelar">Cancelar</button>
+                    <button type="submit" class="btn-admin-salvar">Salvar Evento</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
     <script src="js/acessibilidade.js"></script>
-    <script src="js/authController.js"></script>
-    <script src="js/eventos.js"></script>
+    <script type="module" src="js/authController.js"></script>
+    <script type="module" src="js/adminEventos.js"></script>
 </body>
 </html>
