@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const formAdminEdit = document.getElementById('formAdminEdit');
     const rodape = document.getElementById('rodape') || document.querySelector('footer');
 
-    // DOM - Público
     const viewCoordNome = document.getElementById('view-coord-nome');
     const viewCoordEmail = document.getElementById('view-coord-email');
     const viewCoordTelefone = document.getElementById('view-coord-telefone');
@@ -25,7 +24,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const viewBolsasIntro = document.getElementById('view-bolsas-intro');
     const viewBolsasContainer = document.getElementById('view-bolsas-container');
 
-    // Dados Iniciais
     let dadosExtensao = {
         coordNome: "Pedro José da Silva Júnior",
         coordEmail: "extensao@belojardim.ifpe.edu.br",
@@ -51,7 +49,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         ]
     };
 
-    // 1. Carregar Dados
     async function carregarConteudo() {
         const { data, error } = await supabase
             .from('page_content')
@@ -66,7 +63,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     function renderizarPublico() {
-        // Contato
         viewCoordNome.textContent = dadosExtensao.coordNome;
         viewCoordEmail.textContent = dadosExtensao.coordEmail;
         viewCoordTelefone.textContent = dadosExtensao.coordTelefone;
@@ -74,7 +70,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         viewSiecEmail.textContent = dadosExtensao.siecEmail;
         viewSiecTelefone.textContent = dadosExtensao.siecTelefone;
         
-        // Programas
         viewProgramasContainer.innerHTML = '';
         if (dadosExtensao.programas.length === 0) {
             viewProgramasContainer.innerHTML = '<p style="color:#666; font-style:italic;">Nenhum programa cadastrado.</p>';
@@ -88,7 +83,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
         }
 
-        // Estágio
         viewEstagioIntro.innerHTML = dadosExtensao.estagioIntro.replace(/\n/g, '<br>');
         viewEstagioAtribuicoes.innerHTML = '';
         if(dadosExtensao.estagioAtribuicoes.length === 0) {
@@ -99,7 +93,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
         }
 
-        // Bolsas
         viewBolsasIntro.innerHTML = dadosExtensao.bolsasIntro.replace(/\n/g, '<br>');
         viewBolsasContainer.innerHTML = '';
         if (dadosExtensao.bolsas.length === 0) {
@@ -116,11 +109,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     await carregarConteudo();
 
-    // 2. Admin Verificacao
     const { data: { session } } = await supabase.auth.getSession();
     if (session) adminBanner.style.display = 'block';
 
-    // 3. Interface Admin
     btnEditarPagina.addEventListener('click', () => {
         document.getElementById('input-coord-nome').value = dadosExtensao.coordNome || '';
         document.getElementById('input-coord-email').value = dadosExtensao.coordEmail || '';
@@ -185,11 +176,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         );
     }
 
-    // Função Upload
     async function uploadPdf(fileInputId, btnOriginalText, btnObj, callbackSucesso) {
         const fileInput = document.getElementById(fileInputId);
         if (!fileInput.files || fileInput.files.length === 0) {
-            callbackSucesso(null); // avança sem arquivo
+            callbackSucesso(null);
             return;
         }
 
@@ -216,7 +206,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         btnObj.disabled = false;
     }
 
-    // 4. Adicionar Items
     document.getElementById('btnAddAtribuicao').addEventListener('click', () => {
         const val = document.getElementById('input-estagio-atribuicao').value.trim();
         if(val) { dadosExtensao.estagioAtribuicoes.push(val); document.getElementById('input-estagio-atribuicao').value = ''; renderizarListasAdmin(); }
@@ -250,7 +239,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     });
 
-    // 5. Salvar Tudo
     formAdminEdit.addEventListener('submit', async (e) => {
         e.preventDefault();
 

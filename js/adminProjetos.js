@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const formAdminEdit = document.getElementById('formAdminEdit');
     const rodape = document.getElementById('rodape') || document.querySelector('footer');
 
-    // Elementos de Visualização (Público)
     const viewCoordNome = document.getElementById('view-coord-nome');
     const viewCoordEmail = document.getElementById('view-coord-email');
     const viewCoordTelefone = document.getElementById('view-coord-telefone');
@@ -26,7 +25,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const viewBoletinsGrid = document.getElementById('view-boletins-grid');
     const viewProjetosTbody = document.getElementById('view-projetos-tbody');
 
-    // Arrays Locais
     let dadosPesquisa = {
         coordNome: "Luciana Uchôa Barbosa",
         coordEmail: "cpesqpi@belojardim.ifpe.edu.br",
@@ -42,7 +40,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         projetos: []
     };
 
-    // 1. Carregar Dados do Supabase
     async function carregarConteudo() {
         const { data, error } = await supabase
             .from('page_content')
@@ -57,7 +54,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     function renderizarPublico() {
-        // Contato
         viewCoordNome.textContent = dadosPesquisa.coordNome;
         viewCoordEmail.textContent = dadosPesquisa.coordEmail;
         viewCoordTelefone.textContent = dadosPesquisa.coordTelefone;
@@ -71,7 +67,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
         }
 
-        // Iniciação
         viewIniciacaoIntro.innerHTML = dadosPesquisa.iniciacaoIntro.replace(/\n/g, '<br>');
         
         viewIniciacaoProgramas.innerHTML = '';
@@ -92,7 +87,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
         }
 
-        // Editais
         const renderLinks = (container, lista) => {
             container.innerHTML = '';
             if (lista.length === 0) {
@@ -106,14 +100,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         renderLinks(viewEditaisAndamento, dadosPesquisa.editaisAndamento);
         renderLinks(viewEditaisEncerrados, dadosPesquisa.editaisEncerrados);
 
-        // IFPESQUISANDO (Boletins)
         viewIfpesquisandoIntro.innerHTML = dadosPesquisa.ifpesquisandoIntro.replace(/\n/g, '<br>');
         viewBoletinsGrid.innerHTML = '';
         
         if (dadosPesquisa.boletins.length === 0) {
             viewBoletinsGrid.innerHTML = '<p>Nenhum boletim cadastrado.</p>';
         } else {
-            // Agrupar por ano
             const grupos = {};
             dadosPesquisa.boletins.forEach(b => {
                 if (!grupos[b.ano]) grupos[b.ano] = [];
@@ -131,7 +123,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
         }
 
-        // Projetos
         viewProjetosTbody.innerHTML = '';
         if (dadosPesquisa.projetos.length === 0) {
             viewProjetosTbody.innerHTML = '<tr><td colspan="3">Nenhum projeto cadastrado.</td></tr>';
@@ -144,15 +135,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     await carregarConteudo();
 
-    // 2. Verificar Admin Logado
     const { data: { session } } = await supabase.auth.getSession();
     if (session) {
         adminBanner.style.display = 'block';
     }
 
-    // 3. Abrir Painel de Admin
     btnEditarPagina.addEventListener('click', () => {
-        // Preencher inputs de texto simples
         document.getElementById('input-coord-nome').value = dadosPesquisa.coordNome || '';
         document.getElementById('input-coord-email').value = dadosPesquisa.coordEmail || '';
         document.getElementById('input-coord-telefone').value = dadosPesquisa.coordTelefone || '';
@@ -172,10 +160,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         conteudoMain.style.display = 'block';
         adminBanner.style.display = 'block';
         if (rodape) rodape.style.display = '';
-        carregarConteudo(); // descarta edições não salvas
+        carregarConteudo();
     });
 
-    // 4. Funções Auxiliares para Listas do Admin
     function renderListaAdminBasica(containerId, lista, fnHtml, onClickRemover) {
         const container = document.getElementById(containerId);
         container.innerHTML = '';
@@ -200,38 +187,31 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     function renderizarListasAdmin() {
-        // Assessoria
         renderListaAdminBasica('admin-lista-assessoria', dadosPesquisa.assessores, 
             a => `<strong>${a.nome}</strong> (${a.email})`, 
             idx => dadosPesquisa.assessores.splice(idx, 1)
         );
-        // Programas
         renderListaAdminBasica('admin-lista-programas', dadosPesquisa.programas, 
             p => `<strong>${p.nome}:</strong> ${p.desc}`, 
             idx => dadosPesquisa.programas.splice(idx, 1)
         );
-        // Docs Iniciação
         renderListaAdminBasica('admin-lista-docs-iniciacao', dadosPesquisa.docsIniciacao, 
             d => `📄 <a href="${d.url}" target="_blank">${d.titulo}</a>`, 
             idx => dadosPesquisa.docsIniciacao.splice(idx, 1)
         );
-        // Editais Andamento
         renderListaAdminBasica('admin-lista-editais-andamento', dadosPesquisa.editaisAndamento, 
             d => `📄 <a href="${d.url}" target="_blank">${d.titulo}</a>`, 
             idx => dadosPesquisa.editaisAndamento.splice(idx, 1)
         );
-        // Editais Encerrados
         renderListaAdminBasica('admin-lista-editais-encerrados', dadosPesquisa.editaisEncerrados, 
             d => `📄 <a href="${d.url}" target="_blank">${d.titulo}</a>`, 
             idx => dadosPesquisa.editaisEncerrados.splice(idx, 1)
         );
-        // Boletins (Render customizado por causa da grade, mas pra facilitar no admin faremos lista simples)
         renderListaAdminBasica('admin-lista-boletins', dadosPesquisa.boletins, 
             b => `<strong>${b.ano}</strong> - 📄 <a href="${b.url}" target="_blank">${b.titulo}</a>`, 
             idx => dadosPesquisa.boletins.splice(idx, 1)
         );
 
-        // Projetos (Tabela)
         const tbodyProj = document.getElementById('admin-lista-projetos');
         tbodyProj.innerHTML = '';
         dadosPesquisa.projetos.forEach((p, index) => {
@@ -249,7 +229,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
-    // 5. Handlers de Adição Local
     document.getElementById('btnAddAssessor').addEventListener('click', () => {
         const nome = document.getElementById('input-assessor-nome').value.trim();
         const email = document.getElementById('input-assessor-email').value.trim();
@@ -269,7 +248,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         if(nome) { dadosPesquisa.projetos.push({nome, coord, status}); renderizarListasAdmin(); document.getElementById('input-projeto-nome').value=''; document.getElementById('input-projeto-coord').value=''; }
     });
 
-    // Função Genérica de Upload
     async function uploadPdf(fileInputId, btnId, callbackSucesso) {
         const fileInput = document.getElementById(fileInputId);
         const btn = document.getElementById(btnId);
@@ -330,15 +308,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         uploadPdf('input-boletim-pdf', 'btnAddBoletim', (url) => {
             dadosPesquisa.boletins.push({ano, titulo, url});
             document.getElementById('input-boletim-titulo').value='';
-            // nao limpa o ano pra facilitar cadastrar varios do mesmo ano
         });
     });
 
-    // 6. Salvar Tudo no Banco de Dados
     formAdminEdit.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        // Atualiza textos na memória
         dadosPesquisa.coordNome = document.getElementById('input-coord-nome').value;
         dadosPesquisa.coordEmail = document.getElementById('input-coord-email').value;
         dadosPesquisa.coordTelefone = document.getElementById('input-coord-telefone').value;

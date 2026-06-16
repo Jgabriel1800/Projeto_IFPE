@@ -10,7 +10,6 @@
 <body>
 
 
-    <!-- Barra de acessibilidade -->
     <div class="top-bar">
         <a href="#conteudo" aria-label="Ir para o conteúdo"></a>
         <a href="#conteudo" accesskey="1">
@@ -25,10 +24,8 @@
             Ir para o rodapé <span class="shortcut" data-key="3"></span></a>
     </div>
 
-    <!-- Cabeçalho -->
     <header class="header">
 
-        <!-- Logo -->
         <div class="logo-area">
             <img src="assets/logo_EngenhariaSoftware.png"
                  alt="Escudo Engenharia de Software"
@@ -40,7 +37,6 @@
             </div>
         </div>
 
-        <!-- Menu -->
         <nav id="menu">
             <ul class="menu">
                 <li><a id="homeLink" href="index.html">Home</a></li>
@@ -59,14 +55,12 @@
             </ul>
         </nav>
 
-        <!-- Entrar -->
         <div class="login">
             <a id="entrarLink" href="login.html">Entrar</a>
         </div>
 
     </header>
 
-    <!-- Barra do Admin -->
     <div class="admin-banner" id="adminBanner" style="display: none;">
         <button id="btnEditarPagina" class="btn-admin-edit">Gerenciar Eventos</button>
     </div>
@@ -119,7 +113,7 @@
 
                 <div class="footer-social">
 
-                    <a href="#">
+                    <a href="https://www.instagram.com/engsoftware_ifpe/" target="_blank" rel="noopener noreferrer">
                         <img src="assets/icones/icone_instagram.png" alt="Instagram">
                     </a>
 
@@ -131,7 +125,6 @@
 
     </footer>
 
-    <!-- Seção de Gerenciamento de Eventos -->
     <section id="adminFormSection" class="admin-form-section" style="display: none;">
         <div class="container">
             <h2>Gerenciar Eventos</h2>
@@ -142,7 +135,6 @@
                     <label>Selecione um evento para editar ou adicione um novo:</label>
                     <select id="selectEvento" style="width: 100%; padding: 10px; margin-bottom: 20px;">
                         <option value="novo">-- Adicionar Novo Evento --</option>
-                        <!-- Options carregadas dinamicamente -->
                     </select>
                 </fieldset>
 

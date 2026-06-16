@@ -64,7 +64,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             .replace(/[^a-z0-9-]/g, '');
     }
 
-    // 1. Carregar Dados
     async function carregarConteudo() {
         const { data, error } = await supabase
             .from('page_content')
@@ -91,7 +90,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         dadosFaq.faqs.forEach(f => {
             const idTag = gerarIdBaseadoNoTitulo(f.titulo);
 
-            // Gerar card FAQ
             let htmlCard = `
             <article id="${idTag}" class="faq-card" style="background-color:#fff; padding:20px; border-radius:8px; box-shadow:0 4px 6px rgba(0,0,0,0.05); margin-bottom:20px;">
                 <h3 style="color:#252b73; margin-top:0;">${f.titulo}</h3>
@@ -109,20 +107,17 @@ document.addEventListener('DOMContentLoaded', async () => {
             htmlCard += `</article>`;
             viewFaqContainer.innerHTML += htmlCard;
 
-            // Gerar Link de Rodapé
             viewFaqRodapeLinks.innerHTML += `<a href="faq.html#${idTag}">${f.titulo}</a>`;
         });
     }
 
     await carregarConteudo();
 
-    // 2. Admin Verificacao
     const { data: { session } } = await supabase.auth.getSession();
     if (session) adminBanner.style.display = 'block';
 
-    // 3. Abrir Painel
     btnEditarPagina.addEventListener('click', () => {
-        passosTemporarios = []; // Reseta a lista temporária de criação
+        passosTemporarios = [];
         renderizarListaPassosTemp();
         renderizarListaAdmin();
 
@@ -140,7 +135,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         carregarConteudo();
     });
 
-    // Lógica para adicionar passos na criação de uma FAQ
+
     document.getElementById('btnAddPasso').addEventListener('click', () => {
         const val = document.getElementById('input-faq-passo').value.trim();
         if (val) {
@@ -168,7 +163,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
-    // Adicionar a FAQ na lista
     document.getElementById('btnAddFaq').addEventListener('click', () => {
         const titulo = document.getElementById('input-faq-titulo').value.trim();
         const desc = document.getElementById('input-faq-desc').value.trim();
@@ -181,7 +175,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         dadosFaq.faqs.push({
             titulo: titulo,
             desc: desc,
-            passos: [...passosTemporarios] // clona o array
+            passos: [...passosTemporarios]
         });
 
         document.getElementById('input-faq-titulo').value = '';
@@ -224,7 +218,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
-    // Salvar no Banco
     formAdminEdit.addEventListener('submit', async (e) => {
         e.preventDefault();
 

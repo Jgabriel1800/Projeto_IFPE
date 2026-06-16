@@ -21,8 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             
             try {
-                // O usuário já está autenticado temporariamente graças ao link com o token
-                // Então, podemos apenas chamar o updateUser para atualizar a senha
                 const { data, error } = await supabase.auth.updateUser({
                     password: newPassword
                 });
@@ -33,17 +31,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     return;
                 }
                 
-                // Atualiza a flag 'primeiro_acesso' para false no banco de dados
                 if (data && data.user && data.user.email) {
                     const email = data.user.email;
                     
-                    // Atualiza na tabela docentes
                     await supabase
                         .from('docentes')
                         .update({ primeiro_acesso: false })
                         .eq('email_institucional', email);
                         
-                    // Atualiza na tabela administradores
                     await supabase
                         .from('administradores')
                         .update({ primeiro_acesso: false })
@@ -51,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 
                 alert("Senha redefinida com sucesso! Você já pode fazer login com a nova senha.");
-                window.location.href = "login.html"; // Redireciona de volta para o login
+                window.location.href = "login.html";
                 
             } catch (erro) {
                 console.error("Erro inesperado:", erro);
@@ -61,7 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Este evento captura quando o usuário chega na página a partir do link do e-mail
 supabase.auth.onAuthStateChange((event, session) => {
     if (event === 'PASSWORD_RECOVERY') {
         console.log("Fluxo de recuperação de senha iniciado. Sessão temporária estabelecida.");

@@ -9,16 +9,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     const formAdminEdit = document.getElementById('formAdminEdit');
     const rodape = document.getElementById('rodape') || document.querySelector('footer');
 
-    // DOM Público
     const viewMonitoriaIntro = document.getElementById('view-monitoria-intro');
     const viewMonitoriasTbody = document.getElementById('view-monitorias-tbody');
     const viewMonitoriaRodape = document.getElementById('view-monitoria-rodape');
 
-    // DOM Admin
     const inputMonStatus = document.getElementById('input-mon-status');
     const containerMonPdf = document.getElementById('container-mon-pdf');
 
-    // Estado Local
     let dadosMonitoria = {
         intro: "Nesta seção, você encontrará uma tabela contendo informações essenciais sobre as monitorias.",
         rodape: "Caso uma monitoria esteja aberta à inscrição e não possua edital disponível, por favor, procure informações na secretaria do bloco de engenharia.",
@@ -31,7 +28,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         ]
     };
 
-    // 1. Carregar Dados
     async function carregarConteudo() {
         const { data, error } = await supabase
             .from('page_content')
@@ -58,7 +54,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         dadosMonitoria.monitorias.forEach(m => {
             let discHtml = m.disciplina;
             
-            // Lógica do Edital de Monitoria
             if (m.status === 'Aberto à inscrição' && m.pdfUrl) {
                 discHtml = `<a href="${m.pdfUrl}" download target="_blank" class="link-destaque"><img src="assets/icones/icone_pdf.png" alt="PDF" style="vertical-align:middle; width:20px; margin-right:5px;">${m.disciplina}</a>`;
             }
@@ -79,11 +74,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     await carregarConteudo();
 
-    // 2. Admin Verificação
     const { data: { session } } = await supabase.auth.getSession();
     if (session) adminBanner.style.display = 'block';
 
-    // 3. Abrir Painel
     btnEditarPagina.addEventListener('click', () => {
         document.getElementById('input-monitoria-intro').value = dadosMonitoria.intro || '';
         document.getElementById('input-monitoria-rodape').value = dadosMonitoria.rodape || '';
@@ -104,13 +97,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         carregarConteudo();
     });
 
-    // Toggle Input de PDF
     inputMonStatus.addEventListener('change', (e) => {
         if(e.target.value === 'Aberto à inscrição') {
             containerMonPdf.style.display = 'block';
         } else {
             containerMonPdf.style.display = 'none';
-            document.getElementById('input-mon-pdf').value = ''; // reseta
+            document.getElementById('input-mon-pdf').value = '';
         }
     });
 
@@ -145,11 +137,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
-    // Upload
     async function uploadPdf(fileInputId, btnObj, callbackSucesso) {
         const fileInput = document.getElementById(fileInputId);
         if (!fileInput.files || fileInput.files.length === 0) {
-            callbackSucesso(null); // avança sem arquivo
+            callbackSucesso(null);
             return;
         }
 
@@ -177,7 +168,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         btnObj.disabled = false;
     }
 
-    // 4. Adicionar Nova Monitoria
     document.getElementById('btnAddMonitoria').addEventListener('click', () => {
         const disciplina = document.getElementById('input-mon-disc').value.trim();
         const periodo = document.getElementById('input-mon-periodo').value.trim();
@@ -193,7 +183,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
 
-        // Se estiver aberto, tenta subir o PDF se houver
         if(status === 'Aberto à inscrição') {
             uploadPdf('input-mon-pdf', btn, (url) => {
                 adicionarAoArray(url);
@@ -207,7 +196,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 disciplina, periodo, professor, tipo, duracao, status, aluno, pdfUrl
             });
             
-            // Limpa form
             document.getElementById('input-mon-disc').value = '';
             document.getElementById('input-mon-periodo').value = '';
             document.getElementById('input-mon-prof').value = '';
@@ -219,7 +207,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
 
-    // 5. Salvar Tudo
     formAdminEdit.addEventListener('submit', async (e) => {
         e.preventDefault();
 
