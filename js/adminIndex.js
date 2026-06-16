@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const conteudoMain = document.getElementById('conteudo');
     const btnCancelarEdicao = document.getElementById('btnCancelarEdicao');
     const formAdminEdit = document.getElementById('formAdminEdit');
+    const rodape = document.getElementById('rodape') || document.querySelector('.footer');
 
     // Elementos da página
     const elTituloHero = document.getElementById('edit-titulo-hero');
@@ -122,6 +123,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Esconde o conteúdo principal e mostra o formulário
         conteudoMain.style.display = 'none';
         adminBanner.style.display = 'none';
+        if (rodape) rodape.style.display = 'none';
         adminFormSection.style.display = 'block';
     });
 
@@ -130,6 +132,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         adminFormSection.style.display = 'none';
         conteudoMain.style.display = 'block';
         adminBanner.style.display = 'block';
+        if (rodape) rodape.style.display = '';
     });
 
     // Salvar Alterações
@@ -192,6 +195,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         adminFormSection.style.display = 'none';
         conteudoMain.style.display = 'block';
         adminBanner.style.display = 'block';
+        if (rodape) rodape.style.display = '';
         alert("Página atualizada com sucesso!");
     });
 });

@@ -68,29 +68,30 @@
 
     </header>
 
+    <!-- Barra do Admin -->
+    <div class="admin-banner" id="adminBanner" style="display: none;">
+        <button id="btnEditarPagina" class="btn-admin-edit">Editar Página</button>
+    </div>
+
     <main id="conteudo">
         
-        <!-- Título da Página e Botão Editar (Apenas ADM) -->
+        <!-- Título da Página -->
         <div class="titulo-pagina-container container">
-            <!-- Este botão deve ser controlado pelo JS (ex: authController.js) para aparecer apenas para o ADM -->
-            <button id="btn-editar-sobre" class="btn-editar" style="display: none;">
-                ✏️ Editar
-            </button>
             <h2 class="titulo-centralizado">SOBRE</h2>
         </div>
 
         <!-- Seção 1: O que é Engenharia de Software? -->
         <section class="sobre-descricao container">
-            <h3>O que é Engenharia de Software?</h3>
-            <p>
+            <h3 id="edit-titulo-oque">O que é Engenharia de Software?</h3>
+            <p id="edit-texto-oque">
                 Engenharia de Software é a disciplina que combina habilidades técnicas, criatividade e gerenciamento de projetos para projetar, desenvolver e manter sistemas de software complexos e confiáveis. É a força motriz por trás de aplicativos e sistemas que usamos todos os dias, desde aplicativos de smartphone até sistemas de controle de tráfego aéreo.
             </p>
         </section>
 
         <!-- Seção 2: Estrutura (Galeria de Fotos) -->
         <section class="sobre-estrutura container">
-            <h3>Estrutura</h3>
-            <p>
+            <h3 id="edit-titulo-estrutura">Estrutura</h3>
+            <p id="edit-texto-estrutura">
                 Nossa infraestrutura inclui um moderno bloco de engenharia, equipado com laboratórios de última geração, criados para proporcionar um ambiente de aprendizado prático e estimulante. Temos o compromisso de oferecer aos nossos estudantes as melhores condições para o desenvolvimento de suas habilidades em Engenharia de Software.
             </p>
 
@@ -146,8 +147,8 @@
             </div>
         <!-- Seção 3: Perfil Profissional (Editável pelo ADM) -->
         <section class="sobre-perfil container" id="secao-perfil">
-            <h3>Perfil Profissional</h3>
-            <p id="texto-perfil">
+            <h3 id="edit-titulo-perfil">Perfil Profissional</h3>
+            <p id="edit-texto-perfil">
                 No IFPE - Belo Jardim, buscamos formar profissionais de Engenharia de Software altamente qualificados. Nossos alunos adquirem competências técnicas sólidas, capacidade de trabalho em equipe, habilidades de comunicação e a mentalidade necessária para enfrentar os desafios do setor de tecnologia da informação. Nossa abordagem prática e orientada para o mercado de trabalho prepara nossos graduados para atuarem em diversas áreas, desde desenvolvimento de software até gerenciamento de projetos. Abaixo você pode acessar alguns documentos importantes.
             </p>
             <ul class="lista-documentos">
@@ -166,8 +167,8 @@
 
         <!-- Seção 4: Documentos Básicos (Editável pelo ADM) -->
         <section class="sobre-documentos container" id="secao-documentos">
-            <h3>Documentos Básicos</h3>
-            <p id="texto-documentos">
+            <h3 id="edit-titulo-documentos">Documentos Básicos</h3>
+            <p id="edit-texto-documentos">
             </p>
             <ul class="lista-documentos">
                 <li>
@@ -243,8 +244,55 @@
 
     </footer>
 
+    <!-- Seção de Edição (substitui o conteúdo ao editar) -->
+    <section id="adminFormSection" class="admin-form-section" style="display: none;">
+        <div class="container">
+            <h2>Editar Conteúdo da Página</h2>
+            <form id="formAdminEdit">
+                
+                <fieldset>
+                    <legend>Seção: O que é Engenharia de Software?</legend>
+                    <label>Título:</label>
+                    <input type="text" id="input-titulo-oque" required>
+                    <label>Texto:</label>
+                    <textarea id="input-texto-oque" rows="5" required></textarea>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Seção: Estrutura</legend>
+                    <label>Título:</label>
+                    <input type="text" id="input-titulo-estrutura" required>
+                    <label>Texto:</label>
+                    <textarea id="input-texto-estrutura" rows="4" required></textarea>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Seção: Perfil Profissional</legend>
+                    <label>Título:</label>
+                    <input type="text" id="input-titulo-perfil" required>
+                    <label>Texto:</label>
+                    <textarea id="input-texto-perfil" rows="6" required></textarea>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Seção: Documentos Básicos</legend>
+                    <label>Título:</label>
+                    <input type="text" id="input-titulo-documentos" required>
+                    <label>Texto:</label>
+                    <textarea id="input-texto-documentos" rows="3"></textarea>
+                </fieldset>
+
+                <div class="modal-admin-actions">
+                    <button type="button" id="btnCancelarEdicao" class="btn-admin-cancelar">Cancelar</button>
+                    <button type="submit" class="btn-admin-salvar">Salvar Alterações</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
     <!-- Scripts -->
     <script src="js/acessibilidade.js"></script>
-    <script src="js/authController.js"></script> <!-- Script para controle de exibição do botão Editar -->
+    <script type="module" src="js/authController.js"></script>
+    <script type="module" src="js/adminSobre.js"></script>
 </body>
 </html>

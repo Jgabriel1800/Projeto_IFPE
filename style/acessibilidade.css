@@ -422,6 +422,10 @@ main {
     display: block;
 }
 
+.docente-card.ativo .docente-resumo .btn-docente {
+    display: none;
+}
+
 /* ========================= */
 /* HORÁRIOS */
 /* ========================= */
