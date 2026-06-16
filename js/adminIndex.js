@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const formAdminEdit = document.getElementById('formAdminEdit');
     const rodape = document.getElementById('rodape') || document.querySelector('.footer');
 
-    // Elementos da página
     const elTituloHero = document.getElementById('edit-titulo-hero');
     const elTextoHero = document.getElementById('edit-texto-hero');
     const elTituloMercado = document.getElementById('edit-titulo-mercado');
@@ -30,10 +29,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     const elTituloServicos = document.getElementById('edit-titulo-servicos');
     const elTextoServicos = document.getElementById('edit-texto-servicos');
     
-    // Projetos de Alunos (Public View)
     const viewProjetosContainer = document.getElementById('view-projetos-alunos-container');
 
-    // Campos do formulário
     const inTituloHero = document.getElementById('input-titulo-hero');
     const inTextoHero = document.getElementById('input-texto-hero');
     const inTituloMercado = document.getElementById('input-titulo-mercado');
@@ -54,10 +51,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     const inTituloServicos = document.getElementById('input-titulo-servicos');
     const inTextoServicos = document.getElementById('input-texto-servicos');
 
-    // Estado Local de Projetos de Alunos
     let projetosAlunos = [];
 
-    // Carregar conteúdo do Supabase (para todos os usuários)
     async function carregarConteudo() {
         const { data, error } = await supabase
             .from('page_content')
@@ -123,13 +118,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     await carregarConteudo();
 
-    // Verificar se o usuário está logado (Administrador)
     const { data: { session } } = await supabase.auth.getSession();
     if (session) {
         adminBanner.style.display = 'block';
     }
 
-    // Lógica do Formulário (Alternar visibilidade)
     btnEditarPagina.addEventListener('click', () => {
         inTituloHero.value = elTituloHero.textContent.trim();
         inTextoHero.value = elTextoHero.textContent.trim();
@@ -164,7 +157,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         conteudoMain.style.display = 'block';
         adminBanner.style.display = 'block';
         if (rodape) rodape.style.display = '';
-        carregarConteudo(); // recarrega do estado
+        carregarConteudo();
     });
 
     function renderizarListaProjetosAdmin() {
@@ -202,7 +195,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     async function uploadImagemProj(fileInputId, btnObj, callbackSucesso) {
         const fileInput = document.getElementById(fileInputId);
         if (!fileInput.files || fileInput.files.length === 0) {
-            callbackSucesso(null); // sem arquivo, avança
+            callbackSucesso(null);
             return;
         }
 
@@ -252,7 +245,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     });
 
-    // Salvar Alterações
     formAdminEdit.addEventListener('submit', async (e) => {
         e.preventDefault();
 
@@ -287,7 +279,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
 
-        // Atualiza a tela imediatamente
         elTituloHero.textContent = novoConteudo.tituloHero;
         elTextoHero.textContent = novoConteudo.textoHero;
         elTituloMercado.textContent = novoConteudo.tituloMercado;

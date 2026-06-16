@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const btnRemoverHorario = document.getElementById('btnRemoverHorario');
     const rodape = document.getElementById('rodape') || document.querySelector('footer');
 
-    // Inputs
     const inTipo = document.getElementById('input-tipo');
     const inIdentificacao = document.getElementById('input-identificacao');
     const labelIdentificacao = document.getElementById('label-identificacao');
@@ -26,7 +25,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     let listaTurmas = [];
     let listaLaboratorios = [];
 
-    // 1. Carregar e Renderizar Horários
     async function carregarHorarios() {
         const [turmasRes, labsRes] = await Promise.all([
             supabase.from('horarios_turmas').select('*').order('periodo', { ascending: true }),
@@ -44,7 +42,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     function renderizarGrids() {
-        // Grid Aulas
         gridAulas.innerHTML = ''; 
         if (listaTurmas.length === 0) {
             gridAulas.innerHTML = '<p style="text-align: center; width: 100%;">Nenhuma aula cadastrada.</p>';
@@ -53,7 +50,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const item = document.createElement('div');
                 item.className = 'horario-item';
                 
-                // Exemplo: se periodo for "1º Período", separa "1º" e "Período"
                 const partes = turma.periodo.split(' ');
                 const badgeStr = partes.shift() || '-';
                 const nomeStr = partes.join(' ') || 'Turma';
@@ -74,7 +70,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
         }
 
-        // Grid Laboratórios
         gridLaboratorios.innerHTML = '';
         if (listaLaboratorios.length === 0) {
             gridLaboratorios.innerHTML = '<p style="text-align: center; width: 100%;">Nenhum laboratório cadastrado.</p>';
@@ -83,7 +78,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const item = document.createElement('div');
                 item.className = 'horario-item';
                 
-                // Exemplo: se nome for "Laboratório 3", tenta pegar o numero para o badge
                 const match = lab.nome.match(/(\d+)/);
                 const badgeStr = match ? match[1] : 'L';
 
@@ -131,16 +125,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
-    // Inicialização
     await carregarHorarios();
 
-    // 2. Verificar Admin
     const { data: { session } } = await supabase.auth.getSession();
     if (session) {
         adminBanner.style.display = 'block';
     }
 
-    // Lógica para alternar formulário dependendo do Tipo (Turma vs Laboratorio)
     inTipo.addEventListener('change', () => {
         if (inTipo.value === 'Turma') {
             labelIdentificacao.textContent = 'Período (ex: 1º Período):';
@@ -151,7 +142,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
 
-    // 3. Interações do Formulário Administrativo
     btnEditarPagina.addEventListener('click', () => {
         conteudoMain.style.display = 'none';
         adminBanner.style.display = 'none';
@@ -190,8 +180,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 configurarPreviewPdf(lab.pdf_url);
             }
             
-            inTipo.dispatchEvent(new Event('change')); // dispara a alteração visual
-            inTipo.disabled = true; // não deixa mudar o tipo ao editar
+            inTipo.dispatchEvent(new Event('change'));
+            inTipo.disabled = true;
             btnRemoverHorario.style.display = 'inline-block';
         }
     });
@@ -205,7 +195,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (textoPdf) textoPdf.innerHTML = 'Nenhum arquivo atual.';
             inPdf.dataset.existingUrl = '';
         }
-        inPdf.value = ''; // Sempre limpa a seleção de arquivo do input ao carregar
+        inPdf.value = '';
     }
 
     function limparFormulario() {
@@ -217,13 +207,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         btnRemoverHorario.style.display = 'none';
     }
 
-    // 4. Salvar / Atualizar
     formAdminEdit.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         let urlPdf = inPdf.dataset.existingUrl || '';
 
-        // Se um novo arquivo foi selecionado
         if (inPdf.files && inPdf.files.length > 0) {
             const file = inPdf.files[0];
             const fileExt = file.name.split('.').pop();
@@ -290,11 +278,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         alert("Horário salvo com sucesso!");
-        await carregarHorarios(); // Recarrega listas
-        btnCancelarEdicao.click(); // Volta pra tela principal
+        await carregarHorarios();
+        btnCancelarEdicao.click();
     });
 
-    // 5. Remover
     btnRemoverHorario.addEventListener('click', async () => {
         const selecionado = selectHorario.value;
         if (selecionado === 'novo') return;

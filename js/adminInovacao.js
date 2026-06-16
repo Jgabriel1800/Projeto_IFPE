@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const formAdminEdit = document.getElementById('formAdminEdit');
     const rodape = document.getElementById('rodape') || document.querySelector('footer');
 
-    // DOM Público
     const viewCoordNome = document.getElementById('view-coord-nome');
     const viewCoordEmail = document.getElementById('view-coord-email');
     const viewCoordTelefone = document.getElementById('view-coord-telefone');
@@ -20,7 +19,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const viewSecoesContainer = document.getElementById('view-secoes-container');
     const viewSubmenuLista = document.getElementById('view-submenu-lista');
 
-    // Estado Local
     let dadosInovacao = {
         coordNome: "Pedro José da Silva Júnior",
         coordEmail: "extensao@belojardim.ifpe.edu.br",
@@ -50,7 +48,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             .replace(/[^a-z0-9-]/g, '');
     }
 
-    // 1. Carregar Dados
     async function carregarConteudo() {
         const { data, error } = await supabase
             .from('page_content')
@@ -65,7 +62,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     function renderizarPublico() {
-        // Informações de Contato Fixas
         viewCoordNome.textContent = dadosInovacao.coordNome;
         viewCoordEmail.textContent = dadosInovacao.coordEmail;
         viewCoordTelefone.textContent = dadosInovacao.coordTelefone;
@@ -73,7 +69,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         viewSiecEmail.textContent = dadosInovacao.siecEmail;
         viewSiecTelefone.textContent = dadosInovacao.siecTelefone;
 
-        // Renderizar Seções
         viewSecoesContainer.innerHTML = '';
         viewSubmenuLista.innerHTML = '';
 
@@ -86,10 +81,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         dadosInovacao.secoes.forEach(secao => {
             const anchorId = gerarIdBaseadoNoTitulo(secao.titulo);
             
-            // Submenu
             viewSubmenuLista.innerHTML += `<li><a href="#${anchorId}">${secao.titulo}</a></li>`;
 
-            // HTML da Seção Principal
             let htmlSecao = `<section id="${anchorId}" class="secao-projeto">
                 <h4>${secao.titulo}</h4>
                 <div style="margin-bottom: 20px;">${secao.desc.replace(/\\n/g, '<br>')}</div>
@@ -116,11 +109,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     await carregarConteudo();
 
-    // 2. Admin Verificacao
     const { data: { session } } = await supabase.auth.getSession();
     if (session) adminBanner.style.display = 'block';
 
-    // 3. Abrir Painel
     btnEditarPagina.addEventListener('click', () => {
         document.getElementById('input-coord-nome').value = dadosInovacao.coordNome || '';
         document.getElementById('input-coord-email').value = dadosInovacao.coordEmail || '';
@@ -176,11 +167,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
-    // Função de Upload
     async function uploadPdf(fileInputId, btnObj, callbackSucesso) {
         const fileInput = document.getElementById(fileInputId);
         if (!fileInput.files || fileInput.files.length === 0) {
-            callbackSucesso(null); // avança sem arquivo
+            callbackSucesso(null);
             return;
         }
 
@@ -208,7 +198,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         btnObj.disabled = false;
     }
 
-    // 4. Adicionar Nova Seção
     document.getElementById('btnAddSecao').addEventListener('click', () => {
         const titulo = document.getElementById('input-secao-titulo').value.trim();
         const desc = document.getElementById('input-secao-desc').value.trim();
@@ -236,7 +225,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     });
 
-    // 5. Salvar Tudo
     formAdminEdit.addEventListener('submit', async (e) => {
         e.preventDefault();
 

@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const formAdminEdit = document.getElementById('formAdminEdit');
     const rodape = document.getElementById('rodape') || document.querySelector('footer');
 
-    // Elementos da página - Textos
     const elTituloOque = document.getElementById('edit-titulo-oque');
     const elTextoOque = document.getElementById('edit-texto-oque');
     const elTituloEstrutura = document.getElementById('edit-titulo-estrutura');
@@ -19,11 +18,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     const elTituloDocumentos = document.getElementById('edit-titulo-documentos');
     const elTextoDocumentos = document.getElementById('edit-texto-documentos');
 
-    // Elementos da página - Documentos Dinâmicos
     const listaDocsPerfil = document.getElementById('lista-docs-perfil');
     const listaDocsBasicos = document.getElementById('lista-docs-basicos');
 
-    // Campos do formulário - Textos
     const inTituloOque = document.getElementById('input-titulo-oque');
     const inTextoOque = document.getElementById('input-texto-oque');
     const inTituloEstrutura = document.getElementById('input-titulo-estrutura');
@@ -33,7 +30,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const inTituloDocumentos = document.getElementById('input-titulo-documentos');
     const inTextoDocumentos = document.getElementById('input-texto-documentos');
 
-    // Campos do formulário - Gerenciar Documentos
     const inDocSecao = document.getElementById('input-doc-secao');
     const inDocTitulo = document.getElementById('input-doc-titulo');
     const inDocPdf = document.getElementById('input-doc-pdf');
@@ -41,11 +37,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     const adminListaPerfil = document.getElementById('admin-lista-perfil');
     const adminListaBasicos = document.getElementById('admin-lista-basicos');
 
-    // Estado local para documentos
     let documentosPerfil = [];
     let documentosBasicos = [];
 
-    // 1. Carregar conteúdo do Supabase (para todos os usuários)
     async function carregarConteudo() {
         const { data, error } = await supabase
             .from('page_content')
@@ -69,7 +63,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (c.tituloDocumentos) elTituloDocumentos.textContent = c.tituloDocumentos;
             if (c.textoDocumentos) elTextoDocumentos.textContent = c.textoDocumentos;
 
-            // Arrays de documentos
             documentosPerfil = c.documentosPerfil || [];
             documentosBasicos = c.documentosBasicos || [];
             renderizarDocumentosPublicos();
@@ -96,16 +89,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     await carregarConteudo();
 
-    // 2. Verificar se o usuário está logado (Administrador)
     const { data: { session } } = await supabase.auth.getSession();
     if (session) {
-        // Mostra a barra do admin se logado
         adminBanner.style.display = 'block';
     }
 
-    // 3. Lógica do Formulário
     btnEditarPagina.addEventListener('click', () => {
-        // Preenche o formulário com o conteúdo atual da tela
         inTituloOque.value = elTituloOque.textContent.trim();
         inTextoOque.value = elTextoOque.textContent.trim();
         inTituloEstrutura.value = elTituloEstrutura.textContent.trim();
@@ -115,10 +104,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         inTituloDocumentos.value = elTituloDocumentos.textContent.trim();
         inTextoDocumentos.value = elTextoDocumentos.textContent.trim();
 
-        // Renderiza listas de documentos no admin
         renderizarListasAdmin();
 
-        // Esconde o conteúdo principal e mostra o formulário
         conteudoMain.style.display = 'none';
         adminBanner.style.display = 'none';
         if (rodape) rodape.style.display = 'none';
@@ -126,13 +113,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     btnCancelarEdicao.addEventListener('click', () => {
-        // Volta para a visualização normal
         adminFormSection.style.display = 'none';
         conteudoMain.style.display = 'block';
         adminBanner.style.display = 'block';
         if (rodape) rodape.style.display = '';
         
-        // Se cancelou, recarrega do banco para descartar edições não salvas na memória local (ex: documentos apagados/adicionados por engano)
         carregarConteudo();
     });
 
@@ -157,7 +142,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             container.appendChild(li);
         });
 
-        // Adiciona eventos aos botões de remover
         container.querySelectorAll('.btn-remover-doc').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const s = e.target.getAttribute('data-secao');
@@ -167,12 +151,11 @@ document.addEventListener('DOMContentLoaded', async () => {
                 } else {
                     documentosBasicos.splice(idx, 1);
                 }
-                renderizarListasAdmin(); // Atualiza UI admin
+                renderizarListasAdmin();
             });
         });
     }
 
-    // 4. Adicionar Documento (Upload Dinâmico)
     btnAddDoc.addEventListener('click', async () => {
         const titulo = inDocTitulo.value.trim();
         const secao = inDocSecao.value;
@@ -228,7 +211,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         btnAddDoc.disabled = false;
     });
 
-    // 5. Salvar Alterações Finais
     formAdminEdit.addEventListener('submit', async (e) => {
         e.preventDefault();
 
@@ -245,7 +227,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             documentosBasicos: documentosBasicos
         };
 
-        // Salva no Supabase
         const { error } = await supabase
             .from('page_content')
             .upsert({ page: 'sobre', content: novoConteudo });
@@ -256,7 +237,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
 
-        // Atualiza a tela imediatamente (textos)
         elTituloOque.textContent = novoConteudo.tituloOque;
         elTextoOque.textContent = novoConteudo.textoOque;
         elTituloEstrutura.textContent = novoConteudo.tituloEstrutura;
@@ -266,10 +246,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         elTituloDocumentos.textContent = novoConteudo.tituloDocumentos;
         elTextoDocumentos.textContent = novoConteudo.textoDocumentos;
 
-        // Atualiza as listas na tela normal
         renderizarDocumentosPublicos();
 
-        // Volta para a visualização normal
         adminFormSection.style.display = 'none';
         conteudoMain.style.display = 'block';
         adminBanner.style.display = 'block';

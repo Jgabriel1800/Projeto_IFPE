@@ -1,7 +1,3 @@
-// =========================
-// Loop do menu
-// Entrar -> Home
-// =========================
 const entrar = document.getElementById("entrarLink");
 const home = document.getElementById("homeLink");
 
@@ -14,38 +10,27 @@ entrar.addEventListener("keydown", function (event) {
 
 });
 
-
-// =========================
-// Identificação do ambiente
-// =========================
 const userAgent = navigator.userAgent.toLowerCase();
 
 const isMac = /mac|iphone|ipad/.test(userAgent);
 const isFirefox = userAgent.includes("firefox");
 
-
-// =========================
-// Atalhos de acessibilidade
-// =========================
 document.addEventListener("keydown", function (event) {
 
     let atalhoValido = false;
 
-    // macOS → Control + Option + número
     if (isMac) {
         atalhoValido =
             event.ctrlKey &&
             event.altKey;
     }
 
-    // Firefox Windows/Linux → Alt + Shift + número
     else if (isFirefox) {
         atalhoValido =
             event.altKey &&
             event.shiftKey;
     }
 
-    // Chrome / Edge / outros → Alt + número
     else {
         atalhoValido =
             event.altKey &&
@@ -79,49 +64,38 @@ document.addEventListener("keydown", function (event) {
             block: "start"
         });
 
-        // move o foco para acessibilidade
         destino.setAttribute("tabindex", "-1");
         destino.focus();
     }
 
 });
 
-// =========================
-// Mostrar atalhos dinamicamente
-// =========================
-
 let shortcutText = "";
 
-// macOS → Control + Option + número
 if (isMac) {
     shortcutText = "Ctrl + Option + ";
 }
-// Firefox Windows/Linux → Alt + Shift + número
 else if (isFirefox) {
     shortcutText = "Alt + Shift + ";
 }
-// Chrome / Edge / outros → Alt + número
 else {
     shortcutText = "Alt + ";
 }
 
-// Preenche os spans
 document.querySelectorAll(".shortcut").forEach(span => {
     const key = span.getAttribute("data-key");
     span.textContent = `${shortcutText}${key}`;
 });
-/* Lógica para abrir/fechar o Dropdown de Projetos no clique */
 document.addEventListener('DOMContentLoaded', () => {
     const btnProjetos = document.querySelector('.dropdown > a');
     const menuDropdown = document.querySelector('.dropdown-content');
 
     if (btnProjetos && menuDropdown) {
         btnProjetos.addEventListener('click', function(event) {
-            event.preventDefault(); // Impede o link de recarregar a página
+            event.preventDefault();
             menuDropdown.classList.toggle('mostrar');
         });
 
-        // Fecha o menu se o usuário clicar em qualquer outro lugar da página
         window.addEventListener('click', function(event) {
             if (!event.target.matches('.dropdown > a')) {
                 if (menuDropdown.classList.contains('mostrar')) {

@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const btnRemoverDocente = document.getElementById('btnRemoverDocente');
     const rodape = document.getElementById('rodape') || document.querySelector('footer');
 
-    // Inputs
     const inNome = document.getElementById('input-nome');
     const inFoto = document.getElementById('input-foto');
     const inFormacao = document.getElementById('input-formacao');
@@ -28,7 +27,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     let listaDocentes = [];
 
-    // 1. Carregar e Renderizar Docentes
     async function carregarDocentes() {
         const { data, error } = await supabase
             .from('docentes')
@@ -47,7 +45,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     function renderizarGrid() {
-        gridDocentes.innerHTML = ''; // Limpa a grid
+        gridDocentes.innerHTML = '';
         
         if (listaDocentes.length === 0) {
             gridDocentes.innerHTML = '<p style="text-align: center; width: 100%; grid-column: 1 / -1;">Nenhum docente cadastrado.</p>';
@@ -58,10 +56,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             const card = document.createElement('div');
             card.className = 'docente-card';
             
-            // Foto padrão se estiver vazio
             const fotoUrl = docente.foto || 'assets/icones/icone_usuario.png';
             
-            // Formatação de componentes (substituindo vírgulas ou quebras por <br>)
             const componentesHtml = (docente.componentes || '').split(/[\n,]+/).map(c => c.trim()).filter(c => c).join('<br>');
 
             card.innerHTML = `
@@ -84,7 +80,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             gridDocentes.appendChild(card);
         });
 
-        // Adicionar eventos aos botões recém-criados
         document.querySelectorAll(".btn-docente").forEach(botao => {
             botao.addEventListener("click", function () {
                 const card = this.closest(".docente-card");
@@ -98,27 +93,22 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     function atualizarDropdown() {
-        // Preserva a primeira opção "Adicionar Novo"
         selectDocente.innerHTML = '<option value="novo">-- Adicionar Novo Docente --</option>';
         listaDocentes.forEach(docente => {
             const option = document.createElement('option');
-            // Usando ID do banco se existir, senao siape como fallback
             option.value = docente.id || docente.siape;
             option.textContent = docente.nome;
             selectDocente.appendChild(option);
         });
     }
 
-    // Inicialização
     await carregarDocentes();
 
-    // 2. Verificar Admin
     const { data: { session } } = await supabase.auth.getSession();
     if (session) {
         adminBanner.style.display = 'block';
     }
 
-    // 3. Interações do Formulário Administrativo
     btnEditarPagina.addEventListener('click', () => {
         conteudoMain.style.display = 'none';
         adminBanner.style.display = 'none';
@@ -143,7 +133,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             const docente = listaDocentes.find(d => String(d.id || d.siape) === selecionado);
             if (docente) {
                 inNome.value = docente.nome || '';
-                // Tratamento da foto
                 const textoFoto = document.getElementById('foto-atual-texto');
                 if (docente.foto) {
                     if (textoFoto) textoFoto.innerHTML = `Foto atual: <a href="${docente.foto}" target="_blank">Ver foto</a>`;
@@ -152,7 +141,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     if (textoFoto) textoFoto.innerHTML = 'Nenhuma foto atual.';
                     inFoto.dataset.existingUrl = '';
                 }
-                inFoto.value = ''; // Sempre limpar a seleção de arquivo ao carregar um usuário
+                inFoto.value = '';
                 inFormacao.value = docente.formacao || '';
                 inTitulacao.value = docente.titulacao || '';
                 inComponentes.value = docente.componentes || '';
@@ -176,11 +165,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         btnRemoverDocente.style.display = 'none';
     }
 
-    // 4. Salvar / Atualizar
     formAdminEdit.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        // Garantir que a titulação está no formato correto da constraint
         let tit = inTitulacao.value;
         const titulacoesPermitidas = ['Especialista', 'Mestre', 'Doutor', 'Pós-Doutor'];
         if (!titulacoesPermitidas.includes(tit)) {
@@ -190,7 +177,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         let urlFoto = inFoto.dataset.existingUrl || '';
 
-        // Se um novo arquivo foi selecionado
         if (inFoto.files && inFoto.files.length > 0) {
             const file = inFoto.files[0];
             const fileExt = file.name.split('.').pop();
@@ -220,7 +206,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             foto: urlFoto,
             formacao: inFormacao.value,
             titulacao: tit,
-            disciplinas: inComponentes.value || 'Não informada', // Not null na tabela
+            disciplinas: inComponentes.value || 'Não informada',
             componentes: inComponentes.value,
             experiencia: inExperiencia.value,
             lattes: inLattes.value,
@@ -228,7 +214,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             is_admin: inIsAdmin.checked
         };
 
-        // Envia o SIAPE se estiver preenchido
         if (inSiape.value) {
             novoDocente.siape = inSiape.value;
         }
@@ -237,7 +222,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         let erroDb = null;
 
         if (selecionado === 'novo') {
-            // Se marcado como admin, cria o login no Supabase Auth usando um cliente secundário para não deslogar o atual
             if (inIsAdmin.checked) {
                 const supabaseAuthSecundario = createClient(supabaseUrl, supabaseKey, {
                     auth: { persistSession: false, autoRefreshToken: false }
@@ -258,13 +242,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             const { error } = await supabase.from('docentes').insert([novoDocente]);
             erroDb = error;
         } else {
-            // Busca a chave primária que estamos usando (id ou siape)
             const docenteExistente = listaDocentes.find(d => String(d.id || d.siape) === selecionado);
             if(docenteExistente && docenteExistente.id) {
                  const { error } = await supabase.from('docentes').update(novoDocente).eq('id', selecionado);
                  erroDb = error;
             } else {
-                 // Fallback para update via SIAPE se a tabela não tiver ID genérico
                  const { error } = await supabase.from('docentes').update(novoDocente).eq('siape', selecionado);
                  erroDb = error;
             }
@@ -277,11 +259,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         alert("Docente salvo com sucesso!");
-        await carregarDocentes(); // Recarrega lista
-        btnCancelarEdicao.click(); // Volta pra tela principal
+        await carregarDocentes();
+        btnCancelarEdicao.click();
     });
 
-    // 5. Remover
     btnRemoverDocente.addEventListener('click', async () => {
         const selecionado = selectDocente.value;
         if (selecionado === 'novo') return;
@@ -309,7 +290,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         alert("Docente removido com sucesso!");
 
-        // Verifica se excluiu o próprio perfil
         const { data: { user } } = await supabase.auth.getUser();
         if (user && user.email === docenteExistente.email_institucional) {
             alert("Como você apagou o seu próprio perfil de administrador, você será deslogado.");

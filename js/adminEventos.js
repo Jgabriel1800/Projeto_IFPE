@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const btnRemoverEvento = document.getElementById('btnRemoverEvento');
     const rodape = document.getElementById('rodape') || document.querySelector('footer');
 
-    // Inputs
     const inTitulo = document.getElementById('input-titulo');
     const inFoto = document.getElementById('input-foto');
     const inData = document.getElementById('input-data');
@@ -26,7 +25,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     let listaEventos = [];
 
-    // 1. Carregar e Renderizar Eventos
     async function carregarEventos() {
         const { data, error } = await supabase
             .from('eventos')
@@ -44,7 +42,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     function renderizarGrid() {
-        gridEventos.innerHTML = ''; // Limpa a grid
+        gridEventos.innerHTML = '';
         
         if (listaEventos.length === 0) {
             gridEventos.innerHTML = '<p style="text-align: center; width: 100%; grid-column: 1 / -1;">Nenhum evento cadastrado.</p>';
@@ -55,7 +53,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             const card = document.createElement('div');
             card.className = 'card-evento';
             
-            // Foto padrão se estiver vazio
             const fotoUrl = evento.imagem || 'assets/logo_EngenhariaSoftware.png'; 
 
             card.innerHTML = `
@@ -78,7 +75,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     function atualizarDropdown() {
-        // Preserva a primeira opção "Adicionar Novo"
         selectEvento.innerHTML = '<option value="novo">-- Adicionar Novo Evento --</option>';
         listaEventos.forEach(evento => {
             const option = document.createElement('option');
@@ -88,16 +84,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
-    // Inicialização
     await carregarEventos();
 
-    // 2. Verificar Admin
     const { data: { session } } = await supabase.auth.getSession();
     if (session) {
         adminBanner.style.display = 'block';
     }
 
-    // 3. Interações do Formulário Administrativo
     btnEditarPagina.addEventListener('click', () => {
         conteudoMain.style.display = 'none';
         adminBanner.style.display = 'none';
@@ -123,7 +116,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (evento) {
                 inTitulo.value = evento.titulo || '';
                 
-                // Tratamento da foto
                 const textoFoto = document.getElementById('foto-atual-texto');
                 if (evento.imagem) {
                     if (textoFoto) textoFoto.innerHTML = `Imagem atual: <a href="${evento.imagem}" target="_blank">Ver imagem</a>`;
@@ -132,7 +124,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     if (textoFoto) textoFoto.innerHTML = 'Nenhuma imagem atual.';
                     inFoto.dataset.existingUrl = '';
                 }
-                inFoto.value = ''; // Sempre limpar a seleção de arquivo ao carregar
+                inFoto.value = '';
 
                 inData.value = evento.data || '';
                 inHora.value = evento.hora || '';
@@ -157,13 +149,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         btnRemoverEvento.style.display = 'none';
     }
 
-    // 4. Salvar / Atualizar
     formAdminEdit.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         let urlFoto = inFoto.dataset.existingUrl || '';
 
-        // Se um novo arquivo foi selecionado
         if (inFoto.files && inFoto.files.length > 0) {
             const file = inFoto.files[0];
             const fileExt = file.name.split('.').pop();
@@ -218,11 +208,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         alert("Evento salvo com sucesso!");
-        await carregarEventos(); // Recarrega lista
-        btnCancelarEdicao.click(); // Volta pra tela principal
+        await carregarEventos();
+        btnCancelarEdicao.click();
     });
 
-    // 5. Remover
     btnRemoverEvento.addEventListener('click', async () => {
         const selecionado = selectEvento.value;
         if (selecionado === 'novo') return;
