@@ -203,12 +203,12 @@
 
                 <h2 id="edit-titulo-servicos">Outros Serviços</h2>
 
-                <p id="edit-texto-servicos">
+                <p id="edit-texto-servicos" style="text-align: center;">
                     Conheça outros sites feitos por alunos do curso de Engenharia de Software do IFPE-Belo Jardim.
                 </p>
 
-                <div class="servicos-imagem">
-                    <img src="assets/icones/icone_espera.png" alt="Sites em andamento">
+                <div id="view-projetos-alunos-container" class="cards-projetos-alunos">
+                    <p>Carregando projetos...</p>
                 </div>
 
             </div>
@@ -323,8 +323,32 @@
                     <legend>Seção: Outros Serviços</legend>
                     <label>Título:</label>
                     <input type="text" id="input-titulo-servicos" required>
-                    <label>Texto:</label>
+                    <label>Texto Inicial:</label>
                     <textarea id="input-texto-servicos" rows="3" required></textarea>
+
+                    <hr style="margin: 20px 0;">
+                    <h4 style="color:#252b73; margin-top:0;">Adicionar Site/Projeto de Aluno</h4>
+                    <div
+                        style="background-color: #f5f7fa; padding: 15px; border-radius: 5px; margin-bottom: 15px; border: 1px solid #ddd;">
+                        <label>Título do Site:</label>
+                        <input type="text" id="input-proj-titulo">
+
+                        <label>Descrição Curta:</label>
+                        <input type="text" id="input-proj-desc">
+
+                        <label>URL (Link para o site):</label>
+                        <input type="url" id="input-proj-url" placeholder="https://...">
+
+                        <label>Imagem de Capa (Opcional):</label>
+                        <input type="file" id="input-proj-img" accept="image/*">
+
+                        <button type="button" id="btnAddProjetoAluno" class="btn-admin-add"
+                            style="margin-top:10px; padding:8px 15px; background-color: #2980b9; color: white;">Adicionar
+                            Site</button>
+                    </div>
+
+                    <h5 style="color:#252b73;">Sites Cadastrados</h5>
+                    <ul id="admin-lista-projetos-alunos" style="list-style: none; padding: 0;"></ul>
                 </fieldset>
 
                 <div class="modal-admin-actions">
