@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Extensão - Engenharia de Software</title>
     <link rel="stylesheet" href="style/acessibilidade.css">
-    <link rel="stylesheet" href="style/projetos.css"> </head>
+    <link rel="stylesheet" href="style/projetos.css"> 
+</head>
 <body>
 
     <div class="top-bar">
@@ -50,11 +51,16 @@
         </div>
     </header>
 
+    <!-- Barra do Admin -->
+    <div class="admin-banner" id="adminBanner" style="display: none;">
+        <button id="btnEditarPagina" class="btn-admin-edit">Gerenciar Página</button>
+    </div>
+
     <main id="conteudo">
         
         <nav class="sub-menu">
             <ul>
-                <li><a href="#pronatec">Pronatec</a></li>
+                <li><a href="#programas">Programas</a></li>
                 <li><a href="#estagio">Estágio</a></li>
                 <li><a href="#bolsas">Bolsas</a></li>
             </ul>
@@ -66,53 +72,44 @@
             <section class="secao-projeto grid-duas-colunas">
                 <div class="coluna">
                     <h4>Coordenação de Extensão</h4>
-                    <p><strong>Coordenador(a):</strong> Pedro José da Silva Júnior</p>
-                    <p><strong>E-mail:</strong> extensao@belojardim.ifpe.edu.br</p>
-                    <p><strong>Contato Telefônico:</strong> (81) 3411 3204</p>
+                    <p><strong>Coordenador(a):</strong> <span id="view-coord-nome">Carregando...</span></p>
+                    <p><strong>E-mail:</strong> <span id="view-coord-email">Carregando...</span></p>
+                    <p><strong>Contato Telefônico:</strong> <span id="view-coord-telefone">Carregando...</span></p>
                 </div>
                 <div class="coluna">
                     <h4>Setor de Integração Escola Comunidade (SIEC)</h4>
-                    <p><strong>Responsável:</strong> Flávia Moreira Correia</p>
-                    <p><strong>E-mail:</strong> siec@belojardim.ifpe.edu.br</p>
-                    <p><strong>Contato Telefônico:</strong> (81) 3411 3222</p>
+                    <p><strong>Responsável:</strong> <span id="view-siec-nome">Carregando...</span></p>
+                    <p><strong>E-mail:</strong> <span id="view-siec-email">Carregando...</span></p>
+                    <p><strong>Contato Telefônico:</strong> <span id="view-siec-telefone">Carregando...</span></p>
                 </div>
             </section>
 
-            <section class="secao-projeto">
+            <section id="programas" class="secao-projeto">
                 <h4>Programas</h4>
                 
-                <h5 class="subtitulo">Programa Mulheres Mil</h5>
-                <p>O Programa possibilita, através da formação profissional e tecnológica, a inclusão social de mulheres que se encontram em situação de vulnerabilidade social...</p>
-
-                <h5 class="subtitulo" id="pronatec">Programa Nacional de Acesso ao Ensino Técnico e Emprego - PRONATEC</h5>
-                <p>O Programa Nacional de Acesso ao Ensino Técnico e Emprego – Pronatec – foi criado pelo Governo Federal em 2011, com o objetivo de ampliar a oferta de cursos de educação profissional...</p>
-                
-                <h5 class="subtitulo">Contato</h5>
-                <p>Interessados podem contatar a Coordenação do Pronatec no IFPE-Campus Belo Jardim pelo e-mail: <a href="mailto:pronatec@belojardim.ifpe.edu.br" class="link-destaque">pronatec@belojardim.ifpe.edu.br</a></p>
+                <div id="view-programas-container">
+                    <p>Carregando...</p>
+                </div>
             </section>
 
             <section id="estagio" class="secao-projeto">
                 <h4>Estágio</h4>
-                <p>O SIEC - Setor de Integração Escola Comunidade - tem a função de viabilizar o intercâmbio entre a escola, comunidade e as instituições públicas e privadas...</p>
+                <div id="view-estagio-intro"><p>Carregando...</p></div>
                 
                 <h5 class="subtitulo">Atribuições do aluno Estagiário</h5>
-                <ul class="lista-programas">
-                    <li>Contatar com o Setor de Integração Escola Comunidade (SIEC) para receber as informações do Estágio;</li>
-                    <li>Requerer documentação necessária para iniciar o estágio;</li>
-                    <li>Firmar Termo de Compromisso de Estágio com a empresa e respeitar o cumprimento de suas cláusulas;</li>
-                    <li>Acatar as normas do IFPE e da Empresa na realização do estágio;</li>
-                    <li>Elaborar Relatório sobre o estágio obedecendo as normas da ABNT.</li>
+                <ul class="lista-programas" id="view-estagio-atribuicoes">
+                    <li>Carregando...</li>
                 </ul>
             </section>
 
             <section id="bolsas" class="secao-projeto">
                 <h4>Bolsas</h4>
-                <p>O Programa Institucional para Concessão de Bolsas de Extensão (Pibex) tem como objetivo implementar, fortalecer e apoiar programas e projetos de extensão...</p>
+                <div id="view-bolsas-intro"><p>Carregando...</p></div>
                 
-                <h5 class="subtitulo">Últimos Editais</h5>
-                <ul class="lista-links">
-                    <li><a href="#">PIBEX 2018</a></li>
-                </ul>
+                <h5 class="subtitulo">Editais e Projetos de Bolsa</h5>
+                <div id="view-bolsas-container">
+                    <p>Carregando...</p>
+                </div>
             </section>
 
         </div>
@@ -145,6 +142,87 @@
         </div>
     </footer>
 
+    <!-- Seção de Edição (Admin) -->
+    <section id="adminFormSection" class="admin-form-section" style="display: none;">
+        <div class="container">
+            <h2>Gerenciar Conteúdo de Extensão</h2>
+            <form id="formAdminEdit">
+                
+                <fieldset>
+                    <legend>1. Coordenação e SIEC</legend>
+                    <h4 style="color:#252b73;">Coordenação de Extensão</h4>
+                    <label>Nome do Coordenador(a):</label>
+                    <input type="text" id="input-coord-nome" required>
+                    <label>E-mail:</label>
+                    <input type="email" id="input-coord-email" required>
+                    <label>Telefone:</label>
+                    <input type="text" id="input-coord-telefone" required>
+                    
+                    <hr style="margin: 20px 0;">
+                    <h4 style="color:#252b73;">SIEC</h4>
+                    <label>Nome do Responsável:</label>
+                    <input type="text" id="input-siec-nome" required>
+                    <label>E-mail:</label>
+                    <input type="email" id="input-siec-email" required>
+                    <label>Telefone:</label>
+                    <input type="text" id="input-siec-telefone" required>
+                </fieldset>
+
+                <fieldset>
+                    <legend>2. Programas</legend>
+                    <h4 style="color:#252b73;">Adicionar Programa</h4>
+                    <label>Título do Programa (Ex: Programa Mulheres Mil):</label>
+                    <input type="text" id="input-programa-titulo">
+                    <label>Descrição do Programa:</label>
+                    <textarea id="input-programa-desc" rows="3"></textarea>
+                    <label>Arquivo PDF (Opcional):</label>
+                    <input type="file" id="input-programa-pdf" accept="application/pdf">
+                    <button type="button" id="btnAddPrograma" class="btn-admin-add" style="margin-top:10px; padding:8px 15px; background-color: #2980b9; color: white;">Adicionar Programa</button>
+                    
+                    <ul id="admin-lista-programas" style="list-style: none; padding: 0; margin-top: 20px;"></ul>
+                </fieldset>
+
+                <fieldset>
+                    <legend>3. Estágio</legend>
+                    <label>Texto Introdutório (HTML permitido):</label>
+                    <textarea id="input-estagio-intro" rows="4"></textarea>
+                    
+                    <hr style="margin: 20px 0;">
+                    <h4 style="color:#252b73;">Atribuições do aluno Estagiário</h4>
+                    <input type="text" id="input-estagio-atribuicao" placeholder="Ex: Contatar com o SIEC para receber as informações...">
+                    <button type="button" id="btnAddAtribuicao" class="btn-admin-add" style="margin-top:10px; padding:8px 15px;">Adicionar Atribuição</button>
+                    
+                    <ul id="admin-lista-atribuicoes" style="list-style: none; padding: 0; margin-top: 20px;"></ul>
+                </fieldset>
+
+                <fieldset>
+                    <legend>4. Bolsas</legend>
+                    <label>Texto Introdutório (HTML permitido):</label>
+                    <textarea id="input-bolsas-intro" rows="3"></textarea>
+
+                    <hr style="margin: 20px 0;">
+                    <h4 style="color:#252b73;">Adicionar Edital / Bolsa</h4>
+                    <label>Título (Ex: PIBEX 2018):</label>
+                    <input type="text" id="input-bolsa-titulo">
+                    <label>Descrição (Opcional):</label>
+                    <textarea id="input-bolsa-desc" rows="2"></textarea>
+                    <label>Arquivo PDF (Opcional):</label>
+                    <input type="file" id="input-bolsa-pdf" accept="application/pdf">
+                    <button type="button" id="btnAddBolsa" class="btn-admin-add" style="margin-top:10px; padding:8px 15px; background-color: #2980b9; color: white;">Adicionar Edital de Bolsa</button>
+                    
+                    <ul id="admin-lista-bolsas" style="list-style: none; padding: 0; margin-top: 20px;"></ul>
+                </fieldset>
+
+                <div class="modal-admin-actions" style="margin-top: 30px;">
+                    <button type="button" id="btnCancelarEdicao" class="btn-admin-cancelar">Cancelar</button>
+                    <button type="submit" class="btn-admin-salvar">Salvar Todas as Alterações</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
     <script src="js/acessibilidade.js"></script>
+    <script type="module" src="js/authController.js"></script>
+    <script type="module" src="js/adminExtensao.js"></script>
 </body>
 </html>

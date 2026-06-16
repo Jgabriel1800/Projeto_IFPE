@@ -29,6 +29,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const elTituloServicos = document.getElementById('edit-titulo-servicos');
     const elTextoServicos = document.getElementById('edit-texto-servicos');
+    
+    // Projetos de Alunos (Public View)
+    const viewProjetosContainer = document.getElementById('view-projetos-alunos-container');
 
     // Campos do formulário
     const inTituloHero = document.getElementById('input-titulo-hero');
@@ -51,6 +54,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     const inTituloServicos = document.getElementById('input-titulo-servicos');
     const inTextoServicos = document.getElementById('input-texto-servicos');
 
+    // Estado Local de Projetos de Alunos
+    let projetosAlunos = [];
+
     // Carregar conteúdo do Supabase (para todos os usuários)
     async function carregarConteudo() {
         const { data, error } = await supabase
@@ -61,6 +67,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         if (error) {
             console.log("Aviso: Nenhum conteúdo personalizado encontrado ou tabela ausente. Usando conteúdo padrão.");
+            viewProjetosContainer.innerHTML = '<p>Nenhum site cadastrado.</p>';
             return;
         }
 
@@ -85,7 +92,33 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             if (c.tituloServicos) elTituloServicos.textContent = c.tituloServicos;
             if (c.textoServicos) elTextoServicos.textContent = c.textoServicos;
+
+            if (c.projetosAlunos) {
+                projetosAlunos = c.projetosAlunos;
+            }
+            renderizarProjetosPublicos();
         }
+    }
+
+    function renderizarProjetosPublicos() {
+        viewProjetosContainer.innerHTML = '';
+        if (projetosAlunos.length === 0) {
+            viewProjetosContainer.innerHTML = '<p style="text-align:center; color:#555; width:100%;">Nenhum site ou projeto cadastrado no momento.</p>';
+            return;
+        }
+
+        projetosAlunos.forEach(proj => {
+            const imgSrc = proj.imgUrl ? proj.imgUrl : 'assets/icones/icone_espera.png';
+            viewProjetosContainer.innerHTML += `
+                <a href="${proj.url}" target="_blank" class="card-projeto-aluno">
+                    <img src="${imgSrc}" alt="${proj.titulo}">
+                    <div class="card-projeto-conteudo">
+                        <h3>${proj.titulo}</h3>
+                        <p>${proj.desc}</p>
+                    </div>
+                </a>
+            `;
+        });
     }
 
     await carregarConteudo();
@@ -93,13 +126,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Verificar se o usuário está logado (Administrador)
     const { data: { session } } = await supabase.auth.getSession();
     if (session) {
-        // Mostra a barra do admin se logado
         adminBanner.style.display = 'block';
     }
 
     // Lógica do Formulário (Alternar visibilidade)
     btnEditarPagina.addEventListener('click', () => {
-        // Preenche o formulário com o conteúdo atual da tela
         inTituloHero.value = elTituloHero.textContent.trim();
         inTextoHero.value = elTextoHero.textContent.trim();
         inTituloMercado.value = elTituloMercado.textContent.trim();
@@ -120,7 +151,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         inTituloServicos.value = elTituloServicos.textContent.trim();
         inTextoServicos.value = elTextoServicos.textContent.trim();
 
-        // Esconde o conteúdo principal e mostra o formulário
+        renderizarListaProjetosAdmin();
+
         conteudoMain.style.display = 'none';
         adminBanner.style.display = 'none';
         if (rodape) rodape.style.display = 'none';
@@ -128,11 +160,96 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     btnCancelarEdicao.addEventListener('click', () => {
-        // Volta para a visualização normal
         adminFormSection.style.display = 'none';
         conteudoMain.style.display = 'block';
         adminBanner.style.display = 'block';
         if (rodape) rodape.style.display = '';
+        carregarConteudo(); // recarrega do estado
+    });
+
+    function renderizarListaProjetosAdmin() {
+        const ul = document.getElementById('admin-lista-projetos-alunos');
+        ul.innerHTML = '';
+        if (projetosAlunos.length === 0) {
+            ul.innerHTML = '<li style="color:#666;">Nenhum site cadastrado.</li>';
+            return;
+        }
+
+        projetosAlunos.forEach((proj, index) => {
+            const li = document.createElement('li');
+            li.style.marginBottom = '10px';
+            li.style.padding = '10px';
+            li.style.border = '1px solid #ddd';
+            li.style.borderRadius = '4px';
+
+            li.innerHTML = `
+                <strong>${proj.titulo}</strong> <br>
+                <a href="${proj.url}" target="_blank" style="font-size:0.85em; color:#2980b9;">${proj.url}</a><br>
+                <button type="button" class="btn-remover-proj" data-index="${index}" style="margin-top:8px; background-color: #c0392b; color: white; border: none; border-radius: 4px; padding: 4px 8px; cursor: pointer; font-size: 12px;">Remover</button>
+            `;
+            ul.appendChild(li);
+        });
+
+        ul.querySelectorAll('.btn-remover-proj').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const idx = parseInt(e.target.getAttribute('data-index'));
+                projetosAlunos.splice(idx, 1);
+                renderizarListaProjetosAdmin();
+            });
+        });
+    }
+
+    async function uploadImagemProj(fileInputId, btnObj, callbackSucesso) {
+        const fileInput = document.getElementById(fileInputId);
+        if (!fileInput.files || fileInput.files.length === 0) {
+            callbackSucesso(null); // sem arquivo, avança
+            return;
+        }
+
+        const file = fileInput.files[0];
+        const fileName = `proj_${Date.now()}_${file.name.replace(/\\s+/g, '_')}`;
+
+        const textoOriginal = btnObj.textContent;
+        btnObj.textContent = 'Enviando Imagem...';
+        btnObj.disabled = true;
+
+        const { data, error } = await supabase.storage.from('projetos_alunos_imagens').upload(fileName, file);
+        if (error) {
+            alert("Erro no upload da imagem: " + error.message);
+            btnObj.textContent = textoOriginal;
+            btnObj.disabled = false;
+            return;
+        }
+
+        const { data: publicData } = supabase.storage.from('projetos_alunos_imagens').getPublicUrl(fileName);
+        if (publicData) {
+            callbackSucesso(publicData.publicUrl);
+            fileInput.value = '';
+        }
+        btnObj.textContent = textoOriginal;
+        btnObj.disabled = false;
+    }
+
+    document.getElementById('btnAddProjetoAluno').addEventListener('click', () => {
+        const titulo = document.getElementById('input-proj-titulo').value.trim();
+        const desc = document.getElementById('input-proj-desc').value.trim();
+        const url = document.getElementById('input-proj-url').value.trim();
+        const btn = document.getElementById('btnAddProjetoAluno');
+
+        if (!titulo || !url) {
+            alert("Título e URL são obrigatórios para o site.");
+            return;
+        }
+
+        uploadImagemProj('input-proj-img', btn, (imgUrl) => {
+            projetosAlunos.push({
+                titulo, desc, url, imgUrl
+            });
+            document.getElementById('input-proj-titulo').value = '';
+            document.getElementById('input-proj-desc').value = '';
+            document.getElementById('input-proj-url').value = '';
+            renderizarListaProjetosAdmin();
+        });
     });
 
     // Salvar Alterações
@@ -156,10 +273,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             infoVagas: inInfoVagas.value,
             infoIngresso: inInfoIngresso.value,
             tituloServicos: inTituloServicos.value,
-            textoServicos: inTextoServicos.value
+            textoServicos: inTextoServicos.value,
+            projetosAlunos: projetosAlunos
         };
 
-        // Salva no Supabase
         const { error } = await supabase
             .from('page_content')
             .upsert({ page: 'index', content: novoConteudo });
@@ -191,7 +308,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         elTituloServicos.textContent = novoConteudo.tituloServicos;
         elTextoServicos.textContent = novoConteudo.textoServicos;
 
-        // Volta para a visualização normal
+        renderizarProjetosPublicos();
+
         adminFormSection.style.display = 'none';
         conteudoMain.style.display = 'block';
         adminBanner.style.display = 'block';
