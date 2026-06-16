@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Engenharia de Software</title>
     <link rel="stylesheet" href="style/acessibilidade.css">
 </head>
+
 <body>
 
     <!-- Barra de acessibilidade -->
@@ -29,9 +31,7 @@
 
         <!-- Logo -->
         <div class="logo-area">
-            <img src="assets/logo_EngenhariaSoftware.png"
-                 alt="Escudo Engenharia de Software"
-                 class="logo">
+            <img src="assets/logo_EngenhariaSoftware.png" alt="Escudo Engenharia de Software" class="logo">
 
             <div class="text-logo">
                 <h1>Engenharia de Software</h1>
@@ -42,19 +42,21 @@
         <!-- Menu -->
         <nav id="menu">
             <ul class="menu">
-                <li><a id= "homeLink" href="index.html">Home</a></li>
+                <li><a id="homeLink" href="index.html">Home</a></li>
                 <li><a href="sobre.html">Sobre</a></li>
                 <li><a href="docentes.html">Docentes</a></li>
                 <li><a href="horarios.html">Horários</a></li>
                 <li><a href="eventos.html">Eventos</a></li>
                 <li class="dropdown">
-                    <a href="#" class="ativo">Projetos ▼</a> <ul class="dropdown-content">
+                    <a href="#" class="ativo">Projetos ▼</a>
+                    <ul class="dropdown-content">
                         <li><a href="projetos.html">Pesquisa</a></li>
                         <li><a href="extensao.html">Extensão</a></li>
                         <li><a href="inovacao.html">Inovação</a></li>
                         <li><a href="monitoria.html">Monitoria</a></li>
                     </ul>
-                </li>            </ul>
+                </li>
+            </ul>
         </nav>
 
         <!-- Entrar -->
@@ -64,6 +66,11 @@
 
     </header>
 
+    <!-- Barra do Admin -->
+    <div class="admin-banner" id="adminBanner" style="display: none;">
+        <button id="btnEditarPagina" class="btn-admin-edit">Editar Página</button>
+    </div>
+
     <!-- Conteúdo -->
     <main id="conteudo">
 
@@ -72,16 +79,16 @@
         <section class="sobre-curso">
             <div class="container">
 
-                <h2>BACHARELADO EM ENGENHARIA DE SOFTWARE</h2>
+                <h2 id="edit-titulo-hero">BACHARELADO EM ENGENHARIA DE SOFTWARE</h2>
 
-                <p>
-                    O curso de Engenharia de Software é uma graduação voltada para 
-                    quem deseja ir além da programação básica e entender como projetar, 
-                    desenvolver, testar e manter sistemas complexos de forma robusta e 
-                    escalável. Diferente de Ciência da Computação, que possui um foco 
-                    mais teórico e matemático puro, a Engenharia de Software é uma 
-                    disciplina de engenharia: ela busca aplicar métodos científicos, 
-                    padrões técnicos e gerenciamento de projetos para resolver problemas 
+                <p id="edit-texto-hero">
+                    O curso de Engenharia de Software é uma graduação voltada para
+                    quem deseja ir além da programação básica e entender como projetar,
+                    desenvolver, testar e manter sistemas complexos de forma robusta e
+                    escalável. Diferente de Ciência da Computação, que possui um foco
+                    mais teórico e matemático puro, a Engenharia de Software é uma
+                    disciplina de engenharia: ela busca aplicar métodos científicos,
+                    padrões técnicos e gerenciamento de projetos para resolver problemas
                     reais com eficiência e custo-benefício.
                 </p>
 
@@ -91,86 +98,100 @@
         <section class="mercado">
             <div class="container">
 
-                <h2>MERCADO DE TRABALHO</h2>
+                <h2 id="edit-titulo-mercado">MERCADO DE TRABALHO</h2>
 
-                <p>
-                    O mercado de trabalho para o engenheiro de software é um dos mais 
-                    dinâmicos, aquecidos e globalizados da atualidade. Como praticamente 
-                    todas as indústrias — do setor bancário à saúde, passando pelo agronegócio 
-                    e entretenimento — dependem de tecnologia, a demanda por profissionais 
+                <p id="edit-texto-mercado">
+                    O mercado de trabalho para o engenheiro de software é um dos mais
+                    dinâmicos, aquecidos e globalizados da atualidade. Como praticamente
+                    todas as indústrias — do setor bancário à saúde, passando pelo agronegócio
+                    e entretenimento — dependem de tecnologia, a demanda por profissionais
                     qualificados permanece consistentemente alta.
                 </p>
 
-                <h2>Áreas de Atuação e Carreiras</h2>
+                <h2 id="edit-titulo-areas">Áreas de Atuação e Carreiras</h2>
 
-                <p>
-                    Quem se forma na área não fica preso a apenas uma função. O mercado oferece diversas trilhas de carreira:
+                <p id="edit-texto-areas">
+                    Quem se forma na área não fica preso a apenas uma função. O mercado oferece diversas trilhas de
+                    carreira:
 
-                    Desenvolvimento Full-Stack: Profissionais versáteis que cuidam tanto da interface com o usuário (Front-end, usando HTML, CSS, JavaScript) quanto da lógica de negócios, bancos de dados e servidores (Back-end, usando frameworks como Django, Node.js ou Spring Boot).
+                    Desenvolvimento Full-Stack: Profissionais versáteis que cuidam tanto da interface com o usuário
+                    (Front-end, usando HTML, CSS, JavaScript) quanto da lógica de negócios, bancos de dados e servidores
+                    (Back-end, usando frameworks como Django, Node.js ou Spring Boot).
 
-                    Arquitetura de Software: Profissionais seniores responsáveis por tomar as decisões de alto nível sobre quais tecnologias, bancos de dados e padrões estruturais serão usados em grandes projetos.
+                    Arquitetura de Software: Profissionais seniores responsáveis por tomar as decisões de alto nível
+                    sobre quais tecnologias, bancos de dados e padrões estruturais serão usados em grandes projetos.
 
-                    DevOps e Engenharia de Computação em Nuvem (Cloud): Especialistas em automatizar a infraestrutura, garantir a disponibilidade dos sistemas na nuvem (AWS, Azure, GCP) e otimizar o fluxo de entrega das equipes.
+                    DevOps e Engenharia de Computação em Nuvem (Cloud): Especialistas em automatizar a infraestrutura,
+                    garantir a disponibilidade dos sistemas na nuvem (AWS, Azure, GCP) e otimizar o fluxo de entrega das
+                    equipes.
 
-                    Cibersegurança e SecOps: Atuação na proteção de sistemas, análise de vulnerabilidades, auditoria de logs e resposta a incidentes para garantir que o software seja resiliente a ataques.
+                    Cibersegurança e SecOps: Atuação na proteção de sistemas, análise de vulnerabilidades, auditoria de
+                    logs e resposta a incidentes para garantir que o software seja resiliente a ataques.
 
-                    Gerenciamento de Produto e Projetos (Product Owner / Scrum Master): A ponte entre os objetivos de negócio da empresa e o time técnico, organizando o escopo e o ritmo das entregas.
+                    Gerenciamento de Produto e Projetos (Product Owner / Scrum Master): A ponte entre os objetivos de
+                    negócio da empresa e o time técnico, organizando o escopo e o ritmo das entregas.
 
                 </p>
 
-                <h2>Características do Mercado Atual</h2>
-                <P>
-                    Flexibilidade e Trabalho Remoto: A Engenharia de Software foi pioneira na adoção do trabalho remoto (home office) ou híbrido, permitindo que profissionais brasileiros trabalhem para empresas de qualquer lugar do mundo diretamente de suas casas.
+                <h2 id="edit-titulo-caracteristicas">Características do Mercado Atual</h2>
+                <p id="edit-texto-caracteristicas">
+                    Flexibilidade e Trabalho Remoto: A Engenharia de Software foi pioneira na adoção do trabalho remoto
+                    (home office) ou híbrido, permitindo que profissionais brasileiros trabalhem para empresas de
+                    qualquer lugar do mundo diretamente de suas casas.
 
-                    Cultura de Aprendizado Contínuo: A tecnologia muda rápido. Novas ferramentas, arquiteturas e conceitos (como Inteligência Artificial e automação avançada) surgem a todo momento. O profissional de sucesso é aquele que nunca para de estudar.
+                    Cultura de Aprendizado Contínuo: A tecnologia muda rápido. Novas ferramentas, arquiteturas e
+                    conceitos (como Inteligência Artificial e automação avançada) surgem a todo momento. O profissional
+                    de sucesso é aquele que nunca para de estudar.
 
-                    Valorização da Experiência Prática: Mais do que o diploma em si, o mercado valoriza portfólios, projetos reais desenvolvidos, contribuições em códigos abertos e a capacidade demonstrada de resolver problemas em equipe.
-                
-                </P>
+                    Valorização da Experiência Prática: Mais do que o diploma em si, o mercado valoriza portfólios,
+                    projetos reais desenvolvidos, contribuições em códigos abertos e a capacidade demonstrada de
+                    resolver problemas em equipe.
+
+                </p>
 
             </div>
         </section>
 
         <section class="info-curso">
 
-            <h2>Informações do Curso</h2>
+            <h2 id="edit-titulo-info">Informações do Curso</h2>
 
             <div class="cards-info">
 
                 <div class="card-info">
                     <img src="assets/icones/icone_modalidade.png" alt="Modalidade">
                     <h3>Modalidade:</h3>
-                    <p>Presencial</p>
+                    <p id="edit-info-modalidade">Presencial</p>
                 </div>
 
                 <div class="card-info">
                     <img src="assets/icones/icone_duracao.png" alt="Duração">
                     <h3>Duração:</h3>
-                    <p>4 anos</p>
+                    <p id="edit-info-duracao">4 anos</p>
                 </div>
 
                 <div class="card-info">
                     <img src="assets/icones/icone_turno.png" alt="Turno">
                     <h3>Turno:</h3>
-                    <p>Diurno</p>
+                    <p id="edit-info-turno">Diurno</p>
                 </div>
 
                 <div class="card-info">
                     <img src="assets/icones/icone_campus.png" alt="Campus">
                     <h3>Campus:</h3>
-                    <p>IFPE-Belo Jardim</p>
+                    <p id="edit-info-campus">IFPE-Belo Jardim</p>
                 </div>
 
                 <div class="card-info">
                     <img src="assets/icones/icone_vagas.png" alt="Vagas">
                     <h3>Vagas:</h3>
-                    <p>30</p>
+                    <p id="edit-info-vagas">30</p>
                 </div>
 
                 <div class="card-info">
                     <img src="assets/icones/icone_ingresso.png" alt="Ingresso">
                     <h3>Ingresso:</h3>
-                    <p>ENEM</p>
+                    <p id="edit-info-ingresso">ENEM</p>
                 </div>
 
             </div>
@@ -180,16 +201,15 @@
         <section class="outros-servicos">
             <div class="container">
 
-                <h2>Outros Serviços</h2>
+                <h2 id="edit-titulo-servicos">Outros Serviços</h2>
 
-                <p>
+                <p id="edit-texto-servicos">
                     Conheça outros sites feitos por alunos do curso de Engenharia de Software do IFPE-Belo Jardim.
                 </p>
 
                 <div class="servicos-imagem">
-                    <img src="assets/icones/icone_espera.png"
-                        alt="Sites em andamento">
-                </div> 
+                    <img src="assets/icones/icone_espera.png" alt="Sites em andamento">
+                </div>
 
             </div>
         </section>
@@ -243,8 +263,82 @@
 
     </footer>
 
+    <!-- Seção de Edição (substitui o conteúdo ao editar) -->
+    <section id="adminFormSection" class="admin-form-section" style="display: none;">
+        <div class="container">
+            <h2>Editar Conteúdo da Página</h2>
+            <form id="formAdminEdit">
+
+                <fieldset>
+                    <legend>Seção: Bacharelado em Eng. de Software</legend>
+                    <label>Título:</label>
+                    <input type="text" id="input-titulo-hero" required>
+                    <label>Texto:</label>
+                    <textarea id="input-texto-hero" rows="5" required></textarea>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Seção: Mercado de Trabalho</legend>
+                    <label>Título:</label>
+                    <input type="text" id="input-titulo-mercado" required>
+                    <label>Texto:</label>
+                    <textarea id="input-texto-mercado" rows="4" required></textarea>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Seção: Áreas de Atuação</legend>
+                    <label>Título:</label>
+                    <input type="text" id="input-titulo-areas" required>
+                    <label>Texto:</label>
+                    <textarea id="input-texto-areas" rows="6" required></textarea>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Seção: Características do Mercado</legend>
+                    <label>Título:</label>
+                    <input type="text" id="input-titulo-caracteristicas" required>
+                    <label>Texto:</label>
+                    <textarea id="input-texto-caracteristicas" rows="5" required></textarea>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Seção: Informações do Curso</legend>
+                    <label>Título da Seção:</label>
+                    <input type="text" id="input-titulo-info" required>
+                    <label>Modalidade:</label>
+                    <input type="text" id="input-info-modalidade" required>
+                    <label>Duração:</label>
+                    <input type="text" id="input-info-duracao" required>
+                    <label>Turno:</label>
+                    <input type="text" id="input-info-turno" required>
+                    <label>Campus:</label>
+                    <input type="text" id="input-info-campus" required>
+                    <label>Vagas:</label>
+                    <input type="text" id="input-info-vagas" required>
+                    <label>Ingresso:</label>
+                    <input type="text" id="input-info-ingresso" required>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Seção: Outros Serviços</legend>
+                    <label>Título:</label>
+                    <input type="text" id="input-titulo-servicos" required>
+                    <label>Texto:</label>
+                    <textarea id="input-texto-servicos" rows="3" required></textarea>
+                </fieldset>
+
+                <div class="modal-admin-actions">
+                    <button type="button" id="btnCancelarEdicao" class="btn-admin-cancelar">Cancelar</button>
+                    <button type="submit" class="btn-admin-salvar">Salvar Alterações</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
     <script src="js/acessibilidade.js"></script>
     <script type="module" src="js/authController.js"></script>
+    <script type="module" src="js/adminIndex.js"></script>
 
 </body>
+
 </html>

@@ -20,7 +20,7 @@ async function fazerLogin(identificador, senha) {
         if (isSiape) {
             const { data: docente, error: erroBusca } = await supabase
                 .from('docentes')
-                .select('email')
+                .select('email_institucional')
                 .eq('siape', identificador)
                 .single();
 
@@ -31,7 +31,7 @@ async function fazerLogin(identificador, senha) {
             }
 
             // atualiza a variavel com o email do bd
-            emailParaAutenticacao = docente.email;
+            emailParaAutenticacao = docente.email_institucional;
         }
 
         // Autenticação com o Supabase Auth
@@ -45,11 +45,10 @@ async function fazerLogin(identificador, senha) {
             return;
         }
 
-        // Primeiro acesso
         const { data: dadosUsuario } = await supabase
             .from('docentes')
             .select('primeiro_acesso')
-            .eq('email', emailParaAutenticacao)
+            .eq('email_institucional', emailParaAutenticacao)
             .single();
 
         // se for primeiro acesso

@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     await supabase
                         .from('docentes')
                         .update({ primeiro_acesso: false })
-                        .eq('email', email);
+                        .eq('email_institucional', email);
                         
                     // Atualiza na tabela administradores
                     await supabase
