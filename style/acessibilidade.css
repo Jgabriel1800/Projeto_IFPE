@@ -546,3 +546,135 @@ main {
 .dropdown-content.mostrar {
     display: block;
 }
+
+/* =========================================
+   PAINEL DE ADMINISTRAÇÃO (EDIÇÃO DE CONTEÚDO)
+========================================= */
+
+.admin-banner {
+    background-color: #252b73;
+    padding: 10px 70px;
+    text-align: left;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.btn-admin-edit {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 8px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+.btn-admin-edit:hover {
+    background-color: white;
+    color: #f39c12;
+}
+
+.admin-form-section {
+    padding: 50px 0;
+    background-color: #f9f9f9;
+}
+
+.admin-form-section .container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.admin-form-section h2 {
+    color: #252b73;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.admin-form-section fieldset {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.admin-form-section legend {
+    font-weight: bold;
+    color: #252b73;
+    padding: 0 10px;
+    font-size: 1.1rem;
+}
+
+.admin-form-section label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.admin-form-section input[type="text"],
+.admin-form-section textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 15px;
+    resize: vertical;
+    background-color: #fcfcfc;
+}
+
+.admin-form-section input[type="text"]:focus,
+.admin-form-section textarea:focus {
+    outline: none;
+    border-color: #252b73;
+    background-color: #fff;
+}
+
+.modal-admin-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 30px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.btn-admin-cancelar {
+    background-color: #95a5a6;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.btn-admin-cancelar:hover {
+    background-color: #7f8c8d;
+}
+
+.btn-admin-salvar {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.btn-admin-salvar:hover {
+    background-color: #2ecc71;
+}
