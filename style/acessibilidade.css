@@ -727,3 +727,41 @@ main {
     margin-bottom: 10px;
     line-height: 1.7;
 }
+
+/* =======================
+   PDF
+======================= */
+.pdf-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    text-decoration: none;
+
+    background: white;
+    padding: 8px 12px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 2px 6px rgba(0,0,0,.15);
+
+    transition: 0.3s;
+}
+
+.pdf-card:hover {
+    transform: translateY(-2px);
+}
+
+.pdf-card img {
+    width: 32px;
+    height: 32px;
+}
+
+.pdf-card strong {
+    display: block;
+    color: #252b73;
+}
+
+.pdf-card small {
+    color: #666;
+}
