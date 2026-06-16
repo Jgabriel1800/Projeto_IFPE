@@ -151,17 +151,8 @@
             <p id="edit-texto-perfil">
                 No IFPE - Belo Jardim, buscamos formar profissionais de Engenharia de Software altamente qualificados. Nossos alunos adquirem competências técnicas sólidas, capacidade de trabalho em equipe, habilidades de comunicação e a mentalidade necessária para enfrentar os desafios do setor de tecnologia da informação. Nossa abordagem prática e orientada para o mercado de trabalho prepara nossos graduados para atuarem em diversas áreas, desde desenvolvimento de software até gerenciamento de projetos. Abaixo você pode acessar alguns documentos importantes.
             </p>
-            <ul class="lista-documentos">
-                <li>
-                    <a href="Documentacao/Perfil_Profissional.pdf" target="_blank">
-                        <img src="assets/icones/icone_pdf.png" alt="PDF"> Perfil Profissional
-                    </a>
-                </li>
-                <li>
-                    <a href="Documentacao/Competencias_Profissionais.pdf" target="_blank">
-                        <img src="assets/icones/icone_pdf.png" alt="PDF"> Competências Profissionais
-                    </a>
-                </li>
+            <ul class="lista-documentos" id="lista-docs-perfil">
+                <p style="font-style: italic; color: #666;">Carregando documentos...</p>
             </ul>
         </section>
 
@@ -170,27 +161,8 @@
             <h3 id="edit-titulo-documentos">Documentos Básicos</h3>
             <p id="edit-texto-documentos">
             </p>
-            <ul class="lista-documentos">
-                <li>
-                    <a href="Documentacao/PPC-Engenharia_de_software-Campus-Belo_Jardim.pdf" target="_blank">
-                        <img src="assets/icones/icone_pdf.png" alt="PDF"> Projeto Pedagógico do Curso (PPC)
-                    </a>
-                </li>
-                <li>
-                    <a href="Documentacao/Matriz_curricular_Engenharia_de_software.pdf" target="_blank">
-                        <img src="assets/icones/icone_pdf.png" alt="PDF"> Matriz Curricular
-                    </a>
-                </li>
-                <li>
-                    <a href="Documentacao/Informacoes_do_Curso.pdf" target="_blank">
-                        <img src="assets/icones/icone_pdf.png" alt="PDF"> Informações do Curso
-                    </a>
-                </li>
-                <li>
-                    <a href="Documentacao/Homologacao_do_PPC.pdf" target="_blank">
-                        <img src="assets/icones/icone_pdf.png" alt="PDF"> Homologação do PPC
-                    </a>
-                </li>
+            <ul class="lista-documentos" id="lista-docs-basicos">
+                <p style="font-style: italic; color: #666;">Carregando documentos...</p>
             </ul>
         </section>
 
@@ -280,6 +252,33 @@
                     <input type="text" id="input-titulo-documentos" required>
                     <label>Texto:</label>
                     <textarea id="input-texto-documentos" rows="3"></textarea>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Gerenciar Documentos (PDF)</legend>
+                    <p style="margin-bottom: 15px; color: #555;">Adicione documentos em PDF às seções da página. Lembre-se de clicar em "Salvar Alterações" no final para confirmar as mudanças.</p>
+                    
+                    <label>Seção de Destino:</label>
+                    <select id="input-doc-secao" style="width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 6px; border: 1px solid #ccc;">
+                        <option value="perfil">Perfil Profissional</option>
+                        <option value="basicos">Documentos Básicos</option>
+                    </select>
+
+                    <label>Título do Documento (Ex: Matriz Curricular):</label>
+                    <input type="text" id="input-doc-titulo">
+
+                    <label>Arquivo PDF:</label>
+                    <input type="file" id="input-doc-pdf" accept="application/pdf" style="margin-bottom: 15px;">
+
+                    <button type="button" id="btnAddDoc" style="background-color: #2980b9; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">Upload e Adicionar Documento</button>
+
+                    <hr style="margin: 25px 0; border: 0; border-top: 1px solid #ddd;">
+                    
+                    <h4 style="color: #252b73; margin-bottom: 10px;">Documentos Atuais (Perfil Profissional)</h4>
+                    <ul id="admin-lista-perfil" style="list-style: none; padding: 0; margin-bottom: 20px;"></ul>
+
+                    <h4 style="color: #252b73; margin-bottom: 10px;">Documentos Atuais (Documentos Básicos)</h4>
+                    <ul id="admin-lista-basicos" style="list-style: none; padding: 0;"></ul>
                 </fieldset>
 
                 <div class="modal-admin-actions">

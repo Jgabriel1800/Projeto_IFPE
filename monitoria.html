@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monitoria - Engenharia de Software</title>
     <link rel="stylesheet" href="style/acessibilidade.css">
-    <link rel="stylesheet" href="style/projetos.css"> <!-- O CSS mágico faz o trabalho aqui também! -->
+    <link rel="stylesheet" href="style/projetos.css"> 
 </head>
 <body>
 
-    <!-- Barra de acessibilidade -->
     <div class="top-bar">
         <a href="#conteudo" aria-label="Ir para o conteúdo"></a>
         <a href="#conteudo" accesskey="1">Ir para o conteúdo <span class="shortcut" data-key="1"></span></a>
@@ -19,7 +18,6 @@
         <a href="#rodape" accesskey="3">Ir para o rodapé <span class="shortcut" data-key="3"></span></a>
     </div>
 
-    <!-- Cabeçalho Principal -->
     <header class="header">
         <div class="logo-area">
             <img src="assets/logo_EngenhariaSoftware.png" alt="Escudo Engenharia de Software" class="logo">
@@ -37,9 +35,8 @@
                 <li><a href="horarios.html">Horários</a></li>
                 <li><a href="eventos.html">Eventos</a></li>
                 
-                <!-- Menu Dropdown -->
                 <li class="dropdown">
-                    <a href="#" class="ativo">Projetos ▼</a>
+                    <a href="projetos.html" class="ativo">Projetos ▼</a>
                     <ul class="dropdown-content">
                         <li><a href="projetos.html">Pesquisa</a></li>
                         <li><a href="extensao.html">Extensão</a></li>
@@ -55,13 +52,18 @@
         </div>
     </header>
 
+    <!-- Barra do Admin -->
+    <div class="admin-banner" id="adminBanner" style="display: none;">
+        <button id="btnEditarPagina" class="btn-admin-edit">Gerenciar Página</button>
+    </div>
+
     <main id="conteudo">
         <div class="container">
             <h2 class="titulo-centralizado">MONITORIA</h2>
 
-            <p style="text-align: center; color: #555; margin-bottom: 30px;">
-                Nesta seção, você encontrará uma tabela contendo informações essenciais sobre as monitorias. Se o status de uma monitoria estiver listado como 'Aberto à inscrição', ao clicar no nome, você será direcionado a uma página separada para concluir sua inscrição.
-            </p>
+            <div id="view-monitoria-intro" style="text-align: center; color: #555; margin-bottom: 30px;">
+                <p>Carregando...</p>
+            </div>
 
             <!-- Tabela de Monitoria -->
             <div class="tabela-responsiva">
@@ -77,64 +79,19 @@
                             <th>Aluno ministrador</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>Projeto de Software</td>
-                            <td>4º Período</td>
-                            <td>Guilherme</td>
-                            <td>Bolsista</td>
-                            <td>6 meses</td>
-                            <td>Ativa</td>
-                            <td>David Almeida</td>
-                        </tr>
-                        <tr>
-                            <td>SO - Sistemas Operacionais</td>
-                            <td>3º Período</td>
-                            <td>João Almeida</td>
-                            <td>Bolsista</td>
-                            <td>24 meses</td>
-                            <td>Ativa</td>
-                            <td>Luiz Carlos</td>
-                        </tr>
-                        <tr>
-                            <td>Estatística e Probabilidade</td>
-                            <td>3º Período</td>
-                            <td>Priscila</td>
-                            <td>Voluntária</td>
-                            <td>6 meses</td>
-                            <td>Ativa</td>
-                            <td>João Bosco</td>
-                        </tr>
-                        <tr>
-                            <td>Matemática Discreta</td>
-                            <td>1º período</td>
-                            <td>Sidmar</td>
-                            <td>Bolsista</td>
-                            <td>6 meses</td>
-                            <td>Ativa</td>
-                            <td>Netinho</td>
-                        </tr>
-                        <tr>
-                            <td>IHC</td>
-                            <td>4º Período</td>
-                            <td>Sionise</td>
-                            <td>Bolsista</td>
-                            <td>6 meses</td>
-                            <td>Ativa</td>
-                            <td>Mariana</td>
-                        </tr>
+                    <tbody id="view-monitorias-tbody">
+                        <tr><td colspan="7">Carregando...</td></tr>
                     </tbody>
                 </table>
             </div>
             
-            <div class="mostrar-mais">
-                <a href="#">Mostrar mais</a>
+            <div id="view-monitoria-rodape" style="text-align: center; color: #777; margin-top: 20px; font-size: 0.9em;">
+                <!-- Aviso da secretaria vai aqui -->
             </div>
 
         </div>
     </main>
 
-    <!-- Rodapé -->
     <footer id="rodape" class="footer">
         <div class="footer-container">
             <h3>Dúvidas Frequentes</h3>
@@ -162,6 +119,89 @@
         </div>
     </footer>
 
+    <!-- Seção de Edição (Admin) -->
+    <section id="adminFormSection" class="admin-form-section" style="display: none;">
+        <div class="container">
+            <h2>Gerenciar Conteúdo de Monitoria</h2>
+            <form id="formAdminEdit">
+                
+                <fieldset>
+                    <legend>Textos Fixos</legend>
+                    <label>Texto Introdutório (HTML permitido):</label>
+                    <textarea id="input-monitoria-intro" rows="4"></textarea>
+                    
+                    <label>Aviso no rodapé da tabela (Opcional):</label>
+                    <textarea id="input-monitoria-rodape" rows="2"></textarea>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Gerenciador da Tabela</legend>
+                    
+                    <div style="background-color: #f9f9f9; padding: 15px; border-radius: 5px; margin-bottom: 20px; border: 1px solid #ddd;">
+                        <h4 style="color:#252b73; margin-top:0;">Adicionar Nova Vaga</h4>
+                        <div class="grid-duas-colunas" style="gap:20px;">
+                            <div>
+                                <label>Disciplina:</label>
+                                <input type="text" id="input-mon-disc" required>
+                                <label>Período:</label>
+                                <input type="text" id="input-mon-periodo" required>
+                                <label>Professor(a):</label>
+                                <input type="text" id="input-mon-prof" required>
+                                <label>Tipo de Monitoria:</label>
+                                <select id="input-mon-tipo" style="width:100%; padding:12px; margin-bottom:15px; border-radius:4px; border:1px solid #ccc;">
+                                    <option value="Bolsista">Bolsista</option>
+                                    <option value="Voluntária">Voluntária</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label>Duração (Ex: 6 meses):</label>
+                                <input type="text" id="input-mon-duracao" required>
+                                
+                                <label>Status:</label>
+                                <select id="input-mon-status" style="width:100%; padding:12px; margin-bottom:15px; border-radius:4px; border:1px solid #ccc;">
+                                    <option value="Ativa">Ativa</option>
+                                    <option value="Concluída">Concluída</option>
+                                    <option value="Aberto à inscrição">Aberto à inscrição</option>
+                                </select>
+                                
+                                <div id="container-mon-pdf" style="display:none; margin-bottom:15px; padding:10px; background-color:#eef5f9; border-radius:4px;">
+                                    <label style="color:#2980b9;">Edital em PDF (Opcional):</label>
+                                    <input type="file" id="input-mon-pdf" accept="application/pdf">
+                                    <small style="color:#666; display:block; margin-top:5px;">Se enviado, o nome da disciplina vira um link de download na tabela.</small>
+                                </div>
+                                
+                                <label>Aluno ministrador (Se houver):</label>
+                                <input type="text" id="input-mon-aluno" placeholder="Deixe em branco se for vaga aberta">
+                            </div>
+                        </div>
+                        <button type="button" id="btnAddMonitoria" class="btn-admin-add" style="margin-top:10px; padding:10px 15px; background-color: #2980b9; color: white;">Adicionar Monitoria à Tabela</button>
+                    </div>
+
+                    <h4 style="color:#252b73;">Monitorias Cadastradas</h4>
+                    <table class="tabela-padrao" style="margin-top: 15px;">
+                        <thead>
+                            <tr>
+                                <th>Disciplina</th>
+                                <th>Período</th>
+                                <th>Status</th>
+                                <th>Aluno</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-lista-monitorias"></tbody>
+                    </table>
+                </fieldset>
+
+                <div class="modal-admin-actions" style="margin-top: 30px;">
+                    <button type="button" id="btnCancelarEdicao" class="btn-admin-cancelar">Cancelar</button>
+                    <button type="submit" class="btn-admin-salvar">Salvar Todas as Alterações</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
     <script src="js/acessibilidade.js"></script>
+    <script type="module" src="js/authController.js"></script>
+    <script type="module" src="js/adminMonitoria.js"></script>
 </body>
 </html>

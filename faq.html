@@ -7,133 +7,76 @@
     <title>Dúvidas Frequentes - Engenharia de Software</title>
 
     <link rel="stylesheet" href="style/acessibilidade.css">
+    <link rel="stylesheet" href="style/projetos.css"> <!-- Adicionado para os modais do admin -->
 </head>
 
 <body>
 
     <!-- Barra de acessibilidade -->
     <div class="top-bar">
-
         <a href="#conteudo" accesskey="1">
             Ir para o conteúdo
             <span class="shortcut" data-key="1"></span>
         </a>
-
         <a href="#menu" accesskey="2">
             Ir para o menu
             <span class="shortcut" data-key="2"></span>
         </a>
-
         <a href="#rodape" accesskey="3">
             Ir para o rodapé
             <span class="shortcut" data-key="3"></span>
         </a>
-
     </div>
 
     <!-- Cabeçalho -->
     <header class="header">
-
         <div class="logo-area">
-
-            <img src="assets/logo_EngenhariaSoftware.png"
-                alt="Escudo Engenharia de Software"
-                class="logo">
-
+            <img src="assets/logo_EngenhariaSoftware.png" alt="Escudo Engenharia de Software" class="logo">
             <div class="text-logo">
                 <h1>Engenharia de Software</h1>
                 <p>IFPE - Campus Belo Jardim</p>
             </div>
-
         </div>
 
         <nav id="menu">
-
             <ul class="menu">
                 <li><a id="homeLink" href="index.html">Home</a></li>
                 <li><a href="sobre.html">Sobre</a></li>
                 <li><a href="docentes.html">Docentes</a></li>
                 <li><a href="horarios.html">Horários</a></li>
                 <li><a href="eventos.html">Eventos</a></li>
-                <li><a href="projetos.html">Projetos</a></li>
+                <li class="dropdown">
+                    <a href="projetos.html">Projetos ▼</a>
+                    <ul class="dropdown-content">
+                        <li><a href="projetos.html">Pesquisa</a></li>
+                        <li><a href="extensao.html">Extensão</a></li>
+                        <li><a href="inovacao.html">Inovação</a></li>
+                        <li><a href="monitoria.html">Monitoria</a></li>
+                    </ul>
+                </li>
             </ul>
-
         </nav>
 
         <div class="login">
             <a id="entrarLink" href="login.html">Entrar</a>
         </div>
-
     </header>
+
+    <!-- Barra do Admin -->
+    <div class="admin-banner" id="adminBanner" style="display: none;">
+        <button id="btnEditarPagina" class="btn-admin-edit">Gerenciar FAQ</button>
+    </div>
 
     <!-- Conteúdo -->
     <main id="conteudo">
 
-        <section class="faq-section">
+        <section class="faq-section" style="max-width: 800px; margin: 40px auto; padding: 0 20px;">
 
-            <h2>DÚVIDAS FREQUENTES</h2>
+            <h2 style="color:#252b73; text-align:center; font-size: 2rem; margin-bottom: 40px;">DÚVIDAS FREQUENTES</h2>
 
-            <!-- Matrícula -->
-            <article id="matricula" class="faq-card">
-
-                <h3>Como renovar a matrícula?</h3>
-
-                <p>
-                    A renovação da matrícula é realizada por meio do sistema acadêmico
-                    do IFPE durante o período definido no calendário acadêmico.
-                </p>
-
-                <ol>
-                    <li>Acesse o sistema acadêmico institucional.</li>
-                    <li>Faça login com suas credenciais.</li>
-                    <li>Selecione as disciplinas desejadas.</li>
-                    <li>Confirme sua solicitação de matrícula.</li>
-                    <li>Acompanhe o resultado da homologação.</li>
-                </ol>
-
-            </article>
-
-            <!-- Aproveitamento -->
-            <article id="aproveitamento" class="faq-card">
-
-                <h3>Aproveitamento de Disciplinas</h3>
-
-                <p>
-                    O aproveitamento de disciplinas permite que componentes
-                    curriculares cursados anteriormente sejam analisados para
-                    possível equivalência no curso atual.
-                </p>
-
-                <ol>
-                    <li>Solicite o processo junto à coordenação do curso.</li>
-                    <li>Apresente histórico escolar atualizado.</li>
-                    <li>Entregue as ementas das disciplinas cursadas.</li>
-                    <li>Aguarde a análise da coordenação e dos docentes responsáveis.</li>
-                    <li>Consulte o resultado do pedido.</li>
-                </ol>
-
-            </article>
-
-            <!-- Transferência -->
-            <article id="transferencia" class="faq-card">
-
-                <h3>Transferência Interna</h3>
-
-                <p>
-                    A transferência interna permite ao estudante solicitar
-                    mudança entre cursos ou campi do IFPE, conforme a
-                    disponibilidade de vagas e os critérios definidos em edital.
-                </p>
-
-                <ol>
-                    <li>Verifique a publicação dos editais vigentes.</li>
-                    <li>Realize a inscrição dentro do prazo estabelecido.</li>
-                    <li>Envie toda a documentação exigida.</li>
-                    <li>Aguarde a análise da solicitação.</li>
-                    <li>Consulte o resultado final do processo.</li>
-                </ol>
-
-            </article>
+            <div id="view-faq-container">
+                <p>Carregando as perguntas frequentes...</p>
+            </div>
 
         </section>
 
@@ -141,28 +84,18 @@
 
     <!-- Rodapé -->
     <footer id="rodape" class="footer">
-
         <div class="footer-container">
-
             <h3>Dúvidas Frequentes</h3>
-
-            <div class="footer-links">
-                <a href="faq.html#matricula">Como renovar a matrícula?</a>
-                <a href="faq.html#aproveitamento">Aproveitamento de disciplinas</a>
-                <a href="faq.html#transferencia">Transferência interna</a>
+            <div class="footer-links" id="view-faq-rodape-links">
+                <!-- Links dinâmicos -->
             </div>
-
             <hr>
-
             <div class="footer-bottom">
-
                 <div class="footer-info">
-
                     <div class="footer-item">
                         <img src="assets/icones/icone_telefone.png" alt="Telefone">
                         <span>(81) 3411-3200</span>
                     </div>
-
                     <div class="footer-item">
                         <img src="assets/icones/icone_localizacao.png" alt="Endereço">
                         <span>
@@ -170,25 +103,60 @@
                             Belo Jardim - PE, 55145-065
                         </span>
                     </div>
-
                 </div>
-
                 <div class="footer-social">
-
-                    <a href="#">
-                        <img src="assets/icones/icone_instagram.png" alt="Instagram">
-                    </a>
-
+                    <a href="#"><img src="assets/icones/icone_instagram.png" alt="Instagram"></a>
                 </div>
-
             </div>
-
         </div>
-
     </footer>
 
+    <!-- Seção de Edição (Admin) -->
+    <section id="adminFormSection" class="admin-form-section" style="display: none;">
+        <div class="container">
+            <h2>Gerenciar FAQ</h2>
+            <form id="formAdminEdit">
+                
+                <fieldset>
+                    <legend>Gerenciador de Perguntas e Respostas</legend>
+                    
+                    <div style="background-color: #f9f9f9; padding: 15px; border-radius: 5px; margin-bottom: 20px; border: 1px solid #ddd;">
+                        <h4 style="color:#252b73; margin-top:0;">Adicionar Nova Pergunta</h4>
+                        
+                        <label>Pergunta (Ex: Como renovar a matrícula?):</label>
+                        <input type="text" id="input-faq-titulo" required>
+                        
+                        <label>Resposta Base (Texto introdutório):</label>
+                        <textarea id="input-faq-desc" rows="3" required></textarea>
+                        
+                        <hr style="margin: 15px 0;">
+                        <h5 style="margin-top:0;">Passo a Passo (Opcional)</h5>
+                        <p style="font-size: 0.9em; color:#666;">Adicione passos numerados caso a resposta exija instruções em lista (Ex: 1. Acesse o sistema...).</p>
+                        
+                        <input type="text" id="input-faq-passo" placeholder="Digite um passo">
+                        <button type="button" id="btnAddPasso" class="btn-admin-add" style="margin-top:5px; padding:6px 12px; font-size:0.9em;">Adicionar Passo à Lista Temporária</button>
+                        
+                        <ul id="admin-lista-passos-temp" style="list-style: decimal inside; padding: 0; margin-top: 10px; font-size: 0.9em; color:#444;"></ul>
+                        
+                        <hr style="margin: 20px 0;">
+                        <button type="button" id="btnAddFaq" class="btn-admin-add" style="padding:10px 15px; background-color: #2980b9; color: white;">Salvar Pergunta no FAQ</button>
+                    </div>
+
+                    <h4 style="color:#252b73;">Perguntas Cadastradas</h4>
+                    <ul id="admin-lista-faqs" style="list-style: none; padding: 0;"></ul>
+                </fieldset>
+
+                <div class="modal-admin-actions" style="margin-top: 30px;">
+                    <button type="button" id="btnCancelarEdicao" class="btn-admin-cancelar">Cancelar</button>
+                    <button type="submit" class="btn-admin-salvar">Salvar Todas as Alterações</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
     <script src="js/acessibilidade.js"></script>
+    <script type="module" src="js/authController.js"></script>
+    <script type="module" src="js/adminFaq.js"></script>
 
 </body>
-
 </html>
