@@ -65,7 +65,11 @@ document.addEventListener('DOMContentLoaded', async () => {
                     <p><strong>Modalidade:</strong> ${evento.modalidade}</p>
                     <p><strong>Local:</strong> ${evento.local}</p>
                     <div class="descricao-evento">
-                        <p><strong>Descrição:</strong> ${evento.descricao}</p>
+                        <p><strong>Descrição:</strong> 
+                            <span class="desc-curta">${evento.descricao.length > 150 ? evento.descricao.substring(0, 150) + '...' : evento.descricao}</span>
+                            <span class="desc-completa" style="display:none;">${evento.descricao}</span>
+                        </p>
+                        ${evento.descricao.length > 150 ? `<button class="btn-ver-mais" style="background:none;border:none;color:#ff6b6b;cursor:pointer;padding:0;font-size:0.9em;text-decoration:underline;margin-top:5px;">Ver mais</button>` : ''}
                     </div>
                     ${evento.link ? `<p style="margin-top: 10px;"><strong>Link:</strong> <a href="${evento.link}" target="_blank" style="color: #ff6b6b; font-weight: bold; text-decoration: none;">Acessar Evento</a></p>` : ''}
                 </div>
@@ -85,6 +89,25 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     await carregarEventos();
+
+    gridEventos.addEventListener('click', (e) => {
+        if (e.target.classList.contains('btn-ver-mais')) {
+            const btn = e.target;
+            const container = btn.closest('.descricao-evento');
+            const descCurta = container.querySelector('.desc-curta');
+            const descCompleta = container.querySelector('.desc-completa');
+
+            if (descCompleta.style.display === 'none') {
+                descCompleta.style.display = 'inline';
+                descCurta.style.display = 'none';
+                btn.textContent = 'Ver menos';
+            } else {
+                descCompleta.style.display = 'none';
+                descCurta.style.display = 'inline';
+                btn.textContent = 'Ver mais';
+            }
+        }
+    });
 
     const { data: { session } } = await supabase.auth.getSession();
     if (session) {

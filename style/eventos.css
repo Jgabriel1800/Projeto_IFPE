@@ -22,12 +22,20 @@
 }
 
 .card-evento {
-    background-color: #608b8e; 
+    background-color: #252b73; 
     color: white; 
     width: 350px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+    transition: 0.3s transform, 0.3s box-shadow;
+}
+
+.card-evento:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 .img-evento {
@@ -44,20 +52,20 @@
     text-align: center;
     margin-top: 0;
     margin-bottom: 15px;
-    font-size: 1.3em;
+    font-size: 1.4em;
     font-style: italic; 
     font-weight: normal;
 }
 
 .info-evento p {
     margin: 5px 0;
-    font-size: 0.95em;
+    font-size: 1.05em;
     line-height: 1.4;
 }
 
 .descricao-evento {
     margin-top: 10px;
-    font-size: 0.95em;
+    font-size: 1.05em;
 }
 
 .btn-editar {
