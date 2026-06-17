@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engenharia de Software</title>
+    <link rel="stylesheet" href="style/acessibilidade.css">
+</head>
+
+<body>
+
+    <div class="top-bar">
+        <a href="#conteudo" aria-label="Ir para o conteúdo"></a>
+        <a href="#conteudo" accesskey="1">
+            Ir para o conteúdo <span class="shortcut" data-key="1"></span></a>
+
+        <a href="#menu" aria-label="Ir para o conteúdo"></a>
+        <a href="#menu" accesskey="2">
+            Ir para o menu <span class="shortcut" data-key="2"></span></a>
+
+        <a href="#rodape" aria-label="Ir para o conteúdo"></a>
+        <a href="#rodape" accesskey="3">
+            Ir para o rodapé <span class="shortcut" data-key="3"></span></a>
+
+    </div>
+
+    <header class="header">
+
+        <div class="logo-area">
+            <img src="assets/logo_EngenhariaSoftware.png" alt="Escudo Engenharia de Software" class="logo">
+
+            <div class="text-logo">
+                <h1>Engenharia de Software</h1>
+                <p>IFPE - Campus Belo Jardim</p>
+            </div>
+        </div>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+            ☰
+        </button>
+
+        <nav id="menu">
+            <ul class="menu">
+                <li><a id="homeLink" href="index.html">Home</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="docentes.html">Docentes</a></li>
+                <li><a href="matrizcurricular.html">Matriz Curricular</a></li>
+                <li><a href="horarios.html">Horários</a></li>
+                <li><a href="eventos.html">Eventos</a></li>
+                <li class="dropdown">
+                    <a href="#" class="ativo">Projetos ▼</a>
+                    <ul class="dropdown-content">
+                        <li><a href="projetos.html">Pesquisa</a></li>
+                        <li><a href="extensao.html">Extensão</a></li>
+                        <li><a href="inovacao.html">Inovação</a></li>
+                        <li><a href="monitoria.html">Monitoria</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="login">
+            <a id="entrarLink" href="login.html">Entrar</a>
+        </div>
+
+    </header>
+
+    <div class="admin-banner" id="adminBanner" style="display: none;">
+        <button id="btnEditarPagina" class="btn-admin-edit">Editar Página</button>
+    </div>
+
+    <main id="conteudo">
+
+        <section class="matriz-section">
+
+            <div class="container">
+
+                <h2 class="titulo-matriz">MATRIZ CURRICULAR</h2>
+
+                <p class="descricao-matriz">
+                    Consulte a estrutura curricular do curso de Bacharelado em Engenharia de Software.
+                </p>
+
+                <div class="resumo-container table-responsive">
+
+                    <table class="tabela-periodo">
+
+                        <thead>
+                            <tr>
+                                <th>Exigência</th>
+                                <th>Horas</th>
+                                <th>Prazo Mínimo</th>
+                                <th>Prazo Máximo</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Disciplinas Obrigatórias</td>
+                                <td>2910</td>
+                                <td>4 anos</td>
+                                <td>8 anos</td>
+                            </tr>
+
+                            <tr>
+                                <td>Disciplinas Optativas</td>
+                                <td>240</td>
+                                <td>4 anos</td>
+                                <td>8 anos</td>
+                            </tr>
+
+                            <tr>
+                                <td>Atividades Complementares</td>
+                                <td>120</td>
+                                <td>4 anos</td>
+                                <td>8 anos</td>
+                            </tr>
+
+                            <tr class="linha-total">
+                                <td><strong>Total</strong></td>
+                                <td><strong>3270</strong></td>
+                                <td colspan="2"></td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <div class="accordion-item">
+
+                    <button class="accordion-btn">
+                        1º PERÍODO
+                    </button>
+
+                    <div class="accordion-content">
+                        <div class="table-responsive">
+                            <table class="tabela-periodo">
+
+                                <thead>
+                                    <tr>
+                                        <th>Código</th>
+                                        <th>Disciplina</th>
+                                        <th>Créditos</th>
+                                        <th>Hora Aula</th>
+                                        <th>Hora Relógio</th>
+                                        <th>Pré-requisitos</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    <tr>
+                                        <td>CBBJ.1</td>
+                                        <td>Língua Inglesa I</td>
+                                        <td>2</td>
+                                        <td>40</td>
+                                        <td>30</td>
+                                        <td>Não possui</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.6</td>
+                                        <td>Ética, Normas e Postura Profissional</td>
+                                        <td>2</td>
+                                        <td>40</td>
+                                        <td>30</td>
+                                        <td>Não possui</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.7</td>
+                                        <td>Matemática Discreta</td>
+                                        <td>4</td>
+                                        <td>80</td>
+                                        <td>60</td>
+                                        <td>Não possui</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.8</td>
+                                        <td>Sistema Digitais</td>
+                                        <td>4</td>
+                                        <td>80</td>
+                                        <td>60</td>
+                                        <td>Não possui</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.9</td>
+                                        <td>Introdução à Programação</td>
+                                        <td>6</td>
+                                        <td>120</td>
+                                        <td>90</td>
+                                        <td>Não possui</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.10</td>
+                                        <td>Comunicação e Expressão</td>
+                                        <td>4</td>
+                                        <td>80</td>
+                                        <td>60</td>
+                                        <td>Não possui</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.11</td>
+                                        <td>Introdução à Engenharia de Software</td>
+                                        <td>4</td>
+                                        <td>80</td>
+                                        <td>60</td>
+                                        <td>Não possui</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Total</td>
+                                        <td></td>
+                                        <td>26</td>
+                                        <td>520</td>
+                                        <td>390</td>
+                                        <td></td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="accordion-item">
+
+                    <button class="accordion-btn">
+                        2º PERÍODO
+                    </button>
+
+                    <div class="accordion-content">
+                        <div class="table-responsive">
+                            <table class="tabela-periodo">
+
+                                <thead>
+                                    <tr>
+                                        <th>Código</th>
+                                        <th>Disciplina</th>
+                                        <th>Créditos</th>
+                                        <th>Hora Aula</th>
+                                        <th>Hora Relógio</th>
+                                        <th>Pré-requisitos</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    <tr>
+                                        <td>CBBJ.12</td>
+                                        <td>Língua Inglesa II</td>
+                                        <td>2</td>
+                                        <td>40</td>
+                                        <td>30</td>
+                                        <td>CBBJ.1</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.13</td>
+                                        <td>Cálculo Aplicado à Informática</td>
+                                        <td>6</td>
+                                        <td>120</td>
+                                        <td>90</td>
+                                        <td>CBBJ.7</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.14</td>
+                                        <td>Algoritmos e Estrutura de Dados</td>
+                                        <td>6</td>
+                                        <td>120</td>
+                                        <td>90</td>
+                                        <td>CBBJ.9</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.15</td>
+                                        <td>Processo de Software</td>
+                                        <td>4</td>
+                                        <td>80</td>
+                                        <td>60</td>
+                                        <td>CBBJ.11</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.16</td>
+                                        <td>Introdução a Geometria Analítica e Álgebra Linear</td>
+                                        <td>6</td>
+                                        <td>120</td>
+                                        <td>90</td>
+                                        <td>CBBJ.7</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.17</td>
+                                        <td>Organização e Arquitetura de Computadores</td>
+                                        <td>4</td>
+                                        <td>80</td>
+                                        <td>60</td>
+                                        <td>CBBJ.8</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Total</td>
+                                        <td></td>
+                                        <td>28</td>
+                                        <td>560</td>
+                                        <td>420</td>
+                                        <td></td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="accordion-item">
+
+                    <button class="accordion-btn">
+                        3º PERÍODO
+                    </button>
+
+                    <div class="accordion-content">
+                        <div class="table-responsive">
+                            <table class="tabela-periodo">
+
+                                <thead>
+                                    <tr>
+                                        <th>Código</th>
+                                        <th>Disciplina</th>
+                                        <th>Créditos</th>
+                                        <th>Hora Aula</th>
+                                        <th>Hora Relógio</th>
+                                        <th>Pré-requisitos</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    <tr>
+                                        <td>CBBJ.17</td>
+                                        <td>Língua Inglesa III</td>
+                                        <td>2</td>
+                                        <td>40</td>
+                                        <td>30</td>
+                                        <td>CBBJ.12</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.19</td>
+                                        <td>Programação Orientada à Objetos</td>
+                                        <td>6</td>
+                                        <td>120</td>
+                                        <td>90</td>
+                                        <td>CBBJ.14</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.20</td>
+                                        <td>Estatística e Probabilidade Aplicada</td>
+                                        <td>4</td>
+                                        <td>80</td>
+                                        <td>60</td>
+                                        <td>CBBJ.13</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.21</td>
+                                        <td>Sistemas Operacionais</td>
+                                        <td>4</td>
+                                        <td>80</td>
+                                        <td>60</td>
+                                        <td>CBBJ.17</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.22</td>
+                                        <td>Banco de Dados I</td>
+                                        <td>4</td>
+                                        <td>80</td>
+                                        <td>60</td>
+                                        <td>CBBJ.7</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.23</td>
+                                        <td>Engenharia de Requisitos</td>
+                                        <td>4</td>
+                                        <td>80</td>
+                                        <td>60</td>
+                                        <td>CBBJ.15</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.24</td>
+                                        <td>Metodologia Científica</td>
+                                        <td>4</td>
+                                        <td>80</td>
+                                        <td>60</td>
+                                        <td>Não possui</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Total</td>
+                                        <td></td>
+                                        <td>28</td>
+                                        <td>560</td>
+                                        <td>420</td>
+                                        <td></td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="accordion-item">
+
+                    <button class="accordion-btn">
+                        4º PERÍODO
+                    </button>
+
+                    <div class="accordion-content">
+                        <div class="table-responsive">
+                            <table class="tabela-periodo">
+
+                                <thead>
+                                    <tr>
+                                        <th>Código</th>
+                                        <th>Disciplina</th>
+                                        <th>Créditos</th>
+                                        <th>Hora Aula</th>
+                                        <th>Hora Relógio</th>
+                                        <th>Pré-requisitos</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    <tr>
+                                        <td>CBBJ.25</td>
+                                        <td>Língua Inglesa IV</td>
+                                        <td>2</td>
+                                        <td>40</td>
+                                        <td>30</td>
+                                        <td>CBBJ.18</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.26</td>
+                                        <td>Redes de Computadores I</td>
+                                        <td>4</td>
+                                        <td>80</td>
+                                        <td>60</td>
+                                        <td>CBBJ.21</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.27</td>
+                                        <td>Desenvolvimento Web</td>
+                                        <td>6</td>
+                                        <td>120</td>
+                                        <td>90</td>
+                                        <td>CBBJ.14</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.28</td>
+                                        <td>Economia para Engenharia de Software</td>
+                                        <td>4</td>
+                                        <td>80</td>
+                                        <td>60</td>
+                                        <td>CBBJ.23</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.29</td>
+                                        <td>Projeto de Software</td>
+                                        <td>4</td>
+                                        <td>80</td>
+                                        <td>60</td>
+                                        <td>CBBJ.15</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.30</td>
+                                        <td>Interação Humano Computador</td>
+                                        <td>4</td>
+                                        <td>80</td>
+                                        <td>60</td>
+                                        <td>CBBJ.10</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.31</td>
+                                        <td>Banco de Dados II</td>
+                                        <td>4</td>
+                                        <td>80</td>
+                                        <td>60</td>
+                                        <td>CBBJ.22</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Total</td>
+                                        <td></td>
+                                        <td>28</td>
+                                        <td>560</td>
+                                        <td>420</td>
+                                        <td></td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="accordion-item">
+
+                    <button class="accordion-btn">
+                        5º PERÍODO
+                    </button>
+
+                    <div class="accordion-content">
+                        <div class="table-responsive">
+                            <table class="tabela-periodo">
+
+                                <thead>
+                                    <tr>
+                                        <th>Código</th>
+                                        <th>Disciplina</th>
+                                        <th>Créditos</th>
+                                        <th>Hora Aula</th>
+                                        <th>Hora Relógio</th>
+                                        <th>Pré-requisitos</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    <tr>
+                                        <td>CBBJ.32</td>
+                                        <td>Língua Inglesa V</td>
+                                        <td>2</td>
+                                        <td>40</td>
+                                        <td>30</td>
+                                        <td>CBBJ.25</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.33</td>
+                                        <td>Redes de Computadores II</td>
+                                        <td>4</td>
+                                        <td>80</td>
+                                        <td>60</td>
+                                        <td>CBBJ.26</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.34</td>
+                                        <td>Gerência de Projetos de Software</td>
+                                        <td>4</td>
+                                        <td>80</td>
+                                        <td>60</td>
+                                        <td>CBBJ.29</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.35</td>
+                                        <td>Modelagem de Processos de Negócios</td>
+                                        <td>4</td>
+                                        <td>80</td>
+                                        <td>60</td>
+                                        <td>CBBJ.28</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.36</td>
+                                        <td>Arquitetura de Software</td>
+                                        <td>4</td>
+                                        <td>80</td>
+                                        <td>60</td>
+                                        <td>CBBJ.29</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.37</td>
+                                        <td>Programação para Dispositivos Móveis</td>
+                                        <td>6</td>
+                                        <td>120</td>
+                                        <td>90</td>
+                                        <td>CBBJ.19</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.38</td>
+                                        <td>Padrões de Projetos de Software OO</td>
+                                        <td>4</td>
+                                        <td>80</td>
+                                        <td>60</td>
+                                        <td>CBBJ.29</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Total</td>
+                                        <td></td>
+                                        <td>28</td>
+                                        <td>560</td>
+                                        <td>420</td>
+                                        <td></td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="accordion-item">
+
+                    <button class="accordion-btn">
+                        6º PERÍODO
+                    </button>
+
+                    <div class="accordion-content">
+                        <div class="table-responsive">
+                            <table class="tabela-periodo">
+
+                                <thead>
+                                    <tr>
+                                        <th>Código</th>
+                                        <th>Disciplina</th>
+                                        <th>Créditos</th>
+                                        <th>Hora Aula</th>
+                                        <th>Hora Relógio</th>
+                                        <th>Pré-requisitos</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    <tr>
+                                        <td>CBBJ.39</td>
+                                        <td>Língua Inglesa VI</td>
+                                        <td>2</td>
+                                        <td>40</td>
+                                        <td>30</td>
+                                        <td>CBBJ.32</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.40</td>
+                                        <td>Verificação e Validação de Software</td>
+                                        <td>6</td>
+                                        <td>120</td>
+                                        <td>90</td>
+                                        <td>CBBJ.34</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.41</td>
+                                        <td>Gerência de Configuração e Mudanças</td>
+                                        <td>4</td>
+                                        <td>80</td>
+                                        <td>60</td>
+                                        <td>CBBJ.34</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.42</td>
+                                        <td>Projeto Integrador</td>
+                                        <td>6</td>
+                                        <td>120</td>
+                                        <td>90</td>
+                                        <td>CBBJ.29</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.43</td>
+                                        <td>Qualidade de Software</td>
+                                        <td>4</td>
+                                        <td>80</td>
+                                        <td>60</td>
+                                        <td>CBBJ.34</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.44</td>
+                                        <td>Sistemas Paralelos e Distribuídos</td>
+                                        <td>4</td>
+                                        <td>80</td>
+                                        <td>60</td>
+                                        <td>CBBJ.29</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Total</td>
+                                        <td></td>
+                                        <td>26</td>
+                                        <td>520</td>
+                                        <td>390</td>
+                                        <td></td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="accordion-item">
+
+                    <button class="accordion-btn">
+                        7º PERÍODO
+                    </button>
+
+                    <div class="accordion-content">
+                        <div class="table-responsive">
+                            <table class="tabela-periodo">
+
+                                <thead>
+                                    <tr>
+                                        <th>Código</th>
+                                        <th>Disciplina</th>
+                                        <th>Créditos</th>
+                                        <th>Hora Aula</th>
+                                        <th>Hora Relógio</th>
+                                        <th>Pré-requisitos</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    <tr>
+                                        <td>CBBJ.45</td>
+                                        <td>Metodologia da Pesquisa I</td>
+                                        <td>6</td>
+                                        <td>120</td>
+                                        <td>90</td>
+                                        <td>cbbj.42</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.46</td>
+                                        <td>Empreendedorismo e Inovação</td>
+                                        <td>4</td>
+                                        <td>80</td>
+                                        <td>60</td>
+                                        <td>Não possui</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.47</td>
+                                        <td>Segurança e Auditoria de Sistemas</td>
+                                        <td>4</td>
+                                        <td>80</td>
+                                        <td>60</td>
+                                        <td>CBBJ.44</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.48</td>
+                                        <td>Engenharia de Software Educacional</td>
+                                        <td>4</td>
+                                        <td>80</td>
+                                        <td>60</td>
+                                        <td>CBBJ.11</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td></td>
+                                        <td>OPTATIVA</td>
+                                        <td>4</td>
+                                        <td>80</td>
+                                        <td>60</td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td></td>
+                                        <td>OPTATIVA</td>
+                                        <td>4</td>
+                                        <td>80</td>
+                                        <td>60</td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Total</td>
+                                        <td></td>
+                                        <td>20</td>
+                                        <td>400</td>
+                                        <td>300</td>
+                                        <td></td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="accordion-item">
+
+                    <button class="accordion-btn">
+                        8º PERÍODO
+                    </button>
+
+                    <div class="accordion-content">
+                        <div class="table-responsive">
+                            <table class="tabela-periodo">
+
+                                <thead>
+                                    <tr>
+                                        <th>Código</th>
+                                        <th>Disciplina</th>
+                                        <th>Créditos</th>
+                                        <th>Hora Aula</th>
+                                        <th>Hora Relógio</th>
+                                        <th>Pré-requisitos</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    <tr>
+                                        <td>CBBJ.49</td>
+                                        <td>Metodologia da Pesquisa II</td>
+                                        <td>4</td>
+                                        <td>80</td>
+                                        <td>60</td>
+                                        <td>CBBJ.45</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.50</td>
+                                        <td>Eng. de Software para Desenvolvimento de Jogos</td>
+                                        <td>4</td>
+                                        <td>80</td>
+                                        <td>60</td>
+                                        <td>CBBJ.11</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.51</td>
+                                        <td>Introdução Aos Sistemas Inteligentes</td>
+                                        <td>4</td>
+                                        <td>80</td>
+                                        <td>60</td>
+                                        <td>CBBJ.42</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td></td>
+                                        <td>OPTATIVA</td>
+                                        <td>4</td>
+                                        <td>80</td>
+                                        <td>60</td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td></td>
+                                        <td>OPTATIVA</td>
+                                        <td>4</td>
+                                        <td>80</td>
+                                        <td>60</td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Total</td>
+                                        <td></td>
+                                        <td>26</td>
+                                        <td>520</td>
+                                        <td>390</td>
+                                        <td></td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="accordion-item">
+
+                    <button class="accordion-btn">
+                        OPTATIVAS
+                    </button>
+
+                    <div class="accordion-content">
+                        <div class="table-responsive">
+                            <table class="tabela-periodo">
+
+                                <thead>
+                                    <tr>
+                                        <th>Código</th>
+                                        <th>Disciplina</th>
+                                        <th>Créditos</th>
+                                        <th>Hora Aula</th>
+                                        <th>Hora Relógio</th>
+                                        <th>Pré-requisitos</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    <tr>
+                                        <td>CBBJ.52</td>
+                                        <td>Libras</td>
+                                        <td>4</td>
+                                        <td>80</td>
+                                        <td>60</td>
+                                        <td>CBBJ.42</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.53</td>
+                                        <td>Tópicos Avançados em Programação I</td>
+                                        <td>4</td>
+                                        <td>80</td>
+                                        <td>60</td>
+                                        <td>CBBJ.42</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.54</td>
+                                        <td>Tópicos Avançados em Programação II</td>
+                                        <td>4</td>
+                                        <td>80</td>
+                                        <td>60</td>
+                                        <td>CBBJ.42</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.55</td>
+                                        <td>Tópicos Avançados em Banco de Dados I</td>
+                                        <td>4</td>
+                                        <td>80</td>
+                                        <td>60</td>
+                                        <td>CBBJ.42</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.56</td>
+                                        <td>Tópicos Avançados em Banco de Dados II</td>
+                                        <td>4</td>
+                                        <td>80</td>
+                                        <td>60</td>
+                                        <td>CBBJ.42</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.57</td>
+                                        <td>Tópicos Avançados em Redes de Computadores I</td>
+                                        <td>4</td>
+                                        <td>80</td>
+                                        <td>60</td>
+                                        <td>CBBJ.42</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.58</td>
+                                        <td>Tópicos Avançados em Redes de Computadores II</td>
+                                        <td>4</td>
+                                        <td>80</td>
+                                        <td>60</td>
+                                        <td>CBBJ.42</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.59</td>
+                                        <td>Tópicos Avançados em IHC I</td>
+                                        <td>4</td>
+                                        <td>80</td>
+                                        <td>60</td>
+                                        <td>CBBJ.42</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CBBJ.60</td>
+                                        <td>Tópicos Avançados em IHC II</td>
+                                        <td>4</td>
+                                        <td>80</td>
+                                        <td>60</td>
+                                        <td>CBBJ.42</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Total</td>
+                                        <td></td>
+                                        <td>36</td>
+                                        <td>720</td>
+                                        <td>540</td>
+                                        <td></td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer id="rodape" class="footer">
+
+        <div class="footer-container">
+
+            <h3>Dúvidas Frequentes</h3>
+
+            <div class="footer-links">
+                <a href="faq.html#matricula">Como renovar a matrícula?</a>
+                <a href="faq.html#aproveitamento">Aproveitamento de disciplinas</a>
+                <a href="faq.html#transferencia">Transferência interna</a>
+            </div>
+
+            <hr>
+
+            <div class="footer-bottom">
+
+                <div class="footer-info">
+
+                    <div class="footer-item">
+                        <img src="assets/icones/icone_telefone.png" alt="Telefone">
+                        <span>(81) 3411-3200</span>
+                    </div>
+
+                    <div class="footer-item">
+                        <img src="assets/icones/icone_localizacao.png" alt="Endereço">
+                        <span>
+                            Av. Sebastião Rodrigues da Costa, s/n - São Pedro<br>
+                            Belo Jardim - PE, 55145-065
+                        </span>
+                    </div>
+
+                </div>
+
+                <div class="footer-social">
+
+                    <a href="https://www.instagram.com/engsoftware_ifpe/" target="_blank" rel="noopener noreferrer">
+                        <img src="assets/icones/icone_instagram.png" alt="Instagram">
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <section id="adminFormSection" class="admin-form-section" style="display: none;">
+        <div class="container">
+            <h2>Editar Conteúdo da Página</h2>
+            <form id="formAdminEdit">
+
+                <fieldset>
+                    <legend>Seção: Bacharelado em Eng. de Software</legend>
+                    <label>Título:</label>
+                    <input type="text" id="input-titulo-hero" required>
+                    <label>Texto:</label>
+                    <textarea id="input-texto-hero" rows="5" required></textarea>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Seção: Mercado de Trabalho</legend>
+                    <label>Título:</label>
+                    <input type="text" id="input-titulo-mercado" required>
+                    <label>Texto:</label>
+                    <textarea id="input-texto-mercado" rows="4" required></textarea>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Seção: Áreas de Atuação</legend>
+                    <label>Título:</label>
+                    <input type="text" id="input-titulo-areas" required>
+                    <label>Texto:</label>
+                    <textarea id="input-texto-areas" rows="6" required></textarea>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Seção: Características do Mercado</legend>
+                    <label>Título:</label>
+                    <input type="text" id="input-titulo-caracteristicas" required>
+                    <label>Texto:</label>
+                    <textarea id="input-texto-caracteristicas" rows="5" required></textarea>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Seção: Informações do Curso</legend>
+                    <label>Título da Seção:</label>
+                    <input type="text" id="input-titulo-info" required>
+                    <label>Modalidade:</label>
+                    <input type="text" id="input-info-modalidade" required>
+                    <label>Duração:</label>
+                    <input type="text" id="input-info-duracao" required>
+                    <label>Turno:</label>
+                    <input type="text" id="input-info-turno" required>
+                    <label>Campus:</label>
+                    <input type="text" id="input-info-campus" required>
+                    <label>Vagas:</label>
+                    <input type="text" id="input-info-vagas" required>
+                    <label>Ingresso:</label>
+                    <input type="text" id="input-info-ingresso" required>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Seção: Outros Serviços</legend>
+                    <label>Título:</label>
+                    <input type="text" id="input-titulo-servicos" required>
+                    <label>Texto Inicial:</label>
+                    <textarea id="input-texto-servicos" rows="3" required></textarea>
+
+                    <hr style="margin: 20px 0;">
+                    <h4 style="color:#252b73; margin-top:0;">Adicionar Site/Projeto de Aluno</h4>
+                    <div
+                        style="background-color: #f5f7fa; padding: 15px; border-radius: 5px; margin-bottom: 15px; border: 1px solid #ddd;">
+                        <label>Título do Site:</label>
+                        <input type="text" id="input-proj-titulo">
+
+                        <label>Descrição Curta:</label>
+                        <input type="text" id="input-proj-desc">
+
+                        <label>URL (Link para o site):</label>
+                        <input type="url" id="input-proj-url" placeholder="https://...">
+
+                        <label>Imagem de Capa (Opcional):</label>
+                        <input type="file" id="input-proj-img" accept="image/*">
+
+                        <button type="button" id="btnAddProjetoAluno" class="btn-admin-add"
+                            style="margin-top:10px; padding:8px 15px; background-color: #2980b9; color: white;">Adicionar
+                            Site</button>
+                    </div>
+
+                    <h5 style="color:#252b73;">Sites Cadastrados</h5>
+                    <ul id="admin-lista-projetos-alunos" style="list-style: none; padding: 0;"></ul>
+                </fieldset>
+
+                <div class="modal-admin-actions">
+                    <button type="button" id="btnCancelarEdicao" class="btn-admin-cancelar">Cancelar</button>
+                    <button type="submit" class="btn-admin-salvar">Salvar Alterações</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <script src="js/acessibilidade.js"></script>
+    <script type="module" src="js/authController.js"></script>
+    <script type="module" src="js/adminIndex.js"></script>
+    <script type="module" src="js/matrizcurricular.js"></script>
+    <script src="js/menuHamburguer.js"></script>
+
+</body>
+
+</html>
