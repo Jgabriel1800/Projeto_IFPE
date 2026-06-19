@@ -1,55 +1,128 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela de login</title>
+    <title>Tela de Login</title>
     <link rel="stylesheet" href="style/login.css">
 </head>
+
 <body>
+
+    <!-- Botão voltar -->
+    <a href="index.html" class="btn-voltar" aria-label="Voltar para página inicial">
+        &#8592;
+    </a>
+
     <div class="container">
+
         <div class="logo-container">
-            <img src="assets/Logo_EngenhariaSoftware.png" alt="Logo Engenharia de Software" class="logo-img">
+            <img src="assets/Logo_EngenhariaSoftware.png"
+                alt="Logo Engenharia de Software"
+                class="logo-img">
         </div>
 
+        <!-- TELA DE LOGIN -->
         <div id="login-screen" class="form-section">
+
             <h2>Entrar</h2>
+
             <form id="login-form" onsubmit="event.preventDefault();">
+
                 <div class="input-group">
                     <label for="login-email">E-mail ou SIAPE</label>
-                    <input type="text" id="login-email" required placeholder="Digite seu e-mail ou SIAPE">
-                    <span class="error-text">E-mail não encontrado ou inválido.</span>
+                    <input type="text"
+                        id="login-email"
+                        required
+                        placeholder="Digite seu e-mail ou SIAPE">
+
+                    <span class="error-text">
+                        E-mail não encontrado ou inválido.
+                    </span>
                 </div>
-                
+
                 <div class="input-group">
                     <label for="login-senha">Senha</label>
-                    <input type="password" id="login-senha" required placeholder="Digite sua senha">
-                    <span class="error-text">Senha incorreta. Tente novamente.</span>
+
+                    <input type="password"
+                        id="login-senha"
+                        required
+                        placeholder="Digite sua senha">
+
+                    <span class="error-text">
+                        Senha incorreta. Tente novamente.
+                    </span>
                 </div>
 
-                <button type="submit" class="btn">Fazer Login</button>
-                <a href="#" class="toggle-link" onclick="toggleScreens(event)">Esqueci senha</a>
+                <button type="submit" class="btn">
+                    Fazer Login
+                </button>
+
+                <!-- BOTÃO CRIAR CONTA -->
+                <button type="button"
+                    class="btn-criar-conta"
+                    id="btnCriarConta">
+                    Criar Conta
+                </button>
+
+                <a href="#"
+                    class="toggle-link"
+                    onclick="toggleScreens(event)">
+                    Esqueci senha
+                </a>
+
             </form>
+
         </div>
 
+        <!-- TELA DE RECUPERAÇÃO -->
         <div id="recovery-screen" class="form-section hidden">
+
             <h2>Recuperar Senha</h2>
-            <p class="instructions">Introduza o seu e-mail cadastrado. Enviaremos um link com as instruções para redefinir a sua senha.</p>
-            
+
+            <p class="instructions">
+                Introduza o seu e-mail cadastrado. Enviaremos um link com as
+                instruções para redefinir a sua senha.
+            </p>
+
             <form id="recovery-form" onsubmit="event.preventDefault();">
+
                 <div class="input-group">
+
                     <label for="recovery-email">E-mail</label>
-                    <input type="email" id="recovery-email" required placeholder="Digite seu e-mail">
-                    <span class="error-text">E-mail não encontrado no sistema.</span>
+
+                    <input type="email"
+                        id="recovery-email"
+                        required
+                        placeholder="Digite seu e-mail">
+
+                    <span class="error-text">
+                        E-mail não encontrado no sistema.
+                    </span>
+
                 </div>
 
-                <button type="submit" class="btn">Enviar Link de Recuperação</button>
-                <a href="#" class="toggle-link" onclick="toggleScreens(event)">Voltar para o Login</a>
+                <button type="submit" class="btn">
+                    Enviar Link de Recuperação
+                </button>
+
+                <a href="#"
+                    class="toggle-link"
+                    onclick="toggleScreens(event)">
+                    Voltar para o Login
+                </a>
+
             </form>
+
         </div>
+
     </div>
 
     <script type="module" src="js/loginController.js"></script>
     <script src="js/login.js"></script>
+    <script src="js/criarconta.js"></script>
+
 </body>
+
 </html>

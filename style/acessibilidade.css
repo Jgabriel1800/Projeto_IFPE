@@ -6,6 +6,32 @@
 
 body {
     font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* =========================
+   PADRONIZAÇÃO DOS TEXTOS
+========================= */
+
+h1,
+h2,
+h3 {
+    color: #252b73;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+p {
+    line-height: 1.8;
+    text-align: justify;
+    max-width: 1100px;
+    margin: 0 auto 15px auto;
+}
+
+main {
+    flex: 1;
 }
 
 /* Barra superior */
@@ -122,8 +148,8 @@ body {
 
 .container {
     width: 90%;
-    max-width: 1300px;
-    margin: auto;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
 .sobre-curso,
@@ -132,23 +158,13 @@ body {
     padding: 70px 0;
 }
 
-.sobre-curso h2,
-.mercado h2,
-.info-curso h2,
-.outros-servicos h2 {
-    color: #252b73;
-    font-size: 2rem;
-    margin-bottom: 25px;
-    text-align: center;
-}
-
 .sobre-curso p,
 .mercado p,
 .outros-servicos p {
     line-height: 1.8;
     font-size: 1.1rem;
     margin-bottom: 15px;
-    text-align: left;
+    text-align: justify;
 }
 
 /* ================================= */
@@ -159,12 +175,6 @@ body {
     background-color: #f5f7fa;
     padding: 80px 20px;
     text-align: center;
-}
-
-.info-curso h2 {
-    color: #252b73;
-    margin-bottom: 50px;
-    font-size: 2rem;
 }
 
 .cards-info {
@@ -367,33 +377,12 @@ body {
     transform: scale(1.1);
 }
 
-html,
-body {
-    min-height: 100vh;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-}
-
-main {
-    flex: 1;
-}
-
 /* ========================= */
 /* DOCENTES */
 /* ========================= */
 
 .docentes-section {
     padding: 60px 50px;
-}
-
-.docentes-section h2 {
-    text-align: center;
-    color: #252b73;
-    margin-bottom: 40px;
-    font-size: 2rem;
 }
 
 .docentes-grid {
@@ -442,8 +431,10 @@ main {
     margin: 15px 0;
 }
 
-.docente-resumo p {
-    text-align: left;
+.docente-resumo p,
+.docente-detalhes p,
+.faq-card p {
+    text-align: justify;
 }
 
 .docente-detalhes {
@@ -488,13 +479,6 @@ main {
     padding: 60px;
 }
 
-.horarios-section h2 {
-    text-align: center;
-    color: #252b73;
-    margin-bottom: 50px;
-    font-size: 2rem;
-}
-
 .horarios-container {
     display: flex;
     justify-content: center;
@@ -505,12 +489,6 @@ main {
 .horarios-coluna {
     width: 100%;
     max-width: 450px;
-}
-
-.horarios-coluna h3 {
-    text-align: center;
-    color: #252b73;
-    margin-bottom: 20px;
 }
 
 .horario-item {
@@ -649,13 +627,6 @@ main {
     margin: 0 auto;
 }
 
-.admin-form-section h2 {
-    color: #252b73;
-    margin-bottom: 30px;
-    text-align: center;
-    font-size: 2rem;
-}
-
 .admin-form-section fieldset {
     border: 1px solid #ccc;
     padding: 20px;
@@ -749,13 +720,6 @@ main {
     padding: 60px 20px;
 }
 
-.faq-section h2 {
-    text-align: center;
-    color: #252b73;
-    font-size: 2rem;
-    margin-bottom: 40px;
-}
-
 .faq-card {
     background: #ffffff;
     border-left: 5px solid #252b73;
@@ -763,11 +727,6 @@ main {
     padding: 25px;
     margin-bottom: 30px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-}
-
-.faq-card h3 {
-    color: #252b73;
-    margin-bottom: 15px;
 }
 
 .faq-card p {
@@ -825,12 +784,6 @@ main {
 .matriz-section {
     padding: 50px 20px;
     background: #f5f5f5;
-}
-
-.titulo-matriz {
-    text-align: center;
-    color: #252b73;
-    margin-bottom: 15px;
 }
 
 .descricao-matriz {
@@ -1025,15 +978,19 @@ main {
     }
 
     h1 {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
     }
 
     h2 {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
     }
 
     p {
-        font-size: 0.95rem;
+        font-size: 1rem;
     }
 }
 
@@ -1105,4 +1062,17 @@ main {
 
 .tabela-periodo {
     min-width: 800px;
+}
+
+section {
+    width: 100%;
+}
+
+.container,
+.faq-section,
+.docentes-section,
+.horarios-section,
+.matriz-section {
+    max-width: 1200px;
+    margin: auto;
 }
